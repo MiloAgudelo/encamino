@@ -1,0 +1,3937 @@
+[
+  {
+    "id": 2629,
+    "nombre": "20 DE JULIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2853,
+    "nombre": "AGUAS CLARAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3350,
+    "nombre": "ALAMEDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2778,
+    "nombre": "ALAMEDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2978,
+    "nombre": "ALAMEDA DEL CAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2570,
+    "nombre": "ALAMOS DEL CAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2948,
+    "nombre": "ALCALA DEL CAMPO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2636,
+    "nombre": "ALCAZAR DE MARAYA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2661,
+    "nombre": "ALCAZARES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2956,
+    "nombre": "ALEGRIAS DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2920,
+    "nombre": "ALEJANDRIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2722,
+    "nombre": "ALFA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2646,
+    "nombre": "ALFONSO LOPEZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2714,
+    "nombre": "ALHAMBRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3396,
+    "nombre": "ALLEGRO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3261,
+    "nombre": "ALONSO VALENCIA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2941,
+    "nombre": "ALTAVISTA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2664,
+    "nombre": "ALTOS DE BELMONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2929,
+    "nombre": "ALTOS DE CANAAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2830,
+    "nombre": "ALTOS DE CORALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3075,
+    "nombre": "ALTOS DE LA 16",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2552,
+    "nombre": "ALTOS DE LLANO GRANDE II  2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2554,
+    "nombre": "ALTOS DE LOS ANGELES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2805,
+    "nombre": "ALTOS DE PANORAMA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3281,
+    "nombre": "ALTOS DE SANTA MONICA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2731,
+    "nombre": "ALTOS DE TANAMBI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3283,
+    "nombre": "ALTOS DEL EDEN",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2841,
+    "nombre": "ALTOS DEL OTUN 2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2594,
+    "nombre": "AMERICA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2960,
+    "nombre": "ANDALUCIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3409,
+    "nombre": "ANSERMANUEVO",
+    "ciudad": "ANSERMANUEVO"
+  },
+  {
+    "id": 2737,
+    "nombre": "ANTONIO JOSE DE SUCRE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2800,
+    "nombre": "ANTONIO JOSE VALENCIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3065,
+    "nombre": "ANTONIO NARIÑO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2648,
+    "nombre": "ANTONIO NARIÑO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2565,
+    "nombre": "ANTONIO RICAURTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2888,
+    "nombre": "ARANJUEZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2739,
+    "nombre": "ARBOLEDA DEL RIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2961,
+    "nombre": "ARCO IRIS DE LA COLINA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3238,
+    "nombre": "AROMAS DEL CAFE",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2869,
+    "nombre": "ATENAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2611,
+    "nombre": "AVENIDA 30 DE AGOSTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2707,
+    "nombre": "BALCONES CONDOMINIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3029,
+    "nombre": "BALCONES DE LAS COLINAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2776,
+    "nombre": "BALCONES DE VILLA DEL PRADO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2798,
+    "nombre": "BARAJAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2783,
+    "nombre": "BARBEROS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3378,
+    "nombre": "BATALLON",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2601,
+    "nombre": "BAVARIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2723,
+    "nombre": "BELALCAZAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2864,
+    "nombre": "BELLA SARDI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2744,
+    "nombre": "BELLAVISTA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2840,
+    "nombre": "BELLO HORIZONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2673,
+    "nombre": "BELMONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2987,
+    "nombre": "BELMONTE B",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2660,
+    "nombre": "BERLIN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2616,
+    "nombre": "BLOQUES PRIMERO DE FEBRERO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2997,
+    "nombre": "BOLIVAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3044,
+    "nombre": "BOSQUE LOS LAGOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2696,
+    "nombre": "BOSQUES DE CANTABRIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2799,
+    "nombre": "BOSQUES DE LA SALLE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2689,
+    "nombre": "BOSQUES DE SANTA ELENA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2803,
+    "nombre": "BOSTON",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3059,
+    "nombre": "BOTERO OBIRNE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2548,
+    "nombre": "BRASILIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2685,
+    "nombre": "BRISAS DE LAS AMERICAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2544,
+    "nombre": "BRISAS DEL CONSOTA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2649,
+    "nombre": "BRISAS DEL OTUN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2990,
+    "nombre": "BRISAS DEL RIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2632,
+    "nombre": "BUENOS AIRES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3051,
+    "nombre": "BULEVAR DE LAS PALMAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3351,
+    "nombre": "BULEVAR DE LAS VILLAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2953,
+    "nombre": "BULEVAR DE LAS VILLAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2952,
+    "nombre": "BULEVAR DEL BOSQUE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2954,
+    "nombre": "BULEVAR DEL CAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3404,
+    "nombre": "BULEVAR DEL DIAMANTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2587,
+    "nombre": "BYRON GAVIRIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2814,
+    "nombre": "CACHIPAY",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3352,
+    "nombre": "CAMBULOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2716,
+    "nombre": "CAMBULOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3000,
+    "nombre": "CAMELLON DEL QUINDIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3274,
+    "nombre": "CAMILO MEJIA DUQUE",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3027,
+    "nombre": "CAMILO TORRES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2932,
+    "nombre": "CAMINOS DE CANAAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2634,
+    "nombre": "CAMINOS DE MARAYA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3032,
+    "nombre": "CAMPESTRE LOS POTRILLOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2589,
+    "nombre": "CAMPINA DEL OTUN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3166,
+    "nombre": "CAMPO ALEGRE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2949,
+    "nombre": "CAMPO ALEGRE 3",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2911,
+    "nombre": "CANAAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2976,
+    "nombre": "CANAVERAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2666,
+    "nombre": "CANAVERAL II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3076,
+    "nombre": "CANTABRIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2938,
+    "nombre": "CARACOL LA CURVA 4",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3041,
+    "nombre": "CARACOLI",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2894,
+    "nombre": "CARLOS ALBERTO BENAVIDES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2561,
+    "nombre": "CARLOS ENRIQUE SOTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3016,
+    "nombre": "CARLOS HOLMES TRUJILLO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3275,
+    "nombre": "CASA DEL POBRE",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2644,
+    "nombre": "CASTAÑO ROBLEDO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2654,
+    "nombre": "CATALAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3232,
+    "nombre": "CAUCA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2708,
+    "nombre": "CEDRITOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2676,
+    "nombre": "CENTENARIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2860,
+    "nombre": "CENTRAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2703,
+    "nombre": "CESAR NADER NADER",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2999,
+    "nombre": "CHAVARRIAGA WILKINS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2727,
+    "nombre": "CHICO RESTREPO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2775,
+    "nombre": "CINCO DE OCTUBRE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2556,
+    "nombre": "CIUDAD BOQUIA 1",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2825,
+    "nombre": "CIUDAD JARDIN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2761,
+    "nombre": "CIUDAD PALERMO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2900,
+    "nombre": "CIUDAD PEREIRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2558,
+    "nombre": "CIUDADELA COMFAMILIAR BOQUIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2863,
+    "nombre": "CIUDADELA COMFAMILIAR I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2886,
+    "nombre": "CIUDADELA COMFAMILIAR II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3050,
+    "nombre": "CIUDADELA COMFANDI",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3072,
+    "nombre": "CIUDADELA PAZ",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2852,
+    "nombre": "CIUDADELA SALAMANCA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2908,
+    "nombre": "CIUDADELA TOKIO 2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2983,
+    "nombre": "CIUDADELA VILLA DE LEYVA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2597,
+    "nombre": "COLINAS DEL TRIUNFO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2996,
+    "nombre": "COLLAREJO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3230,
+    "nombre": "COLORADAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2782,
+    "nombre": "COLORES DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2977,
+    "nombre": "COMFAMILIAR BOQUIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2824,
+    "nombre": "COMFAMILIAR VILLA SANTANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3102,
+    "nombre": "CONDOMINIO ALTA MAR CLUB",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3111,
+    "nombre": "CONDOMINIO BALCONES DE SANTA LUCIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3193,
+    "nombre": "CONDOMINIO BALCONES DE SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3142,
+    "nombre": "CONDOMINIO BOSQUES DEL RIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3151,
+    "nombre": "CONDOMINIO CASCABELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3083,
+    "nombre": "CONDOMINIO EL CARMEN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3398,
+    "nombre": "CONDOMINIO EL DIAMANTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3224,
+    "nombre": "CONDOMINIO EL PLACER - ZARAGOZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3103,
+    "nombre": "CONDOMINIO FLAMINGO CLUB",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3098,
+    "nombre": "CONDOMINIO LA ISABELA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3114,
+    "nombre": "CONDOMINIO LAS AMERICAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3402,
+    "nombre": "CONDOMINIO MADEIRA VÍA A ZARAGOZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3144,
+    "nombre": "CONDOMINIO MILAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3140,
+    "nombre": "CONDOMINIO MULTIFAN BARCELONA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3143,
+    "nombre": "CONDOMINIO PORTAL DE LAS COMETAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3085,
+    "nombre": "CONDOMINIO SENDEROS DEL PRADO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3136,
+    "nombre": "CONDOMINIO TERRAZAS DEL LLANO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3099,
+    "nombre": "CONDOMINIO VILLA DEL RIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3164,
+    "nombre": "CONDOMINIO VILLA DEL ROBLE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3206,
+    "nombre": "CONDOMINIO VILLA GUADALUPE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3156,
+    "nombre": "CONDOMINIO VILLAS DE SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3416,
+    "nombre": "CONJUNTO MARBELLA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2985,
+    "nombre": "CONJUNTO RESIDENCIAL TISU",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2598,
+    "nombre": "CONSTRUCTORES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2854,
+    "nombre": "COODELMAR I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2865,
+    "nombre": "COODELMAR II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2875,
+    "nombre": "COODELMAR III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2884,
+    "nombre": "COODELMAR IV",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3276,
+    "nombre": "COOGEMELA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3071,
+    "nombre": "COOPERATIVO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2964,
+    "nombre": "CORAL PLAZA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2951,
+    "nombre": "CORALINA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2657,
+    "nombre": "COROCITO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2713,
+    "nombre": "CORTES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2687,
+    "nombre": "CUBA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2885,
+    "nombre": "DEPARTAMENTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3277,
+    "nombre": "DIANA TURBAY I Y II",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3011,
+    "nombre": "DIVINO NIÑO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2804,
+    "nombre": "DORADO I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2780,
+    "nombre": "DORADO II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3084,
+    "nombre": "EDIFICIO ALTOS DEL RIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3091,
+    "nombre": "EDIFICIO BANCO DE OCCIDENTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3092,
+    "nombre": "EDIFICIO BANCO DEL COMERCIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3093,
+    "nombre": "EDIFICIO CAROLINA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3147,
+    "nombre": "EDIFICIO COLON",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3089,
+    "nombre": "EDIFICIO LA CALLEJA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3095,
+    "nombre": "EDIFICIO OLIMPO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3087,
+    "nombre": "EDIFICIO PASO REAL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3096,
+    "nombre": "EDIFICIO PORTICO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3134,
+    "nombre": "EDIFICIO PRAGA PLAZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3088,
+    "nombre": "EDIFICIO SAN CARLOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3148,
+    "nombre": "EDIFICIO SAN LUIS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3086,
+    "nombre": "EDIFICIO TORRES DE SAN FRANCISCO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3090,
+    "nombre": "EDIFICIO TORRES DEL PRADO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3094,
+    "nombre": "EDIFICIO VERNEL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2813,
+    "nombre": "EL ACUARIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3244,
+    "nombre": "EL BALSO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2902,
+    "nombre": "EL BOSQUE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2927,
+    "nombre": "EL BOSQUE 1",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2684,
+    "nombre": "EL CAMPIN I-II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2543,
+    "nombre": "EL CAMPIN III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2923,
+    "nombre": "EL CARDAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3082,
+    "nombre": "EL CARMEN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3278,
+    "nombre": "EL CARMEN",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3081,
+    "nombre": "EL CENTRO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3037,
+    "nombre": "EL CIPRES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2818,
+    "nombre": "EL CRUCERO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3173,
+    "nombre": "EL DANUBIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3245,
+    "nombre": "EL DANUBIO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2898,
+    "nombre": "EL DANUBIO 2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3079,
+    "nombre": "EL DIAMANTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3401,
+    "nombre": "EL DIAMANTE II",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2909,
+    "nombre": "EL EDEN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3246,
+    "nombre": "EL ENSUENO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2724,
+    "nombre": "EL FUTURO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3007,
+    "nombre": "EL GUADUAL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3279,
+    "nombre": "EL JAPON",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3033,
+    "nombre": "EL JARDIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3186,
+    "nombre": "EL JAZMIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2998,
+    "nombre": "EL LIBERTADOR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3115,
+    "nombre": "EL LLANO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3427,
+    "nombre": "EL MANGLAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2844,
+    "nombre": "EL NOGAL CLUB RESIDENCIAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2851,
+    "nombre": "EL OTONO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3068,
+    "nombre": "EL PALATINO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2678,
+    "nombre": "EL PALMAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2946,
+    "nombre": "EL PALMAR DE VILLA VERDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3353,
+    "nombre": "EL PARAISO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2887,
+    "nombre": "EL PARAISO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3280,
+    "nombre": "EL PARAISO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2668,
+    "nombre": "EL PIZAMO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2625,
+    "nombre": "EL PLUMON",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2623,
+    "nombre": "EL PLUMÓN ALTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2628,
+    "nombre": "EL PLUMÓN BAJO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3043,
+    "nombre": "EL POBLADO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3001,
+    "nombre": "EL POLO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3069,
+    "nombre": "EL PORVENIR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3354,
+    "nombre": "EL PRADO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2578,
+    "nombre": "EL PRADO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2575,
+    "nombre": "EL PROGRESO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2928,
+    "nombre": "EL RECREO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3022,
+    "nombre": "EL RETIRO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3039,
+    "nombre": "EL ROBLE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2677,
+    "nombre": "EL ROSAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3024,
+    "nombre": "EL ROSARIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3057,
+    "nombre": "EL SAMAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2591,
+    "nombre": "EL TRIUNFO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3377,
+    "nombre": "EL VERDUM",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2733,
+    "nombre": "EL VERGEL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3078,
+    "nombre": "EMAUS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3063,
+    "nombre": "EMPRESAS MUNICIPALES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2568,
+    "nombre": "ENRIQUE MILLAN RUBIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2890,
+    "nombre": "EVEN-EZER",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3282,
+    "nombre": "FABIO LEON",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3002,
+    "nombre": "FABIO SALAZAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2914,
+    "nombre": "FAVI UTP",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2710,
+    "nombre": "FEGOVE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3061,
+    "nombre": "FLOR DE DAMAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2608,
+    "nombre": "GABRIEL TRUJILLO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2712,
+    "nombre": "GAMMA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2725,
+    "nombre": "GAMMA III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2972,
+    "nombre": "GAMMA IV",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2974,
+    "nombre": "GAMMA V",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2846,
+    "nombre": "GAVIRIA TRUJILLO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2596,
+    "nombre": "GETSEMANI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2933,
+    "nombre": "GIBRALTAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2600,
+    "nombre": "GILBERTO PELAEZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2984,
+    "nombre": "GUADACANAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3355,
+    "nombre": "GUADALUPE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2785,
+    "nombre": "GUADALUPE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2922,
+    "nombre": "GUADUALES DE CANAAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2581,
+    "nombre": "GUALANDAY",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3182,
+    "nombre": "GUAYABAL SANTA ANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3356,
+    "nombre": "GUAYACANES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2882,
+    "nombre": "GUAYACANES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2845,
+    "nombre": "HACIENDA CUBA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2792,
+    "nombre": "HAMBURGO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2637,
+    "nombre": "HERNANDO VELEZ MARULANDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2876,
+    "nombre": "HEROES I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2861,
+    "nombre": "HEROES II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2993,
+    "nombre": "HORIZONTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2560,
+    "nombre": "HORIZONTES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2924,
+    "nombre": "INDEPENDIENTES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3247,
+    "nombre": "INQUILINOS - JORGE ELIECER GAITAN",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2828,
+    "nombre": "INTERMEDIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3020,
+    "nombre": "IPANEMA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2905,
+    "nombre": "JAIME PARDO LEAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2562,
+    "nombre": "JAIME SALAZAR ROBLEDO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2643,
+    "nombre": "JARDIN DE VELEZ Y VELEZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2641,
+    "nombre": "JARDIN I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2671,
+    "nombre": "JARDIN II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2692,
+    "nombre": "JARDIN III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2743,
+    "nombre": "JARDINES DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2959,
+    "nombre": "JARDINES DE TANAMBI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3357,
+    "nombre": "JORGE ELIECER GAITAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2585,
+    "nombre": "JORGE ELIECER GAITAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2564,
+    "nombre": "JOSE ANTONIO GALAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2615,
+    "nombre": "JOSE HILARIO LOPEZ I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2604,
+    "nombre": "JOSE HILARIO LOPEZ II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2850,
+    "nombre": "JOSE MARIA CORDOBA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2588,
+    "nombre": "JOSE MARTI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3058,
+    "nombre": "JUAN XXIII",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2675,
+    "nombre": "KENNEDY",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3052,
+    "nombre": "KORALYN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2823,
+    "nombre": "LA ACUARELA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2858,
+    "nombre": "LA ALBANIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3358,
+    "nombre": "LA ARBOLEDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2912,
+    "nombre": "LA ARBOLEDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2995,
+    "nombre": "LA ARENERA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2542,
+    "nombre": "LA AURORA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3284,
+    "nombre": "LA AURORA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3248,
+    "nombre": "LA BADEA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2883,
+    "nombre": "LA BRETANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3066,
+    "nombre": "LA CASCADA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3359,
+    "nombre": "LA CASTELLANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2962,
+    "nombre": "LA CASTELLANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3010,
+    "nombre": "LA CRISTINA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2748,
+    "nombre": "LA DIVISA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2728,
+    "nombre": "LA DULCERA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2663,
+    "nombre": "LA ELVIRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2693,
+    "nombre": "LA ENSEÑANZA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3235,
+    "nombre": "LA ESNEDA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3360,
+    "nombre": "LA ESPERANZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2582,
+    "nombre": "LA ESPERANZA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3361,
+    "nombre": "LA FLORESTA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2791,
+    "nombre": "LA FLORESTA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2811,
+    "nombre": "LA FLORIDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2837,
+    "nombre": "LA FRANCIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3035,
+    "nombre": "LA FRESNEDA I ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2640,
+    "nombre": "LA GLORIETA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3236,
+    "nombre": "LA GRACIELA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3030,
+    "nombre": "LA GUACA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2812,
+    "nombre": "LA HABANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2659,
+    "nombre": "LA HACIENDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2871,
+    "nombre": "LA IDALIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2947,
+    "nombre": "LA IDALIA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3113,
+    "nombre": "LA INDEPENDENCIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2718,
+    "nombre": "LA INDEPENDENCIA 1",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3042,
+    "nombre": "LA INMACULADA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3097,
+    "nombre": "LA ISABELA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2786,
+    "nombre": "LA ISLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3080,
+    "nombre": "LA ISLETA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2971,
+    "nombre": "LA ITALIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2686,
+    "nombre": "LA JULIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2765,
+    "nombre": "LA JULITA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2797,
+    "nombre": "LA LAGUNA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3362,
+    "nombre": "LA LIBERTAD",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2988,
+    "nombre": "LA LIBERTAD",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2730,
+    "nombre": "LA LORENA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2720,
+    "nombre": "LA LORENA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2715,
+    "nombre": "LA LORENA III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2701,
+    "nombre": "LA LORENA IV",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2994,
+    "nombre": "LA MILAGROSA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2903,
+    "nombre": "LA NUEVA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3249,
+    "nombre": "LA OKARINA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2603,
+    "nombre": "LA PALMERA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2919,
+    "nombre": "LA PARCELA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2639,
+    "nombre": "LA PAZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2732,
+    "nombre": "LA PLATANERA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2991,
+    "nombre": "LA PLAYA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2546,
+    "nombre": "LA PLAYITA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3019,
+    "nombre": "LA PLAZUELA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2906,
+    "nombre": "LA POLICIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3415,
+    "nombre": "LA POPA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3025,
+    "nombre": "LA PRADERA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3286,
+    "nombre": "LA PRADERA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3413,
+    "nombre": "LA PRIMAVERA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2627,
+    "nombre": "LA PUPI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2772,
+    "nombre": "LA RIVERA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2917,
+    "nombre": "LA SIERRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2569,
+    "nombre": "LA SIRENA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3250,
+    "nombre": "LA SULTANA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3062,
+    "nombre": "LA TRINIDAD",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2897,
+    "nombre": "LA UNIDAD",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2717,
+    "nombre": "LA UNION",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2630,
+    "nombre": "LA VICTORIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2704,
+    "nombre": "LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3013,
+    "nombre": "LA VIÑA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2537,
+    "nombre": "LAS ANTILLAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2915,
+    "nombre": "LAS BRISAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3006,
+    "nombre": "LAS COLINAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2638,
+    "nombre": "LAS GARZAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3251,
+    "nombre": "LAS GARZAS",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2857,
+    "nombre": "LAS GAVIOTAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2651,
+    "nombre": "LAS MANGAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2829,
+    "nombre": "LAS MARGARITAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2593,
+    "nombre": "LAS PALMAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2781,
+    "nombre": "LAS PIRAMIDES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3237,
+    "nombre": "LAS VEGAS",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3028,
+    "nombre": "LAS VERANERAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2816,
+    "nombre": "LAURELES I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2826,
+    "nombre": "LAURELES II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2833,
+    "nombre": "LENINGRADO II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2849,
+    "nombre": "LENINGRADO III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2822,
+    "nombre": "LETRAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2843,
+    "nombre": "LIBERTADOR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2870,
+    "nombre": "LIBERTADOR II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3252,
+    "nombre": "LOS ABEDULES",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2806,
+    "nombre": "LOS ALAMOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2609,
+    "nombre": "LOS ALCAZARES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3425,
+    "nombre": "LOS ALMENDROS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2736,
+    "nombre": "LOS ALMENDROS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3426,
+    "nombre": "LOS ALMENDROS",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3380,
+    "nombre": "LOS ALMENDROS PUERTO CALDAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2992,
+    "nombre": "LOS ALPES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2690,
+    "nombre": "LOS ALPES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2547,
+    "nombre": "LOS ANDES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3363,
+    "nombre": "LOS ANGELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2752,
+    "nombre": "LOS ANGELES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2705,
+    "nombre": "LOS ARRAYANES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2672,
+    "nombre": "LOS ARREBOLES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3253,
+    "nombre": "LOS CAMBULOS",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3026,
+    "nombre": "LOS CAMINOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2550,
+    "nombre": "LOS CEDROS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3034,
+    "nombre": "LOS CHORROS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2788,
+    "nombre": "LOS CISNES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3364,
+    "nombre": "LOS CONQUISTADORES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2862,
+    "nombre": "LOS CONQUISTADORES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3365,
+    "nombre": "LOS CORALES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2757,
+    "nombre": "LOS CORALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2760,
+    "nombre": "LOS CRISTALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2859,
+    "nombre": "LOS GERANIOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2916,
+    "nombre": "LOS GIRASOLES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3254,
+    "nombre": "LOS HEROES",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3045,
+    "nombre": "LOS LAGOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3046,
+    "nombre": "LOS LAGUITOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3120,
+    "nombre": "LOS LAURELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3255,
+    "nombre": "LOS LEONES",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3015,
+    "nombre": "LOS NARANJOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2652,
+    "nombre": "LOS NOGALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2621,
+    "nombre": "LOS PERIODISTAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2771,
+    "nombre": "LOS PINOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2807,
+    "nombre": "LOS PRADOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2711,
+    "nombre": "LOS PROFESIONALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2647,
+    "nombre": "LOS QUIMBAYAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3366,
+    "nombre": "LOS ROSALES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2540,
+    "nombre": "LOS ROSALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3405,
+    "nombre": "LOS ROSALES II",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3056,
+    "nombre": "LOS SAMANES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3012,
+    "nombre": "LOS SAUCES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2979,
+    "nombre": "LUIS ALBERTO DUQUE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2551,
+    "nombre": "MALAGA 1",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2642,
+    "nombre": "MALLORCA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2619,
+    "nombre": "MARAYA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3116,
+    "nombre": "MARISCAL ROBLEDO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2624,
+    "nombre": "MATECANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2698,
+    "nombre": "MEJIA ROBLEDO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3008,
+    "nombre": "MELQUISEDEC QUINTERO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2866,
+    "nombre": "METROPOLITANO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3239,
+    "nombre": "MINUTO DE DIOS",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2889,
+    "nombre": "MIRADOR DE BELLA SARDI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3256,
+    "nombre": "MIRADOR DE FRAILES - BLOQUE M",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2679,
+    "nombre": "MIRADOR DE LA CIEN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2553,
+    "nombre": "MIRADOR DE LLANO GRANDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2943,
+    "nombre": "MIRADOR DE NARANJITO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2839,
+    "nombre": "MIRADOR DE PANORAMA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2834,
+    "nombre": "MIRADOR DE PANORAMA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2872,
+    "nombre": "MIRADOR DE PANORAMA III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2944,
+    "nombre": "MIRAFLORES 4",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2592,
+    "nombre": "MIRASOL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3231,
+    "nombre": "MODIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2767,
+    "nombre": "MONSERRATE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2937,
+    "nombre": "MONTELIBANO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2694,
+    "nombre": "MULTIFAMILIAR LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2958,
+    "nombre": "MULTIFAMILIARES VILLA VERDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2613,
+    "nombre": "NACEDEROS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2836,
+    "nombre": "NARANJITO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2901,
+    "nombre": "NEYRA MARQUEZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2655,
+    "nombre": "NIZA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2662,
+    "nombre": "NIZA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2764,
+    "nombre": "NORMANDIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3048,
+    "nombre": "NUESTRA SEÑORA DE LA POBREZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3379,
+    "nombre": "NUESTRO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3367,
+    "nombre": "NUEVA COLOMBIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2891,
+    "nombre": "NUEVA COLOMBIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3342,
+    "nombre": "NUEVA ESPERANZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2669,
+    "nombre": "NUEVA ESPERANZA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2555,
+    "nombre": "NUEVO HORIZONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2665,
+    "nombre": "NUEVO MEJICO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2567,
+    "nombre": "NUEVO PEÑOL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2801,
+    "nombre": "NUEVO PLAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2695,
+    "nombre": "OBELISCO DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3009,
+    "nombre": "OBRERO DEPARTAMENTAL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2545,
+    "nombre": "OLAYA HERRERA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3257,
+    "nombre": "OLAYA HERRERA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2910,
+    "nombre": "OLIMPIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2745,
+    "nombre": "OLIMPICO I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2754,
+    "nombre": "OLIMPICO II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2970,
+    "nombre": "OLIVAR DE LOS VIENTOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2966,
+    "nombre": "OLIVAR DE LOS VIENTOS II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2622,
+    "nombre": "ORMAZA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2989,
+    "nombre": "ORTEZ",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3240,
+    "nombre": "OTUN",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3014,
+    "nombre": "PAMPA LINDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3258,
+    "nombre": "PANORAMA CENTER",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2766,
+    "nombre": "PANORAMA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3207,
+    "nombre": "PARCELACION CAMPESTRE LOS CERROS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2963,
+    "nombre": "PASEO DE LA CASTELLANA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2536,
+    "nombre": "PAZ DEL RIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2573,
+    "nombre": "PAZ VERDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3241,
+    "nombre": "PEDREGALES",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2740,
+    "nombre": "PEREIRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2856,
+    "nombre": "PERLA DEL SUR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3233,
+    "nombre": "PIEDRAS DE MOLER",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2793,
+    "nombre": "PIMPOLLO - LIBARE 2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2670,
+    "nombre": "PINAR DE BELMONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2699,
+    "nombre": "PINAR DE GAMMA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3125,
+    "nombre": "PINARES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2719,
+    "nombre": "PINARES DE SAN MARTIN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3259,
+    "nombre": "PIO XII",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2747,
+    "nombre": "PLAN CAMILO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2835,
+    "nombre": "PLAN CARVAJAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2742,
+    "nombre": "POBLADO I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2726,
+    "nombre": "POBLADO II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2539,
+    "nombre": "POPULAR MODELO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2848,
+    "nombre": "PORTAL DE CORALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2986,
+    "nombre": "PORTAL DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2768,
+    "nombre": "PORTAL DE LAS MERCEDES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2980,
+    "nombre": "PORTAL DE LLANO GRANDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2706,
+    "nombre": "PORTAL DE LOS CEDROS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2942,
+    "nombre": "PORTAL DE SAN JACINTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2934,
+    "nombre": "PORTAL DE SAN JOAQUIN I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2931,
+    "nombre": "PORTAL DE SAN JOAQUIN II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3053,
+    "nombre": "PORTAL DE TORRE LA VEGA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3260,
+    "nombre": "PORTAL DEL PARQUE",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2925,
+    "nombre": "PORTALES DE BIRMANIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2981,
+    "nombre": "PORTO ALEGRE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2982,
+    "nombre": "PORTO ALEGRE ETP 2",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2738,
+    "nombre": "PORVENIR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3428,
+    "nombre": "PRADO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3101,
+    "nombre": "PRADO NORTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2607,
+    "nombre": "PRIMERO DE FEBRERO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2590,
+    "nombre": "PRIMERO DE MAYO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2746,
+    "nombre": "PROVIDENCIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3423,
+    "nombre": "PUEBLITO PAISA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2847,
+    "nombre": "PUEBLITO PAISA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2921,
+    "nombre": "PUERTA DE ABACANTO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2940,
+    "nombre": "PUERTA DE ALCALA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3234,
+    "nombre": "PUERTO CALDAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2729,
+    "nombre": "QUINTANAR DEL CERRO 1",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2955,
+    "nombre": "QUINTAS DE COROZAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2819,
+    "nombre": "QUINTAS DE LA ACUARELA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2821,
+    "nombre": "QUINTAS DE LA ACUARELA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2763,
+    "nombre": "QUINTAS DE LOS SAUCES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3070,
+    "nombre": "QUINTAS DE NAVARRA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2789,
+    "nombre": "QUINTAS DE PANORAMA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2817,
+    "nombre": "QUINTAS DE PANORAMA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2769,
+    "nombre": "RAFAEL URIBE I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2790,
+    "nombre": "RAFAEL URIBE II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2810,
+    "nombre": "RAFAEL URIBE III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3141,
+    "nombre": "RELOTEO LA GRANJA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2939,
+    "nombre": "REMANSO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2579,
+    "nombre": "REMIGIO ANTONIO CANARTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3060,
+    "nombre": "REPUBLICA DE FRANCIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2779,
+    "nombre": "RESERVA DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3408,
+    "nombre": "RESERVAS DEL LIMONAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3073,
+    "nombre": "RESERVAS DEL SAMAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2741,
+    "nombre": "RESTREPO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2635,
+    "nombre": "RICARDO RAMIREZ CARMONA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3049,
+    "nombre": "RINCON DE LA LOMA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2667,
+    "nombre": "RINCON DE LA PALMA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2721,
+    "nombre": "RINCON DE LA VILLA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2645,
+    "nombre": "RINCON DE LAS QUINTAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2973,
+    "nombre": "RINCON DE UNICENTRO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2566,
+    "nombre": "RINCON DEL CAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2559,
+    "nombre": "RISARALDA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2957,
+    "nombre": "RIVERA CAMPESTRE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3040,
+    "nombre": "ROBERTULIO LORA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2855,
+    "nombre": "ROCIO ALTO 3",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2758,
+    "nombre": "ROCIO BAJO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2584,
+    "nombre": "SALAZAR LODONO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2586,
+    "nombre": "SALVADOR ALLENDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2682,
+    "nombre": "SAMANES DE BELMONTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2827,
+    "nombre": "SAMARIA I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2867,
+    "nombre": "SAMARIA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3038,
+    "nombre": "SAN AGUSTIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2599,
+    "nombre": "SAN ANTONIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2595,
+    "nombre": "SAN CAMILO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3168,
+    "nombre": "SAN CARLOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3368,
+    "nombre": "SAN DIEGO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3343,
+    "nombre": "SAN DIEGO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2605,
+    "nombre": "SAN ESTEBAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2538,
+    "nombre": "SAN FELIPE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3424,
+    "nombre": "SAN FERNANDO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2541,
+    "nombre": "SAN FERNANDO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2633,
+    "nombre": "SAN FRANCISCO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3130,
+    "nombre": "SAN GABRIEL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2756,
+    "nombre": "SAN GREGORIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3262,
+    "nombre": "SAN GREGORIO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3018,
+    "nombre": "SAN JERONIMO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3369,
+    "nombre": "SAN JOAQUIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2881,
+    "nombre": "SAN JOAQUIN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2572,
+    "nombre": "SAN JORGE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3370,
+    "nombre": "SAN JOSE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2656,
+    "nombre": "SAN JOSE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2549,
+    "nombre": "SAN JOSE SUR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2577,
+    "nombre": "SAN JUAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2563,
+    "nombre": "SAN JUAN DE DIOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3023,
+    "nombre": "SAN JUAN DE LA CRUZ",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2892,
+    "nombre": "SAN LUIS GONZAGA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2935,
+    "nombre": "SAN MARCOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2702,
+    "nombre": "SAN MARTIN DE LOBA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3371,
+    "nombre": "SAN NICOLAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2674,
+    "nombre": "SAN NICOLAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3171,
+    "nombre": "SAN PABLO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3263,
+    "nombre": "SAN RAFAEL",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2880,
+    "nombre": "SAN REMO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2965,
+    "nombre": "SAN SEBASTIAN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3372,
+    "nombre": "SAN VICENTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2815,
+    "nombre": "SAN VICENTE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3183,
+    "nombre": "SANTA ANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3177,
+    "nombre": "SANTA ANA NORTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3017,
+    "nombre": "SANTA BARBARA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2794,
+    "nombre": "SANTA CATALINA II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2842,
+    "nombre": "SANTA CLARA DE LAS VILLAS 4",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2709,
+    "nombre": "SANTA CRUZ DE GAMMA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3373,
+    "nombre": "SANTA ELENA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2580,
+    "nombre": "SANTA ELENA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3406,
+    "nombre": "SANTA FE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2950,
+    "nombre": "SANTA JUANA DE LAS VILLAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3126,
+    "nombre": "SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3374,
+    "nombre": "SANTA MONICA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2650,
+    "nombre": "SANTA MONICA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3285,
+    "nombre": "SANTA MONICA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3036,
+    "nombre": "SANTA ROSA DE LIMA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2583,
+    "nombre": "SANTA TERESITA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2820,
+    "nombre": "SANTAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2626,
+    "nombre": "SANTANDER",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3264,
+    "nombre": "SANTIAGO LONDONO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3265,
+    "nombre": "SATURNO",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2774,
+    "nombre": "SAUCES I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2784,
+    "nombre": "SAUCES II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2796,
+    "nombre": "SAUCES III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2809,
+    "nombre": "SAUCES IV",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2777,
+    "nombre": "SAUCES V",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2557,
+    "nombre": "SECTOR B",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3118,
+    "nombre": "SECTOR CUCHARA LARGA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2612,
+    "nombre": "SECTOR GALERIA CENTRAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2602,
+    "nombre": "SECTOR LAGO URIBE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2614,
+    "nombre": "SECTOR PARQUE LA LIBERTAD",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2606,
+    "nombre": "SECTOR PLAZA DE BOLIVAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2975,
+    "nombre": "SENDEROS DE UNICENTRO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2969,
+    "nombre": "SERREZUELA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2610,
+    "nombre": "SIMON BOLIVAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2904,
+    "nombre": "SINAI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2802,
+    "nombre": "SINAI II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3005,
+    "nombre": "SUIZO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2620,
+    "nombre": "SURESTE DE LA SIERRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2896,
+    "nombre": "TERMINAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2831,
+    "nombre": "TERRANOVA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3074,
+    "nombre": "TERRAZAS DE LA CATORCE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2936,
+    "nombre": "TINAJAS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2681,
+    "nombre": "TOLUCA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3399,
+    "nombre": "TORRE LA VEGA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3077,
+    "nombre": "TORRE OCTAVA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3047,
+    "nombre": "TORRELAVEGA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2832,
+    "nombre": "TORRES DE LA ACUARELA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2653,
+    "nombre": "TORRES DE SAN MATEO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2735,
+    "nombre": "TRAVESURAS - LA CHURRIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2868,
+    "nombre": "TULCAN I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2873,
+    "nombre": "TULCAN II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2878,
+    "nombre": "TULCAN III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2617,
+    "nombre": "TURIN",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3139,
+    "nombre": "URBANIZACION ALTICOS DE SANTA MONICA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3122,
+    "nombre": "URBANIZACION ARGOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3175,
+    "nombre": "URBANIZACION BRISAS DEL NORTE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3152,
+    "nombre": "URBANIZACION CASCABELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3184,
+    "nombre": "URBANIZACION CERROS DE PUERTO ASIS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3159,
+    "nombre": "URBANIZACION CHIMINANGOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3196,
+    "nombre": "URBANIZACION CIUDADELA LOS ANGELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3197,
+    "nombre": "URBANIZACION CIUDADELA SAN FRANCISCO DE ASIS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3169,
+    "nombre": "URBANIZACION COOTEMCA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3195,
+    "nombre": "URBANIZACION EL BULEVAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3202,
+    "nombre": "URBANIZACION EL JARDIN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3190,
+    "nombre": "URBANIZACION EL JUBILEO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3150,
+    "nombre": "URBANIZACION EL LIMONAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3187,
+    "nombre": "URBANIZACION EL TREBOL I II III IV",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3104,
+    "nombre": "URBANIZACION ENTRE RIOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3161,
+    "nombre": "URBANIZACION GRUPO DE LOS 60",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3131,
+    "nombre": "URBANIZACION GUAYACANES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3417,
+    "nombre": "URBANIZACIÓN IBIZA - SANTA ANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3199,
+    "nombre": "URBANIZACION JARDINES DE SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3191,
+    "nombre": "URBANIZACION JOSE GABRIEL CALDERON",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3205,
+    "nombre": "URBANIZACION LA ARBOLEDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3198,
+    "nombre": "URBANIZACION LA AURORA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3192,
+    "nombre": "URBANIZACION LA CABAÑA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3204,
+    "nombre": "URBANIZACION LA CAMPIÑA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3127,
+    "nombre": "URBANIZACION LA EPIFANIA I ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3154,
+    "nombre": "URBANIZACION LA EPIFANIA I Y II ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3160,
+    "nombre": "URBANIZACION LA EPIFANIA II Y III ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3155,
+    "nombre": "URBANIZACION LA ESPANOLA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3167,
+    "nombre": "URBANIZACION LA FRESNEDA II ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3178,
+    "nombre": "URBANIZACION LA FRESNEDA III ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3181,
+    "nombre": "URBANIZACION LA FRESNEDA IV ETAPA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3137,
+    "nombre": "URBANIZACION LA LINDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3188,
+    "nombre": "URBANIZACION LA ORQUIDEA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3176,
+    "nombre": "URBANIZACION LA VALENCIANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3153,
+    "nombre": "URBANIZACION LAS ACACIAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3163,
+    "nombre": "URBANIZACION LAS PALMAS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3414,
+    "nombre": "URBANIZACIÓN LIMONAR II",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3112,
+    "nombre": "URBANIZACION LOS ALAMOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3180,
+    "nombre": "URBANIZACION LOS ALCAZARES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3121,
+    "nombre": "URBANIZACION LOS ANGELES",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3174,
+    "nombre": "URBANIZACION LUIS CARLOS GALAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3138,
+    "nombre": "URBANIZACION MARBELLA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3145,
+    "nombre": "URBANIZACION MILAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3209,
+    "nombre": "URBANIZACION MONTANAR PALO VERDE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3203,
+    "nombre": "URBANIZACION MONTE ESMERALDA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3108,
+    "nombre": "URBANIZACION MONTE VERDE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3146,
+    "nombre": "URBANIZACION NUEVA ESPERANZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3100,
+    "nombre": "URBANIZACION PINARES DEL RIO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3128,
+    "nombre": "URBANIZACION PORTAL DE ALAMOS I II Y III",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3124,
+    "nombre": "URBANIZACION PORTAL DE KIRENA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3208,
+    "nombre": "URBANIZACION PORTAL DE LOS CAMBULOS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3106,
+    "nombre": "URBANIZACION PRADO ALTO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3129,
+    "nombre": "URBANIZACION PRADO OCCIDENTAL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3105,
+    "nombre": "URBANIZACION PRADO VERDE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3157,
+    "nombre": "URBANIZACION PRAGA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3200,
+    "nombre": "URBANIZACION QUIRAMA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3149,
+    "nombre": "URBANIZACION RESERVAS DE SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3110,
+    "nombre": "URBANIZACION SANTA ANA DE LOS CABALLEROS",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3170,
+    "nombre": "URBANIZACION SANTA CATALINA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3172,
+    "nombre": "URBANIZACION SANTA ISABEL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3403,
+    "nombre": "URBANIZACIÓN SANTA LAURA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3109,
+    "nombre": "URBANIZACION SANTA LUCIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3158,
+    "nombre": "URBANIZACION SANTA MARIA REAL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3117,
+    "nombre": "URBANIZACION SANTA MONICA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3201,
+    "nombre": "URBANIZACION TERRAZAS DE SANTA MARIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3135,
+    "nombre": "URBANIZACION TERRAZAS DEL LLANO",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3194,
+    "nombre": "URBANIZACION VILLA ALICIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3165,
+    "nombre": "URBANIZACION VILLA AMALIA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3179,
+    "nombre": "URBANIZACION VILLA CAMPESTRE",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3123,
+    "nombre": "URBANIZACION VILLA CAROLINA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3185,
+    "nombre": "URBANIZACION VILLA COMUNERA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3107,
+    "nombre": "URBANIZACION VILLA HELENA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3133,
+    "nombre": "URBANIZACION VILLA JULIANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3132,
+    "nombre": "URBANIZACION VILLA LORENA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3119,
+    "nombre": "URBANIZACION VILLA VIVIANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3266,
+    "nombre": "VALHER",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3242,
+    "nombre": "VALLARTA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2755,
+    "nombre": "VASCONIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3267,
+    "nombre": "VELA I Y II",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2750,
+    "nombre": "VENDEDORES AMBULANTES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2618,
+    "nombre": "VENECIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2773,
+    "nombre": "VERACRUZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2795,
+    "nombre": "VERACRUZ II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2751,
+    "nombre": "VERONA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3410,
+    "nombre": "VÍA A ZARAGOZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3243,
+    "nombre": "VILLA ALEXANDRA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2658,
+    "nombre": "VILLA ALICIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3268,
+    "nombre": "VILLA ALQUIN",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2770,
+    "nombre": "VILLA ANDREA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2753,
+    "nombre": "VILLA CECILIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3269,
+    "nombre": "VILLA CLARA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2893,
+    "nombre": "VILLA COLOMBIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2762,
+    "nombre": "VILLA CONSOTA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2749,
+    "nombre": "VILLA DE LA PAZ",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2838,
+    "nombre": "VILLA DEL BOSQUE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2571,
+    "nombre": "VILLA DEL CAFE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3064,
+    "nombre": "VILLA DEL MAR",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2787,
+    "nombre": "VILLA DEL PALMAR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2759,
+    "nombre": "VILLA DEL PRADO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3375,
+    "nombre": "VILLA DEL SOL",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2879,
+    "nombre": "VILLA DEL SOL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2926,
+    "nombre": "VILLA DEL SUR",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3376,
+    "nombre": "VILLA ELENA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2734,
+    "nombre": "VILLA ELENA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2808,
+    "nombre": "VILLA ELISA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3004,
+    "nombre": "VILLA ESPERANZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3270,
+    "nombre": "VILLA FANNY",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3003,
+    "nombre": "VILLA HERMOSA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2691,
+    "nombre": "VILLA ILUSION",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2874,
+    "nombre": "VILLA KENNEDY",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3271,
+    "nombre": "VILLA LAURA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2918,
+    "nombre": "VILLA LIGIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2899,
+    "nombre": "VILLA LIGIA III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2907,
+    "nombre": "VILLA LOS ALAMOS",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2576,
+    "nombre": "VILLA LOS COMUNALES",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3031,
+    "nombre": "VILLA LUCIANA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 3055,
+    "nombre": "VILLA MARCELA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2895,
+    "nombre": "VILLA MARIA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3272,
+    "nombre": "VILLA MARIELA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 3021,
+    "nombre": "VILLA MARTHA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2680,
+    "nombre": "VILLA MERY",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3067,
+    "nombre": "VILLA MONICA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2930,
+    "nombre": "VILLA NAVARRA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2688,
+    "nombre": "VILLA NOHEMI",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2913,
+    "nombre": "VILLA ROCIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2968,
+    "nombre": "VILLA SOL PARQUE RESIDENCIAL",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2945,
+    "nombre": "VILLA VERDE",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2967,
+    "nombre": "VILLAS DE LA MADRID",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3273,
+    "nombre": "VILLAS DE SANTA MONICA",
+    "ciudad": "DOSQUEBRADAS"
+  },
+  {
+    "id": 2700,
+    "nombre": "VILLAS DEL JARDIN I",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2697,
+    "nombre": "VILLAS DEL JARDIN II",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2683,
+    "nombre": "VILLAS DEL JARDIN III",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3054,
+    "nombre": "VILLAS DEL SAMAN",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2631,
+    "nombre": "VILLAVICENCIO",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 2877,
+    "nombre": "VISTA HERMOSA",
+    "ciudad": "PEREIRA"
+  },
+  {
+    "id": 3341,
+    "nombre": "ZARAGOZA",
+    "ciudad": "CARTAGO"
+  },
+  {
+    "id": 2574,
+    "nombre": "ZEA",
+    "ciudad": "PEREIRA"
+  }
+]

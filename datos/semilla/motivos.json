@@ -1,0 +1,74 @@
+[
+  {
+    "id": 13,
+    "nombre": "AGRADECIMIENTO"
+  },
+  {
+    "id": 8,
+    "nombre": "AMOR"
+  },
+  {
+    "id": 9,
+    "nombre": "AMOR Y AMISTAD"
+  },
+  {
+    "id": 22,
+    "nombre": "ANIVERSARIO"
+  },
+  {
+    "id": 21,
+    "nombre": "BIENVENIDA"
+  },
+  {
+    "id": 7,
+    "nombre": "CUMPLEAÑOS"
+  },
+  {
+    "id": 19,
+    "nombre": "DÍA DE LA ENFERMERA"
+  },
+  {
+    "id": 5,
+    "nombre": "DÍA DE LA MADRE"
+  },
+  {
+    "id": 11,
+    "nombre": "DÍA DE LA MUJER"
+  },
+  {
+    "id": 18,
+    "nombre": "DÍA DE LA SECRETARIA"
+  },
+  {
+    "id": 12,
+    "nombre": "DÍA DEL HOMBRE"
+  },
+  {
+    "id": 10,
+    "nombre": "DÍA DEL NIÑO"
+  },
+  {
+    "id": 6,
+    "nombre": "DÍA DEL PADRE"
+  },
+  {
+    "id": 14,
+    "nombre": "DÍA DEL PROFESOR"
+  },
+  {
+    "id": 20,
+    "nombre": "HALLOWEEN"
+  },
+  {
+    "id": 16,
+    "nombre": "NAVIDAD"
+  },
+  {
+    "id": 15,
+    "nombre": "RECUPERACIÓN"
+  },
+  {
+    "id": 17,
+    "nombre": "SAN VALENTÍN"
+  }
+]
