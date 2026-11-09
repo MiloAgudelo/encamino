@@ -203,30 +203,30 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 | Stack | Detalle y formularios con regreso | Detalle, Confirmar entrega, No entrega, Reprogramar | `src/app/_layout.tsx` | Proyecto base con rutas |
 | Tabs | Hoy, Mapa, Historial | Pestañas del equipo | `src/app/(equipo)/(tabs)/_layout.tsx` | Proyecto base con rutas |
 | Drawer | Punto de despacho, permisos, perfil | Menú lateral | `src/app/(equipo)/_layout.tsx` | Proyecto base con rutas |
-| Ruta dinámica e id inexistente | RF-10, RF-05 | Detalle, Seguimiento | `src/app/domicilio/[id]/index.tsx`, `src/app/seguimiento/[token].tsx` | Pendiente |
+| Ruta dinámica e id inexistente | RF-10, RF-05 | Detalle, Seguimiento | `src/app/domicilio/[id]/index.tsx`, `src/app/seguimiento/[token].tsx` | Probado contra la API local: `domicilio/999999` y códigos inexistentes o mal formados muestran su mensaje |
 | Inicio definido y ruta rota | RF-01, RF-04 | Inicio, No encontrada | `src/app/index.tsx`, `src/app/+not-found.tsx` | Proyecto base con rutas |
 | NativeWind y fuente propia | RNF-01 | Todas | `tailwind.config.js`, `src/global.css`, `babel.config.js`, `metro.config.js`, `assets/fonts/` | NativeWind configurado; falta la fuente |
 | Componentes reutilizables con props tipadas | Base de React Native Reusables (botón, tarjeta, campo, etiqueta, insignia, separador, esqueleto, texto) y componentes propios: tarjeta de domicilio, estado de carga/error/vacío y aviso de simulado | Inicio, Hoy, Historial, Detalle, Seguimiento | `src/components/ui/`, `src/components/TarjetaDomicilio.tsx`, `EstadoDatos.tsx`, `AvisoSimulado.tsx` | Base de componentes |
-| Lista, tarjetas, búsqueda y filtro | RF-09, RF-15, RF-18 | Hoy, Historial | `src/app/(equipo)/(tabs)/index.tsx`, `historial.tsx` | Pendiente |
-| Carga, vacío, error, reintentar e imagen alternativa | RNF-02 | Hoy, Detalle, Seguimiento | `src/components/EstadoDatos.tsx` | Componente listo; falta usarlo con datos reales |
+| Lista, tarjetas, búsqueda y filtro | RF-09, RF-15, RF-18 | Hoy, Historial | `src/app/(equipo)/(tabs)/index.tsx`, `historial.tsx` | Hoy conectado: búsqueda y filtro por estado sobre la lista cargada, deslizar para recargar; falta Historial |
+| Carga, vacío, error, reintentar e imagen alternativa | RNF-02 | Hoy, Detalle, Seguimiento | `src/components/EstadoDatos.tsx` | Usado en Hoy, Detalle y Seguimiento con datos reales; imagen alternativa en los productos del seguimiento |
 | useState y useEffect | Formularios, contador, ciclo del GPS | Confirmar entrega, Mapa | `src/app/domicilio/[id]/entregar.tsx`, `src/hooks/useSeguimientoGps.ts` | Pendiente |
 | Hook propio | Seguimiento GPS: permiso, activar, pausar, reanudar y limpieza | Mapa | `src/hooks/useSeguimientoGps.ts` | Pendiente |
-| Zustand (separado de TanStack) | Sesión, estado del seguimiento, códigos consultados | Ingresar, Mapa, Inicio | `src/store/sesion.ts`, `src/store/seguimiento.ts` | Pendiente |
+| Zustand (separado de TanStack) | Sesión, estado del seguimiento, códigos consultados | Ingresar, Mapa, Inicio | `src/store/sesion.ts`, `src/store/seguimiento.ts` | Sesión (`src/store/sesion.ts`) y códigos consultados (`src/store/codigosConsultados.ts`); falta el estado del seguimiento GPS |
 | Contador con límites | RF-13: unidades entregadas por línea | Confirmar entrega | `src/components/ContadorUnidades.tsx` | Pendiente |
 | Cálculo con validaciones | RF-17: cobro por reprogramar (RN-09) | Reprogramar | `src/logica/cobroReprogramacion.ts` | Pendiente |
-| Formulario con validaciones | RF-02, RF-14 | Ingresar, No entrega | `src/app/ingresar.tsx`, `src/app/domicilio/[id]/no-entregar.tsx` | Pendiente |
-| Axios con URL base centralizada | Acceso al backend de Karamba | Todas las de datos | `src/servicios/api.ts`, `.env.template` | Pendiente |
-| Listado y detalle por HTTP | B-02 | Hoy, Detalle | `src/servicios/domicilios.ts` | Pendiente |
-| Interfaces de respuesta, modelo interno y mapper | Domicilio, posición, seguimiento | Hoy, Detalle, Seguimiento | `src/tipos/api.ts`, `src/modelos/`, `src/mapeadores/` | Pendiente |
-| TanStack Query con queryKey y caché | Consultas y actualización periódica | Hoy, Detalle, Mapa, Seguimiento | `src/hooks/consultas/` | Pendiente |
+| Formulario con validaciones | RF-02, RF-14 | Ingresar, No entrega | `src/app/ingresar.tsx`, `src/app/domicilio/[id]/no-entregar.tsx` | Ingresar: errores por campo, credenciales incorrectas sin revelar el dato y rol sin acceso; falta No entrega |
+| Axios con URL base centralizada | Acceso al backend de Karamba | Todas las de datos | `src/servicios/api.ts`, `src/servicios/sesion.ts`, `.env.template` | Una instancia con el token y su renovación automática |
+| Listado y detalle por HTTP | B-02 | Hoy, Detalle | `src/servicios/domicilios.ts` | Lista del día y detalle contra la API local |
+| Interfaces de respuesta, modelo interno y mapper | Domicilio, posición, seguimiento | Hoy, Detalle, Seguimiento | `src/tipos/api.ts`, `src/modelos/`, `src/mapeadores/` | Domicilio, seguimiento y sesión (`src/mapeadores/`); falta posición |
+| TanStack Query con queryKey y caché | Consultas y actualización periódica | Hoy, Detalle, Mapa, Seguimiento | `src/hooks/consultas/` | Claves por recurso (`claves.ts`), caché de 30 s y consulta cada 15 s del seguimiento mientras va en camino |
 | Google Maps con expo-location (ADR 0002) | Punto de despacho, destino y domiciliarios | Mapa, Seguimiento, Punto de despacho | `src/components/Mapa.tsx`, `app.config.js` | `react-native-maps` instalado |
 | Permiso, GPS apagado y regreso desde ajustes | RF-20 | Mapa, Permisos de ubicación | `src/hooks/useSeguimientoGps.ts`, `src/app/(equipo)/ubicacion.tsx` | Pendiente |
 | Centrar, activar, pausar y reanudar | RF-12 | Mapa | `src/app/(equipo)/(tabs)/mapa.tsx` | Pendiente |
 | Liberar suscripciones | RNF-08 | Mapa | `src/hooks/useSeguimientoGps.ts` | Pendiente |
 | Conservación de datos | Domicilios, entregas y posiciones en el backend; sesión y códigos en el teléfono | Todas | Backend de Karamba, `src/store/` | Pendiente |
 | Sin conexión sin confirmaciones falsas | RNF-05 | Confirmar entrega, No entrega, Reprogramar | `src/servicios/api.ts` | Pendiente |
-| Operaciones simuladas identificadas | RNF-09 | Ingresar, Hoy, No entrega | `src/components/AvisoSimulado.tsx` | Usado en Ingresar y en la lista de ejemplo |
-| `.env.template` sin secretos | RNF-06 | — | `.env.template` | Pendiente |
+| Operaciones simuladas identificadas | RNF-09 | No entrega (foto sin Cloudinary en local) | `src/components/AvisoSimulado.tsx` | Componente listo; ya no hay operaciones simuladas en uso |
+| `.env.template` sin secretos | RNF-06 | — | `.env.template` | `.env.template` solo con la URL del backend y la llave de Android vacía; `.env` fuera del repo |
 
 ## 9. Conservación de la información
 

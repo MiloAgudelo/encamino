@@ -1,17 +1,18 @@
 import '@/global.css';
 
 import { PortalHost } from '@rn-primitives/portal';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { Stack, ThemeProvider } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { crearClienteConsultas } from '@/lib/clienteConsultas';
 import { NAV_THEME } from '@/lib/theme';
 
 export default function LayoutRaiz() {
-  const [clienteConsultas] = useState(() => new QueryClient());
+  const [clienteConsultas] = useState(crearClienteConsultas);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
