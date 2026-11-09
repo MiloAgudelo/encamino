@@ -25,6 +25,16 @@ Otros comandos:
 | `pnpm typecheck` | Verifica los tipos de TypeScript |
 | `pnpm check` | Revisa que las dependencias coincidan con el SDK de Expo |
 
+## Componentes
+
+La interfaz usa [React Native Reusables](https://reactnativereusables.com), la versión de shadcn/ui para React Native, sobre NativeWind 4. Los componentes se copian al repo en `src/components/ui/` y se pueden modificar. Para agregar otro:
+
+```bash
+npx @react-native-reusables/cli@latest add dialog --styling-library nativewind
+```
+
+Los colores del tema están en `src/global.css` (clases) y en `src/lib/theme.ts` (navegación e íconos). Los componentes propios de EnCamino (`TarjetaDomicilio`, `EstadoDatos`, `AvisoSimulado`) están en `src/components/`.
+
 ## Documentación
 
 - [`docs/requisitos.md`](docs/requisitos.md): cliente y problema, alcance, reglas de negocio, requisitos, mapa de pantallas y matriz.

@@ -1,7 +1,9 @@
 import { router } from 'expo-router';
-import { Pressable, Text } from 'react-native';
 
+import { AvisoSimulado } from '@/components/AvisoSimulado';
 import { PantallaPendiente } from '@/components/PantallaPendiente';
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
 
 export default function Ingresar() {
   return (
@@ -10,9 +12,10 @@ export default function Ingresar() {
       titulo="Ingreso del equipo"
       descripcion="Correo y contraseña de Karamba. Abre la vista del domiciliario o la del administrador según el rol."
     >
-      <Pressable accessibilityRole="button" onPress={() => router.replace('/(equipo)/(tabs)')}>
-        <Text style={{ color: '#8A4B6E', fontSize: 16, fontWeight: '700' }}>Entrar sin cuenta (simulado)</Text>
-      </Pressable>
+      <Button onPress={() => router.replace('/(equipo)/(tabs)')}>
+        <Text>Entrar sin cuenta</Text>
+      </Button>
+      <AvisoSimulado que="sin validar credenciales" />
     </PantallaPendiente>
   );
 }

@@ -1,6 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import type { ComponentProps, ReactNode } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+
+import { Badge } from '@/components/ui/badge';
+import { Text } from '@/components/ui/text';
+import { THEME } from '@/lib/theme';
 
 type NombreIcono = ComponentProps<typeof Ionicons>['name'];
 
@@ -19,19 +23,18 @@ interface PantallaPendienteProps {
  */
 export function PantallaPendiente({ icono, titulo, descripcion, children }: PantallaPendienteProps) {
   return (
-    <View style={estilos.contenedor}>
-      <Ionicons name={icono} size={48} color="#8A4B6E" />
-      <Text style={estilos.titulo}>{titulo}</Text>
-      <Text style={estilos.descripcion}>{descripcion}</Text>
-      <Text style={estilos.aviso}>En construcción</Text>
-      {children}
+    <View className="flex-1 items-center justify-center gap-3 bg-background p-6">
+      <Ionicons name={icono} size={48} color={THEME.mutedForeground} />
+      <Text variant="h3" className="text-center">
+        {titulo}
+      </Text>
+      <Text variant="muted" className="max-w-xs text-center text-base">
+        {descripcion}
+      </Text>
+      <Badge variant="outline">
+        <Text>En construcción</Text>
+      </Badge>
+      {children ? <View className="mt-2 w-full max-w-xs gap-2">{children}</View> : null}
     </View>
   );
 }
-
-const estilos = StyleSheet.create({
-  contenedor: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 24, backgroundColor: '#FFF8F3' },
-  titulo: { fontSize: 22, fontWeight: '700', color: '#3B2230', textAlign: 'center' },
-  descripcion: { fontSize: 16, color: '#5C4652', textAlign: 'center', maxWidth: 320 },
-  aviso: { fontSize: 13, color: '#8A4B6E', borderWidth: 1, borderColor: '#8A4B6E', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 2 },
-});

@@ -155,7 +155,7 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 
 | ID | Categoría | Descripción | Cómo se verifica |
 | --- | --- | --- | --- |
-| RNF-01 | Usabilidad | Textos legibles, controles con ícono y texto, formularios que el teclado no tapa y áreas seguras respetadas. Estilos con NativeWind y la fuente de la marca (Quick y GuldScript). | En un teléfono Android se completan RF-11 a RF-14 sin ayuda y ningún campo queda tapado. |
+| RNF-01 | Usabilidad | Textos legibles, controles con ícono y texto, formularios que el teclado no tapa y áreas seguras respetadas. Estilos con NativeWind, componentes de React Native Reusables y la fuente de la marca (Quick y GuldScript). | En un teléfono Android se completan RF-11 a RF-14 sin ayuda y ningún campo queda tapado. |
 | RNF-02 | Estados de datos | Toda pantalla con datos remotos muestra carga, vacío y error con "Reintentar"; los productos sin imagen muestran una alternativa. | Se fuerza cada estado (backend apagado, lista vacía, producto sin imagen) y aparece el mensaje correspondiente. |
 | RNF-03 | Datos remotos | Una sola instancia de Axios con la URL base del backend; respuestas tipadas y adaptadas por un mapper al modelo interno; consultas con TanStack Query, claves por recurso y un tiempo de caché definido. | La revisión del código muestra una única configuración HTTP y ningún componente consume la respuesta cruda. |
 | RNF-04 | Estado compartido | Zustand guarda la sesión, el estado del seguimiento (activo o en pausa) y los códigos consultados. Lo remoto vive solo en TanStack Query. | Ningún dato del backend se copia a Zustand. |
@@ -203,10 +203,10 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 | Drawer | Punto de despacho, permisos, perfil | Menú lateral | `src/app/(equipo)/_layout.tsx` | Proyecto base con rutas |
 | Ruta dinámica e id inexistente | RF-10, RF-05 | Detalle, Seguimiento | `src/app/domicilio/[id]/index.tsx`, `src/app/seguimiento/[token].tsx` | Pendiente |
 | Inicio definido y ruta rota | RF-01, RF-04 | Inicio, No encontrada | `src/app/index.tsx`, `src/app/+not-found.tsx` | Proyecto base con rutas |
-| NativeWind y fuente propia | RNF-01 | Todas | `tailwind.config.js`, `src/global.css`, `assets/fonts/` | Pendiente |
-| Tres componentes con props tipadas | Botón, tarjeta de domicilio, estado de carga/error/vacío | Hoy, Historial, Detalle, Seguimiento | `src/components/Boton.tsx`, `TarjetaDomicilio.tsx`, `EstadoDatos.tsx` | Pendiente |
+| NativeWind y fuente propia | RNF-01 | Todas | `tailwind.config.js`, `src/global.css`, `babel.config.js`, `metro.config.js`, `assets/fonts/` | NativeWind configurado; falta la fuente |
+| Componentes reutilizables con props tipadas | Base de React Native Reusables (botón, tarjeta, campo, etiqueta, insignia, separador, esqueleto, texto) y componentes propios: tarjeta de domicilio, estado de carga/error/vacío y aviso de simulado | Inicio, Hoy, Historial, Detalle, Seguimiento | `src/components/ui/`, `src/components/TarjetaDomicilio.tsx`, `EstadoDatos.tsx`, `AvisoSimulado.tsx` | Base de componentes |
 | Lista, tarjetas, búsqueda y filtro | RF-09, RF-15, RF-18 | Hoy, Historial | `src/app/(equipo)/(tabs)/index.tsx`, `historial.tsx` | Pendiente |
-| Carga, vacío, error, reintentar e imagen alternativa | RNF-02 | Hoy, Detalle, Seguimiento | `src/components/EstadoDatos.tsx` | Pendiente |
+| Carga, vacío, error, reintentar e imagen alternativa | RNF-02 | Hoy, Detalle, Seguimiento | `src/components/EstadoDatos.tsx` | Componente listo; falta usarlo con datos reales |
 | useState y useEffect | Formularios, contador, ciclo del GPS | Confirmar entrega, Mapa | `src/app/domicilio/[id]/entregar.tsx`, `src/hooks/useSeguimientoGps.ts` | Pendiente |
 | Hook propio | Seguimiento GPS: permiso, activar, pausar, reanudar y limpieza | Mapa | `src/hooks/useSeguimientoGps.ts` | Pendiente |
 | Zustand (separado de TanStack) | Sesión, estado del seguimiento, códigos consultados | Ingresar, Mapa, Inicio | `src/store/sesion.ts`, `src/store/seguimiento.ts` | Pendiente |
@@ -223,7 +223,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 | Liberar suscripciones | RNF-08 | Mapa | `src/hooks/useSeguimientoGps.ts` | Pendiente |
 | Conservación de datos | Domicilios, entregas y posiciones en el backend; sesión y códigos en el teléfono | Todas | Backend de Karamba, `src/store/` | Pendiente |
 | Sin conexión sin confirmaciones falsas | RNF-05 | Confirmar entrega, No entrega, Reprogramar | `src/servicios/api.ts` | Pendiente |
-| Operaciones simuladas identificadas | RNF-09 | Ingresar, No entrega | `src/components/AvisoSimulado.tsx` | Pendiente |
+| Operaciones simuladas identificadas | RNF-09 | Ingresar, Hoy, No entrega | `src/components/AvisoSimulado.tsx` | Usado en Ingresar y en la lista de ejemplo |
 | `.env.template` sin secretos | RNF-06 | — | `.env.template` | Pendiente |
 
 ## 9. Conservación de la información
