@@ -43,7 +43,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 
 | Entradas | Reglas | Resultado |
 | --- | --- | --- |
-| Tarifa del destino (ciudad o barrio), causa del regreso, cambio de dirección | RN-08 y RN-09 | Valor del domicilio nuevo, domicilio reasignado y valor visible en el seguimiento del cliente |
+| Zona del destino (con costo o con domicilio incluido), causa del regreso, cambio de dirección | RN-08 y RN-09 | Valor del domicilio nuevo, domicilio reasignado y valor visible en el seguimiento del cliente |
 
 ### Fuera del alcance
 
@@ -65,7 +65,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 | RN-06 | Al confirmar la entrega, las unidades entregadas de cada producto van de 0 a la cantidad pedida. Si alguna es menor que lo pedido, el resultado es *entrega parcial* y el motivo es obligatorio. Si todas son 0, no se puede confirmar como entrega: hay que reportar *no entregado*. |
 | RN-07 | Para reportar *no entregado* son obligatorios el motivo y la foto. Antes se muestra el protocolo de Karamba: contactar al destinatario, luego al cliente y luego a Karamba. |
 | RN-08 | Solo se reprograma un domicilio vigente en *no entregado* o *entrega parcial*. La reprogramación crea un intento nuevo; el anterior queda en el historial. |
-| RN-09 | Valor del domicilio nuevo = tarifa del destino (la del barrio si tiene una propia; si no, la de la ciudad), con un mínimo de $5.500. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la tarifa del destino nuevo. La tarifa no puede quedar vacía, ser negativa ni tener decimales. Tarifas por ciudad y barrio **[Por confirmar con el cliente]**. |
+| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: la Comuna 1, la Comuna 3 y la Comuna 7 de Cartago, Zaragoza y Puerto Caldas. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar: en una zona con tarifa, la tarifa de esa zona; en una zona con domicilio incluido, una tarifa fija de reprogramación, porque el viaje incluido ya se hizo. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. Valores de las tarifas **[Por confirmar con el cliente]**. |
 
 ## 4. Requisitos funcionales
 
@@ -106,7 +106,7 @@ Prioridad: **Alta** es el núcleo del proceso principal; **Media** completa una 
 | --- | --- | --- | --- | --- | --- |
 | RF-15 | Domicilios en curso | Lista de todos los domicilios de hoy con filtro por domiciliario y por estado. | Administrador | Alta | Muestra el mismo tratamiento de carga, vacío y error que RF-09. Los no entregados vigentes aparecen primero. |
 | RF-16 | Mapa de supervisión | Mapa con el punto de despacho y la última posición de cada domiciliario en camino. | Administrador | Media | Cada marcador muestra el nombre del domiciliario y la hora de su posición. Tocarlo abre el detalle del domicilio. Se actualiza cada 15 segundos mientras la pantalla está abierta y deja de consultar al salir. |
-| RF-17 | Reprogramar con cobro | Sobre un domicilio *no entregado* o *entrega parcial*, el administrador elige la causa, confirma o cambia el destino, ve el valor calculado y asigna un domiciliario. | Administrador | Media | El valor se recalcula al cambiar la causa o el barrio (RN-09). Una tarifa vacía, no numérica, negativa o con decimales se rechaza con mensaje. No se puede guardar sin domiciliario. El intento anterior queda en el historial. |
+| RF-17 | Reprogramar con cobro | Sobre un domicilio *no entregado* o *entrega parcial*, el administrador elige la causa, confirma o cambia el destino, ve el valor calculado y asigna un domiciliario. | Administrador | Media | El valor se recalcula al cambiar la causa o el barrio, y la pantalla dice si el destino está en una zona con tarifa o con domicilio incluido (RN-09). Una tarifa vacía, no numérica, negativa o con decimales se rechaza con mensaje. No se puede guardar sin domiciliario. El intento anterior queda en el historial. |
 | RF-18 | Historial | Domicilios terminados con filtro por fecha, domiciliario y resultado. | Domiciliario, administrador | Media | El domiciliario ve solo los suyos. Sin resultados se muestra un estado vacío con la opción de limpiar los filtros. |
 
 ### 4.5 Mapa, ubicación y permisos
@@ -139,7 +139,7 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 | B-04 | Posiciones del domiciliario | — | Modelo de posiciones; `POST .../<pk>/posicion/` (domiciliario asignado); `GET` de la última posición para el administrador y para el seguimiento público por código, este último solo mientras está *en camino* (RN-04). |
 | B-05 | Entrega con unidades por línea | `POST publico/<token>/entregar/` | Tabla con las unidades entregadas por línea y el motivo. **Decisión pendiente:** agregar *entrega parcial* como valor nuevo de `resultado` toca la lógica de reasignación, que depende de `resultado='NO_ENTREGADO'`. La alternativa es dejar `resultado=ENTREGADO` con una marca de parcial y el detalle por línea. |
 | B-06 | No entrega con foto | `POST publico/<token>/no-entregar/` y firma de Cloudinary | Versión autenticada para la app, con las mismas validaciones. |
-| B-07 | Reprogramación con cobro | `POST .../<pk>/reasignar/` | Tarifa de domicilio por ciudad y por barrio; causa y valor en el intento nuevo; aceptar también *entrega parcial*. |
+| B-07 | Reprogramación con cobro | `POST .../<pk>/reasignar/` | Zonas con tarifa (Comunas 1, 3 y 7, Zaragoza y Puerto Caldas) asignadas a sus barrios y tarifa fija de reprogramación, editables desde el panel; causa y valor en el intento nuevo; aceptar también *entrega parcial*. |
 | B-08 | Seguimiento del cliente | `GET /api/pedidos/pedidos/seguimiento/<token>/` | Agregar el estado del domicilio vigente, la última posición (según RN-04) y el valor de reprogramación. |
 | B-09 | Entorno local | La base está fija en PostgreSQL y el desarrollo local apunta a la misma base que producción. | Variable de entorno para usar una base local con datos de prueba. |
 | B-10 | Posiciones de todos en camino | — | `GET .../en-camino/` (solo administrador): en una sola respuesta, cada domicilio *en camino* con su domiciliario, número de pedido, barrio y última posición. Lo usan el mapa de supervisión de la app (RF-16) y el tablero (RF-22), para no hacer una consulta por domiciliario cada 15 segundos. |
@@ -245,7 +245,8 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 ## 11. Por confirmar con el cliente
 
 - Dirección y coordenadas del punto de despacho en Cartago.
-- Tarifas de domicilio por ciudad y por barrio (RN-09); hoy solo se conoce el mínimo publicado de $5.500.
+- Valor de la tarifa de cada zona con costo y de la tarifa fija de reprogramación (RN-09); la web publica "desde $5.500".
+- Qué barrios forman la Comuna 1, la Comuna 3 y la Comuna 7, para asignarlos a su zona (RN-09).
 - Causas del regreso que se consideran de Karamba y no se cobran (RN-09).
 - Intervalo de envío de la posición (RN-03).
 - Si una entrega parcial se registra como resultado propio o como entrega con marca de parcial (B-05).

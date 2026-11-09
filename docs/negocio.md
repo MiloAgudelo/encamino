@@ -27,8 +27,8 @@ Motivos de pedido: cumpleaños, aniversario, amor y amistad, día de la madre, a
 
 ## Domicilio
 
-- El domicilio no está incluido en el precio, salvo en algunos productos para la zona central de Cartago.
-- Cuesta **desde $5.500** según el destino. El cliente también puede recoger el pedido.
+- El domicilio solo tiene costo en la Comuna 1, la Comuna 3 y la Comuna 7 de Cartago, Zaragoza y Puerto Caldas. En el resto de destinos está incluido en el precio (confirmado por Karamba el 2026-11-09).
+- En las zonas con costo, la web publica **desde $5.500**. El cliente también puede recoger el pedido.
 - **El tiempo estimado de entrega es de media a una hora.**
 - El domiciliario espera un tiempo prudencial. Si tiene que regresar, el pedido se reprograma y el domicilio nuevo se cobra antes. Pasa lo mismo cuando hay cambios o errores en la dirección.
 - No se toman fotos durante la entrega, para cuidar la privacidad de quien recibe. Al cliente se le comparte una foto del regalo antes de salir.
@@ -37,6 +37,6 @@ Motivos de pedido: cumpleaños, aniversario, amor y amistad, día de la madre, a
 ## Reglas que salen de aquí para la app
 
 - **Estados del domicilio:** *pendiente*, *en camino*, *entregado* y *no entregado*. El último cubre cuando el domiciliario espera y nadie recibe.
-- **Total del pedido:** suma de unidades por precio, más el valor del domicilio, que es como mínimo $5.500 o $0 si el cliente recoge.
+- **Total del pedido:** suma de unidades por precio, más el valor del domicilio, que es $0 si el destino tiene el domicilio incluido o si el cliente recoge.
 - **Hora estimada de llegada:** salida más 30 a 60 minutos.
 - **Pago en efectivo:** el cambio que debe llevar el domiciliario es el billete con que paga el cliente menos el total. El billete no puede ser menor que el total.

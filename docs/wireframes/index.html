@@ -463,11 +463,11 @@
           <div class="chips"><span class="chip sel">Nadie recibió</span><span class="chip">Dirección errada</span><span class="chip">Causa de Karamba</span></div>
           <div class="etq">Destino</div>
           <div class="campo">Cerritos, Pereira ▾ (misma dirección)</div>
-          <div class="etq">Tarifa del barrio</div>
+          <div class="etq">Tarifa fija de reprogramación</div>
           <div class="campo">$ 9.000</div>
           <div class="caja">
-            <div class="fila txt"><span>Tarifa de Cerritos</span><span style="text-align:right">$ 9.000</span></div>
-            <div class="fila txt"><span>Mínimo</span><span style="text-align:right">$ 5.500</span></div>
+            <div class="fila txt"><span>Zona de Cerritos</span><span style="text-align:right">Domicilio incluido</span></div>
+            <div class="fila txt"><span>Viaje incluido ya hecho → tarifa fija</span><span style="text-align:right">$ 9.000</span></div>
             <div class="sep"></div>
             <div class="fila"><b>Valor a cobrar</b><b style="text-align:right">$ 9.000</b></div>
           </div>
@@ -475,7 +475,7 @@
           <div class="btn">Reprogramar y avisar</div>
         </div>
       </div>
-      <figcaption><b>Reprogramar con cobro (cálculo)</b><code>domicilio/[id]/reprogramar</code> · RF-17, RN-09. Se recalcula al cambiar la causa o el barrio. "Causa de Karamba" → $0. Tarifa vacía, no numérica, negativa o con decimales → mensaje.</figcaption>
+      <figcaption><b>Reprogramar con cobro (cálculo)</b><code>domicilio/[id]/reprogramar</code> · RF-17, RN-09. Se recalcula al cambiar la causa o el barrio. En una zona con domicilio incluido se cobra la tarifa fija; en una zona con costo, la de la zona. "Causa de Karamba" → $0. Tarifa vacía, no numérica, negativa o con decimales → mensaje.</figcaption>
     </figure>
 
     <figure id="historial">
