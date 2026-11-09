@@ -16,7 +16,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 
 **Cómo se hace hoy.** Karamba ya tiene un sistema propio (panel administrativo y backend en `riveragiraldo/karamba-backend`). El administrador registra el pedido, le asigna un domiciliario y le envía por WhatsApp un enlace donde el domiciliario marca *entregado* o *no entregado*. El cliente tiene un enlace de seguimiento con la línea de tiempo del pedido. Lo que no existe es la ubicación en vivo: el sistema solo guarda el punto GPS del momento en que se reporta la entrega. Mientras el pedido va en camino, el cliente pregunta por WhatsApp "¿ya viene?" y el administrador tiene que llamar al domiciliario para responder.
 
-**Cómo se hará con EnCamino.** El domiciliario inicia el recorrido desde la app y comparte su posición mientras va en camino. El cliente abre su código de seguimiento y ve el estado y al domiciliario en el mapa. El administrador ve a todos los que van en camino. Al llegar, el domiciliario confirma cuántas unidades entregó de cada producto o reporta que no pudo entregar. Si hay que volver, el administrador reprograma el domicilio y la app calcula cuánto cuesta el domicilio nuevo.
+**Cómo se hará con EnCamino.** El domiciliario inicia el recorrido desde la app y comparte su posición mientras va en camino. El cliente toca el enlace de seguimiento que le llega por WhatsApp y ve el estado y al domiciliario en el mapa desde el navegador, sin instalar nada; si prefiere, puede usar la app con el mismo código. El administrador ve a todos los que van en camino en la app y en un tablero del panel web pensado para el televisor del local. Al llegar, el domiciliario confirma cuántas unidades entregó de cada producto o reporta que no pudo entregar. Si hay que volver, el administrador reprograma el domicilio y la app calcula cuánto cuesta el domicilio nuevo.
 
 **Beneficio esperado:** menos mensajes de "¿ya viene?", supervisión de las entregas sin llamar a nadie, registro de entregas parciales que hoy no queda en ninguna parte y un cobro de reprogramación consistente con la política publicada.
 
@@ -27,7 +27,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 1. El administrador asigna el pedido a un domiciliario en el panel de Karamba (ya existe).
 2. El domiciliario ve el domicilio en su lista de hoy, abre el detalle e **inicia el recorrido**.
 3. La app envía su posición mientras el seguimiento está activo. Puede pausarlo y reanudarlo.
-4. El cliente abre su código de seguimiento y ve el estado, los productos y al domiciliario en el mapa.
+4. El cliente abre su enlace de seguimiento en el navegador (o su código en la app) y ve el estado, los productos y al domiciliario en el mapa.
 5. El domiciliario **confirma la entrega** con las unidades entregadas de cada producto, o **reporta la no entrega** con motivo y foto.
 6. El cliente ve el resultado. El administrador lo ve en su lista y en el mapa.
 
@@ -37,7 +37,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 
 ### Funciones complementarias
 
-1. **Supervisión en vivo.** El administrador ve en una lista y en un mapa a todos los domiciliarios en camino.
+1. **Supervisión en vivo.** El administrador ve en una lista y en un mapa a todos los domiciliarios en camino, en la app y en un tablero del panel web que se deja abierto en el televisor del local.
 2. **Reprogramación con cobro.** Sobre un domicilio no entregado o entregado de forma parcial, el administrador calcula el valor del domicilio nuevo y lo asigna. El cliente ve el valor en su seguimiento.
 3. **Historial.** Domicilios terminados con filtro por fecha, domiciliario y resultado.
 
@@ -51,7 +51,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 - Pagos dentro de la app: en Karamba todo se paga antes de la entrega.
 - Seguimiento en segundo plano, rutas óptimas, navegación giro a giro y distancia por vía. El mapa muestra puntos, nunca una línea recta presentada como ruta.
 - Notificaciones push.
-- Mejoras al panel web de Karamba: van en un backlog aparte.
+- Otras mejoras al panel web de Karamba: van en un backlog aparte. Solo entran el seguimiento en el navegador y el tablero en vivo (§4.6 y §5.2).
 
 ## 3. Reglas de negocio
 
@@ -84,7 +84,7 @@ Prioridad: **Alta** es el núcleo del proceso principal; **Media** completa una 
 
 | ID | Nombre | Descripción | Rol | Prioridad | Criterio de aceptación |
 | --- | --- | --- | --- | --- | --- |
-| RF-05 | Abrir el seguimiento | El cliente entra con el código de su mensaje de WhatsApp, pegándolo o tocando el enlace `encamino://seguimiento/<código>`. | Cliente | Alta | Un código válido abre su pedido. Un código inexistente o mal formado muestra "No encontramos este pedido" y la opción de volver a escribirlo. Los últimos códigos consultados se recuerdan en el teléfono. |
+| RF-05 | Abrir el seguimiento | La app es opcional para el cliente: el enlace de WhatsApp abre el seguimiento en el navegador (RF-21). Quien instale la app entra con el mismo código, pegándolo o tocando el enlace `encamino://seguimiento/<código>`. | Cliente | Alta | Un código válido abre su pedido. Un código inexistente o mal formado muestra "No encontramos este pedido" y la opción de volver a escribirlo. Los últimos códigos consultados se recuerdan en el teléfono. |
 | RF-06 | Estado del pedido | Muestra la línea de tiempo del pedido, los productos con imagen y la franja de entrega. | Cliente | Alta | Se ve un indicador de carga y luego los datos. Si falla, aparece un mensaje con "Reintentar". Un producto sin imagen muestra una imagen alternativa. |
 | RF-07 | Domiciliario en el mapa | Mientras el domicilio está *en camino*, el mapa muestra el punto de despacho y la última posición del domiciliario, con la hora de esa posición. | Cliente | Alta | La posición se actualiza sola cada 15 segundos sin recargar la pantalla. Si la última posición tiene más de 2 minutos, se muestra "Última posición hace N min". Antes de salir y después del reporte, no se muestra ninguna posición (RN-04). |
 | RF-08 | Resultado y reprogramación | Muestra cómo terminó el domicilio y, si se reprogramó, el valor del domicilio nuevo. | Cliente | Media | Para una entrega parcial se ven las unidades entregadas por producto. Para un domicilio reprogramado se ve el valor calculado (RN-09) y la nueva franja. |
@@ -116,9 +116,20 @@ Prioridad: **Alta** es el núcleo del proceso principal; **Media** completa una 
 | RF-19 | Punto de despacho | Dirección, horario y contacto de Karamba, con su marcador en el mapa. | Todos | Media | El marcador está en las coordenadas de Karamba en Cartago **[Por confirmar con el cliente]**. Si el mapa no carga, se muestra un mensaje con "Reintentar" y el resto de la app sigue funcionando. |
 | RF-20 | Permisos de ubicación | Explica para qué se usa la ubicación y maneja el permiso denegado, el regreso desde ajustes y el GPS apagado. | Domiciliario | Alta | Con el permiso denegado, se explica el motivo y se ofrece abrir los ajustes; al volver con el permiso concedido, funciona sin reiniciar la app. Con el GPS apagado se muestra "Activa la ubicación del teléfono". En ambos casos se pueden seguir usando la lista, el detalle y los formularios. |
 
-## 5. Cambios en `karamba-backend`
+### 4.6 Panel web de Karamba
+
+Dos páginas del panel web (`karamba-frontend`) muestran lo que reporta la app, para quien no la tiene instalada. Leen los mismos datos del backend.
+
+| ID | Nombre | Descripción | Rol | Prioridad | Criterio de aceptación |
+| --- | --- | --- | --- | --- | --- |
+| RF-21 | Seguimiento en el navegador | La página pública que ya existe en `/pedidos/seguimiento/<código>`, la misma que el administrador envía por WhatsApp, suma el mapa con el punto de despacho y la posición del domiciliario. | Cliente | Alta | Abre en el navegador del teléfono sin instalar nada ni iniciar sesión. Mientras el domicilio está *en camino*, la posición se actualiza sola cada 15 segundos; deja de consultar cuando el domicilio termina o la pestaña queda oculta, y retoma al volver. Cumple RN-04 y lo mismo que RF-07 y RF-08: "Última posición hace N min" y nada de posición antes de salir ni después del reporte. Un código inexistente muestra "No encontramos este pedido". |
+| RF-22 | Tablero en vivo | Página del panel a pantalla completa para dejar abierta en el televisor del local: mapa con el punto de despacho y todos los domiciliarios en camino, y al lado la lista de domicilios del día por estado. | Administrador | Media | Solo entra una sesión de administrador. Se actualiza sola cada 15 segundos sin tocar nada y el mapa se ajusta para mostrar a todos los domiciliarios. Cada marcador muestra el nombre, el número de pedido y la hora de su posición; una posición de más de 2 minutos se atenúa con "hace N min". Los *no entregados* vigentes aparecen primero y resaltados. Textos y marcadores legibles a 3 metros en un televisor de 1920 × 1080. Si se cae la conexión, muestra "Sin conexión · último dato hh:mm" sin borrar lo que había y se recupera sola. La sesión se renueva sola durante la jornada. |
+
+## 5. Cambios en el sistema de Karamba
 
 EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se reutiliza; lo que falta se agrega en ramas propias y por pull request, siguiendo las convenciones de `riveragiraldo/karamba-docs`.
+
+### 5.1 `karamba-backend`
 
 | ID | Cambio | Ya existe | Nuevo |
 | --- | --- | --- | --- |
@@ -131,6 +142,14 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 | B-07 | Reprogramación con cobro | `POST .../<pk>/reasignar/` | Tarifa de domicilio por ciudad y por barrio; causa y valor en el intento nuevo; aceptar también *entrega parcial*. |
 | B-08 | Seguimiento del cliente | `GET /api/pedidos/pedidos/seguimiento/<token>/` | Agregar el estado del domicilio vigente, la última posición (según RN-04) y el valor de reprogramación. |
 | B-09 | Entorno local | La base está fija en PostgreSQL y el desarrollo local apunta a la misma base que producción. | Variable de entorno para usar una base local con datos de prueba. |
+| B-10 | Posiciones de todos en camino | — | `GET .../en-camino/` (solo administrador): en una sola respuesta, cada domicilio *en camino* con su domiciliario, número de pedido, barrio y última posición. Lo usan el mapa de supervisión de la app (RF-16) y el tablero (RF-22), para no hacer una consulta por domiciliario cada 15 segundos. |
+
+### 5.2 `karamba-frontend`
+
+| ID | Cambio | Ya existe | Nuevo |
+| --- | --- | --- | --- |
+| F-01 | Mapa en el seguimiento público | `/pedidos/seguimiento/:token` (`SeguimientoPedido.jsx`) con línea de tiempo y productos; carga los datos una vez. El administrador ya envía el enlace por WhatsApp desde la lista de pedidos. Leaflet y react-leaflet ya están instalados. | Mapa con OpenStreetMap, consulta cada 15 segundos mientras está *en camino* y se detiene al terminar o con la pestaña oculta (RF-21). |
+| F-02 | Tablero en vivo | — | Ruta del panel solo para administrador, a pantalla completa, con el mapa y la lista de B-10 (RF-22). |
 
 ## 6. Requisitos no funcionales
 
@@ -220,6 +239,8 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 - Los domiciliarios ocasionales que hoy usan un usuario genérico y el enlace público quedan fuera de la app hasta que tengan cuenta propia; pueden seguir usando el enlace.
 - En el entorno local, la foto de no entrega y los avisos por WhatsApp pueden estar simulados (RNF-09).
 - La app no crea pedidos ni cobra: eso sigue en el panel de Karamba.
+- El tablero necesita un navegador en el televisor (televisor inteligente, computador o dispositivo conectado por HDMI). La sesión de administrador se renueva sola durante 7 días; después hay que volver a ingresar.
+- Cualquiera que tenga el enlace de seguimiento ve al domiciliario mientras va en camino. Por eso el enlace no muestra la posición fuera del recorrido (RN-04).
 
 ## 11. Por confirmar con el cliente
 
@@ -228,3 +249,4 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 - Causas del regreso que se consideran de Karamba y no se cobran (RN-09).
 - Intervalo de envío de la posición (RN-03).
 - Si una entrega parcial se registra como resultado propio o como entrega con marca de parcial (B-05).
+- Qué equipo mueve el televisor del local y su resolución (RF-22).

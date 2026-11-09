@@ -53,9 +53,13 @@ _Evitar_: reenvío, reasignación (reasignar es solo cambiar de domiciliario)
 ### Acceso
 
 **Código de seguimiento**:
-El identificador que Karamba le envía al cliente por WhatsApp para seguir su pedido sin cuenta. Abre el seguimiento en la app.
+El identificador que Karamba le envía al cliente por WhatsApp, dentro del enlace de seguimiento, para seguir su pedido sin cuenta. El enlace abre el seguimiento en el navegador; el mismo código sirve en la app.
 _Evitar_: token (en la interfaz), contraseña, número de pedido
 
 **Punto de despacho**:
 El lugar de Karamba en Cartago desde donde salen los domicilios.
 _Evitar_: tienda, sede, bodega
+
+**Tablero en vivo**:
+La página del panel web que el administrador deja abierta en el televisor del local, con todos los domiciliarios en camino y los domicilios del día.
+_Evitar_: dashboard, monitor

@@ -105,6 +105,25 @@
   .cajon .it::before { content: ""; width: 16px; height: 16px; border: 1.5px solid currentColor; border-radius: 4px; }
   .cajon .it.act { background: var(--relleno); font-weight: 700; }
 
+  /* Navegador del teléfono y televisor */
+  .url { height: 30px; margin: 4px 10px 6px; border-radius: 999px; background: var(--relleno); font-size: 10px; color: var(--tinta2); display: flex; align-items: center; padding: 0 12px; gap: 6px; flex: none; }
+  .url::before { content: "🔒"; font-size: 9px; }
+  figure.ancha { width: 100%; max-width: 900px; }
+  .tv { width: 100%; aspect-ratio: 16 / 9; background: var(--tel); border: 10px solid var(--tinta); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; }
+  .tv .sup { display: flex; align-items: center; gap: 18px; padding: 10px 16px; border-bottom: 1px solid var(--linea2); font-size: 13px; flex: none; }
+  .tv .sup .titulo { font-size: 20px; }
+  .tv .sup .chip { font-size: 12px; padding: 3px 10px; }
+  .tv .sup .hora { margin-left: auto; text-align: right; color: var(--tinta2); font-size: 12px; }
+  .tv .sup .hora b { display: block; color: var(--tinta); font-size: 22px; }
+  .tv .medio { flex: 1; display: grid; grid-template-columns: 1fr 260px; min-height: 0; }
+  .tv .mapa { border: none; border-radius: 0; border-right: 1px solid var(--linea2); }
+  .tv .pin { font-size: 12px; }
+  .tv .pin i { width: 22px; height: 22px; }
+  .tv .lista { padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+  .tv .lista .etq { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--tinta2); }
+  .tv .tarjeta { font-size: 12px; }
+  .tv .tarjeta.alerta { border-color: var(--alerta); box-shadow: inset 4px 0 0 var(--alerta); }
+
   /* Exportación de una sola pantalla: index.html?solo=<id> */
   body.solo header.doc, body.solo .grupo h2, body.solo figure:not(.elegida), body.solo figcaption { display: none; }
   body.solo .grupo:not(:has(.elegida)) { display: none; }
@@ -112,6 +131,7 @@
   body.solo .grupo { padding: 0; margin: 0; }
   body.solo .rejilla { display: block; }
   body.solo figure.elegida { width: 300px; margin: 10px 0 0 10px; }
+  body.solo figure.elegida.ancha { width: 900px; max-width: none; }
 </style>
 </head>
 <body>
@@ -562,6 +582,73 @@
         </div>
       </div>
       <figcaption><b>Código inexistente</b><code>seguimiento/[token]</code> · RF-05.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ PANEL WEB DE KARAMBA ============ -->
+<section class="grupo">
+  <h2>Panel web de Karamba</h2>
+  <div class="rejilla">
+
+    <figure id="seguimiento-web">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="url">karambabymarce.com/pedidos/seguimiento/7f3c…</div>
+        <div class="cuerpo" style="padding-top:4px">
+          <div class="titulo">Tu pedido #1287</div>
+          <div class="mapa" style="flex:none;height:200px">
+            <svg class="calles" viewBox="0 0 300 200" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 50H300M0 140H300M60 0V200M190 0V200"/></g></svg>
+            <div class="pin tienda" style="left:60px;top:50px"><i></i><span>Karamba</span></div>
+            <div class="pin dom" style="left:190px;top:110px"><i></i><span>Tu pedido · hace 9 s</span></div>
+          </div>
+          <div class="txt">Se actualiza solo cada 15 s.</div>
+          <div class="tiempo">
+            <div class="hecho">Pedido registrado</div>
+            <div class="hecho">En alistamiento</div>
+            <div class="actual">En camino · salió 9:12</div>
+            <div>¡Entregado!</div>
+          </div>
+          <div class="sep"></div>
+          <div class="fila"><div class="img" style="flex:none;width:36px;height:36px"></div><div class="txt"><b style="color:var(--tinta)">K01 Desayuna y pide un deseo</b> · 1</div></div>
+          <div class="txt">Llega entre 8:00 y 9:00 · El Prado, Cartago</div>
+        </div>
+      </div>
+      <figcaption><b>Seguimiento en el navegador</b><code>karamba-frontend · /pedidos/seguimiento/:token</code> · RF-21, F-01. La página que ya existe, con el mapa agregado. Se abre desde el enlace de WhatsApp sin instalar nada. Deja de consultar al terminar el domicilio o con la pestaña oculta. Los estados de resultado y código inexistente son los mismos de la app.</figcaption>
+    </figure>
+
+    <figure id="tablero" class="ancha">
+      <div class="tv">
+        <div class="sup">
+          <span class="titulo">Domicilios en vivo</span>
+          <span class="chip camino">4 en camino</span>
+          <span class="chip">6 pendientes</span>
+          <span class="chip no">1 no entregado</span>
+          <span class="chip ok">3 entregados</span>
+          <span class="hora"><b>9:41</b>Actualizado hace 5 s</span>
+        </div>
+        <div class="medio">
+          <div class="mapa">
+            <svg class="calles" viewBox="0 0 600 300" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="12" fill="none"><path d="M0 50H600M0 130H600M0 210H600M0 280H600M90 0V300M230 0V300M370 0V300M510 0V300"/></g></svg>
+            <div class="pin tienda" style="left:14%;top:20%"><i></i><span>Karamba</span></div>
+            <div class="pin dom" style="left:38%;top:40%"><i></i><span>Juan · #1287 · 8 s</span></div>
+            <div class="pin dom" style="left:62%;top:70%"><i></i><span>Luis · #1288 · 12 s</span></div>
+            <div class="pin dom" style="left:24%;top:88%"><i></i><span>Pedro · #1290 · 40 s</span></div>
+            <div class="pin dom" style="left:85%;top:42%;opacity:.45"><i></i><span>Ana · #1291 · hace 3 min</span></div>
+          </div>
+          <div class="lista">
+            <div class="etq">Requieren atención</div>
+            <div class="tarjeta alerta"><b>#1279 · Cerritos</b><span class="chip no">No entregado</span><span class="meta">Juan P. · "Nadie atendió"</span></div>
+            <div class="etq">En camino</div>
+            <div class="tarjeta"><b>#1287 · El Prado</b><span class="chip camino">8 s</span><span class="meta">Juan P. · llega 8:00–9:00</span></div>
+            <div class="tarjeta"><b>#1288 · Boston</b><span class="chip camino">12 s</span><span class="meta">Luis · llega 9:00–10:00</span></div>
+            <div class="tarjeta"><b>#1290 · San Jerónimo</b><span class="chip camino">40 s</span><span class="meta">Pedro G. · llega 9:00–10:00</span></div>
+            <div class="tarjeta"><b>#1291 · Centro</b><span class="chip parcial">3 min</span><span class="meta">Ana · sin posición reciente</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Tablero en vivo (televisor)</b><code>karamba-frontend · ruta de administrador a pantalla completa</code> · RF-22, B-10, F-02. Se deja abierto sin tocar nada: se actualiza cada 15 s y el mapa se ajusta para mostrar a todos. Las posiciones de más de 2 minutos se atenúan. Sin conexión: banda "Sin conexión · último dato hh:mm" sin borrar lo que había. El mapa muestra puntos, nunca rutas.</figcaption>
     </figure>
 
   </div>
