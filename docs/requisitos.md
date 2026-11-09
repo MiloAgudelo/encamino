@@ -143,13 +143,14 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 | B-08 | Seguimiento del cliente | `GET /api/pedidos/pedidos/seguimiento/<token>/` | Agregar el estado del domicilio vigente, la última posición (según RN-04) y el valor de reprogramación. |
 | B-09 | Entorno local | La base está fija en PostgreSQL y el desarrollo local apunta a la misma base que producción. | Variable de entorno para usar una base local con datos de prueba. |
 | B-10 | Posiciones de todos en camino | — | `GET .../en-camino/` (solo administrador): en una sola respuesta, cada domicilio *en camino* con su domiciliario, número de pedido, barrio y última posición. Lo usan el mapa de supervisión de la app (RF-16) y el tablero (RF-22), para no hacer una consulta por domiciliario cada 15 segundos. |
+| B-11 | Coordenadas del destino | El barrio tiene latitud y longitud de su centro. | Al registrar o cambiar la dirección de un pedido, el backend la convierte en coordenadas con Geocoding API de Google y las guarda en el domicilio, una sola vez. Si no encuentra la dirección, usa el centro del barrio y lo marca como aproximado. La llave vive solo en el backend. |
 
 ### 5.2 `karamba-frontend`
 
 | ID | Cambio | Ya existe | Nuevo |
 | --- | --- | --- | --- |
-| F-01 | Mapa en el seguimiento público | `/pedidos/seguimiento/:token` (`SeguimientoPedido.jsx`) con línea de tiempo y productos; carga los datos una vez. El administrador ya envía el enlace por WhatsApp desde la lista de pedidos. Leaflet y react-leaflet ya están instalados. | Mapa con OpenStreetMap, consulta cada 15 segundos mientras está *en camino* y se detiene al terminar o con la pestaña oculta (RF-21). |
-| F-02 | Tablero en vivo | — | Ruta del panel solo para administrador, a pantalla completa, con el mapa y la lista de B-10 (RF-22). |
+| F-01 | Mapa en el seguimiento público | `/pedidos/seguimiento/:token` (`SeguimientoPedido.jsx`) con línea de tiempo y productos; carga los datos una vez. El administrador ya envía el enlace por WhatsApp desde la lista de pedidos. | Mapa de Google (Maps JavaScript API), consulta cada 15 segundos mientras está *en camino* y se detiene al terminar o con la pestaña oculta (RF-21). |
+| F-02 | Tablero en vivo | — | Ruta del panel solo para administrador, a pantalla completa, con el mapa de Google y la lista de B-10 (RF-22). El mapa se carga una vez y solo se mueven los marcadores. |
 
 ## 6. Requisitos no funcionales
 
@@ -160,12 +161,13 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 | RNF-03 | Datos remotos | Una sola instancia de Axios con la URL base del backend; respuestas tipadas y adaptadas por un mapper al modelo interno; consultas con TanStack Query, claves por recurso y un tiempo de caché definido. | La revisión del código muestra una única configuración HTTP y ningún componente consume la respuesta cruda. |
 | RNF-04 | Estado compartido | Zustand guarda la sesión, el estado del seguimiento (activo o en pausa) y los códigos consultados. Lo remoto vive solo en TanStack Query. | Ningún dato del backend se copia a Zustand. |
 | RNF-05 | Sin conexión | La app detecta la falta de conexión, lo informa y no muestra confirmaciones falsas; al volver la conexión, la misma acción se completa con "Reintentar". | Con modo avión, confirmar una entrega muestra un error y no cambia nada; sin modo avión, la misma acción funciona. |
-| RNF-06 | Seguridad | Los tokens se guardan en el almacenamiento seguro del teléfono. El backend valida el rol en cada endpoint nuevo. No se guardan secretos en variables `EXPO_PUBLIC_`. | Con una cuenta de domiciliario, pedir el detalle de otro domiciliario devuelve 404. El repo tiene `.env.template` y no tiene `.env`. |
+| RNF-06 | Seguridad | Los tokens se guardan en el almacenamiento seguro del teléfono. El backend valida el rol en cada endpoint nuevo. No se guardan secretos en variables `EXPO_PUBLIC_`. Cada llave de Google tiene su propia restricción: la de Android al paquete y la huella del certificado, la del panel al dominio de Karamba y la de Geocoding solo en el backend. | Con una cuenta de domiciliario, pedir el detalle de otro domiciliario devuelve 404. El repo tiene `.env.template` y no tiene `.env`. |
 | RNF-07 | Privacidad | Solo se pide el permiso de ubicación en primer plano, al usar el mapa. El cliente no ve la posición fuera del recorrido ni los datos del domiciliario después de la entrega. | El permiso no aparece al abrir la app. Después del reporte, el seguimiento público no devuelve la posición. |
 | RNF-08 | Liberación de recursos | El seguimiento GPS y las consultas periódicas se detienen al pausar o al salir de la pantalla. | Al salir del mapa desaparece el indicador de ubicación del sistema y el backend deja de recibir posiciones. |
 | RNF-09 | Operaciones simuladas | En el entorno local, la subida de la foto a Cloudinary y los mensajes de WhatsApp pueden no tener credenciales. Si se simulan, la pantalla lo dice ("Simulado"). | Ninguna operación simulada aparece como real en la interfaz. |
 | RNF-10 | Compatibilidad | Android con Expo SDK 58. Se entregan `package.json` y `pnpm-lock.yaml`. | La app se instala desde cero con el README y corre en un teléfono Android real. |
 | RNF-11 | Tipado | Entidades, props, respuestas y resultados con tipos; sin `any` como salida general. | `pnpm typecheck` termina sin errores. |
+| RNF-12 | Costo de Google Maps | El mapa de la app es nativo (`react-native-maps` con Google). En la web, el mapa se carga una vez por página y luego solo se actualizan los marcadores. Cada dirección se geocodifica una sola vez. La cuenta de Google tiene un tope de gasto diario. | La actualización periódica del tablero no vuelve a cargar el mapa; un pedido ya geocodificado no vuelve a consultar Geocoding API. |
 
 ## 7. Mapa de pantallas
 
@@ -217,7 +219,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 | Listado y detalle por HTTP | B-02 | Hoy, Detalle | `src/servicios/domicilios.ts` | Pendiente |
 | Interfaces de respuesta, modelo interno y mapper | Domicilio, posición, seguimiento | Hoy, Detalle, Seguimiento | `src/tipos/api.ts`, `src/modelos/`, `src/mapeadores/` | Pendiente |
 | TanStack Query con queryKey y caché | Consultas y actualización periódica | Hoy, Detalle, Mapa, Seguimiento | `src/hooks/consultas/` | Pendiente |
-| OpenStreetMap y Leaflet en WebView | Punto de despacho, destino y domiciliarios | Mapa, Seguimiento, Punto de despacho | `src/components/MapaLeaflet.tsx` | Pendiente |
+| Google Maps con expo-location (ADR 0002) | Punto de despacho, destino y domiciliarios | Mapa, Seguimiento, Punto de despacho | `src/components/Mapa.tsx`, `app.config.js` | `react-native-maps` instalado |
 | Permiso, GPS apagado y regreso desde ajustes | RF-20 | Mapa, Permisos de ubicación | `src/hooks/useSeguimientoGps.ts`, `src/app/(equipo)/ubicacion.tsx` | Pendiente |
 | Centrar, activar, pausar y reanudar | RF-12 | Mapa | `src/app/(equipo)/(tabs)/mapa.tsx` | Pendiente |
 | Liberar suscripciones | RNF-08 | Mapa | `src/hooks/useSeguimientoGps.ts` | Pendiente |
@@ -241,6 +243,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 - La app no crea pedidos ni cobra: eso sigue en el panel de Karamba.
 - El tablero necesita un navegador en el televisor (televisor inteligente, computador o dispositivo conectado por HDMI). La sesión de administrador se renueva sola durante 7 días; después hay que volver a ingresar.
 - Cualquiera que tenga el enlace de seguimiento ve al domiciliario mientras va en camino. Por eso el enlace no muestra la posición fuera del recorrido (RN-04).
+- Los mapas dependen de Google: sin conexión no cargan, y la app propia (no Expo Go) necesita su llave de Android.
 
 ## 11. Por confirmar con el cliente
 

@@ -2,7 +2,7 @@
 
 Rastreo de domicilios en tiempo real para Karamba by marCe: el domiciliario comparte su ubicación y actualiza el estado del domicilio, el cliente lo sigue en el mapa y el administrador supervisa las entregas en curso.
 
-Aplicación móvil con React Native, TypeScript, Expo (SDK 58) y Expo Router. Usa como API el backend de Karamba ([`riveragiraldo/karamba-backend`](https://github.com/riveragiraldo/karamba-backend)).
+Aplicación móvil con React Native, TypeScript, Expo (SDK 58) y Expo Router. Los mapas son de Google Maps (`react-native-maps`). Usa como API el backend de Karamba ([`riveragiraldo/karamba-backend`](https://github.com/riveragiraldo/karamba-backend)).
 
 ## Requisitos
 
@@ -17,6 +17,8 @@ pnpm install
 cp .env.template .env      # y ajusta EXPO_PUBLIC_API_URL
 pnpm start                 # escanea el código QR con Expo Go
 ```
+
+En Expo Go el mapa funciona sin llave. Para compilar la app propia hace falta `GOOGLE_MAPS_ANDROID_API_KEY` en `.env` (ver `.env.template`).
 
 Otros comandos:
 
