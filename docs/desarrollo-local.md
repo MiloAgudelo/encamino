@@ -4,19 +4,16 @@ EnCamino usa como API el backend de Karamba. Para desarrollar y hacer demostraci
 
 ## 1. Base de datos local
 
-PostgreSQL local con [`embedded-postgres`](https://github.com/leinelissen/embedded-postgres), en el puerto 5437:
+PostgreSQL 17 (la misma versión mayor que producción) en Docker, definido en `docker-compose.yml` de este repo. Necesita Docker Desktop abierto.
 
 ```bash
-cd D:/dev/pg-local
-npm ci            # solo la primera vez
-node start.mjs 5437
+docker compose up -d
 ```
 
-Queda escuchando en `127.0.0.1:5437` con usuario y contraseña `sigba`. Django usa la base `postgres`; debe estar en UTF-8 como la de producción. Si se crea desde cero, recréala así antes de migrar (con el entorno virtual del backend):
+Queda en `127.0.0.1:5437` con usuario y contraseña `encamino`, base `postgres` en UTF-8 (la que usa Django). Los datos viven en el volumen `encamino_datos-postgres` y el contenedor vuelve a arrancar solo cuando se abre Docker Desktop.
 
-```bash
-python -c "import psycopg2; c=psycopg2.connect(host='127.0.0.1',port=5437,user='sigba',password='sigba',dbname='sigba'); c.autocommit=True; k=c.cursor(); k.execute('DROP DATABASE IF EXISTS postgres'); k.execute(\"CREATE DATABASE postgres ENCODING 'UTF8' TEMPLATE template0 LC_COLLATE 'C' LC_CTYPE 'C'\")"
-```
+- Apagar: `docker compose stop`.
+- Borrar la base y empezar de cero: `docker compose down -v`, luego `up -d`, migrar y cargar los datos de prueba.
 
 ## 2. Backend
 
@@ -35,8 +32,9 @@ SECRET_KEY=solo-local-encamino-no-usar-en-produccion
 DEBUG=True
 DB_HOST=127.0.0.1
 DB_PORT=5437
-DB_USER=sigba
-DB_PASSWORD=sigba
+DB_USER=encamino
+DB_PASSWORD=encamino
+ALLOWED_HOSTS_EXTRA=<IP-del-PC>
 ```
 
 Antes de migrar, comprueba a dónde apunta:
@@ -77,7 +75,7 @@ En `.env` de EnCamino, la URL del backend con la IP del PC en la red Wi-Fi (el t
 EXPO_PUBLIC_API_URL=http://<IP-del-PC>:8000/api
 ```
 
-Para que Django acepte esa IP, agrégala en el `.env` del backend: `ALLOWED_HOSTS_EXTRA=<IP-del-PC>`.
+Pon la misma IP en `ALLOWED_HOSTS_EXTRA` del `.env` del backend para que Django la acepte. Si cambias de red, la IP cambia: actualiza los dos `.env` y reinicia el backend (`ipconfig` muestra la IP actual).
 
 ## Comprobación rápida
 

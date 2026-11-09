@@ -1,0 +1,26 @@
+# Base de datos LOCAL para desarrollar EnCamino contra karamba-backend.
+# PostgreSQL 17, la misma versión mayor que usa Karamba en producción.
+# Nunca apunta a la base real. Ver docs/desarrollo-local.md.
+name: encamino
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: encamino-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: encamino
+      POSTGRES_PASSWORD: encamino
+      # Django usa la base "postgres", que la imagen crea por defecto en UTF-8.
+    ports:
+      - "5437:5432"
+    volumes:
+      - datos-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U encamino -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  datos-postgres:
