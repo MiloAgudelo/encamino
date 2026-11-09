@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnCamino · Wireframes</title>
+<style>
+  :root {
+    --fondo: #ECE7E3; --tel: #FFFFFF; --linea: #B9B2AD; --linea2: #DDD7D2; --tinta: #2B2B2B; --tinta2: #6B6560;
+    --relleno: #F1EEEB; --acento: #2B2B2B; --alerta: #B3261E; --ok: #2E6B3F; --aviso: #8A5A00;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); }
+  header.doc { max-width: 1200px; margin: 0 auto; padding: 32px 16px 8px; }
+  header.doc h1 { margin: 0 0 6px; font-size: 28px; }
+  header.doc p { margin: 0; color: var(--tinta2); max-width: 70ch; line-height: 1.45; }
+  .grupo { max-width: 1200px; margin: 0 auto; padding: 24px 16px 8px; }
+  .grupo h2 { font-size: 18px; margin: 0 0 16px; border-bottom: 1px solid var(--linea); padding-bottom: 6px; }
+  .rejilla { display: flex; flex-wrap: wrap; gap: 28px; }
+  figure { margin: 0; width: 300px; break-inside: avoid; }
+  @media print { body { background: #fff; } .grupo h2 { break-after: avoid; } }
+  figcaption { font-size: 13px; color: var(--tinta2); margin-top: 8px; line-height: 1.4; }
+  figcaption b { color: var(--tinta); display: block; font-size: 14px; }
+  figcaption code { font-size: 12px; }
+
+  /* Teléfono */
+  .tel { width: 300px; height: 620px; background: var(--tel); border: 2px solid var(--tinta); border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .barra-sis { height: 22px; font-size: 10px; display: flex; justify-content: space-between; padding: 4px 16px 0; color: var(--tinta2); flex: none; }
+  .cab { height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid var(--linea2); font-weight: 700; font-size: 15px; flex: none; }
+  .cab .ic { width: 22px; text-align: center; font-weight: 400; }
+  .cuerpo { flex: 1; overflow: hidden; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+  .pestanas { height: 54px; border-top: 1px solid var(--linea2); display: flex; flex: none; }
+  .pestanas div { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; color: var(--tinta2); gap: 2px; }
+  .pestanas div::before { content: ""; width: 18px; height: 18px; border: 1.5px solid currentColor; border-radius: 5px; }
+  .pestanas .act { color: var(--tinta); font-weight: 700; }
+
+  /* Piezas */
+  .caja { border: 1.5px solid var(--linea); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .tarjeta { border: 1.5px solid var(--linea); border-radius: 12px; padding: 10px; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 12px; }
+  .tarjeta b { font-size: 13px; }
+  .tarjeta .meta { color: var(--tinta2); grid-column: 1; }
+  .chip { display: inline-block; font-size: 10px; border: 1.5px solid currentColor; border-radius: 999px; padding: 1px 7px; white-space: nowrap; align-self: start; }
+  .chip.camino { color: var(--acento); background: var(--relleno); }
+  .chip.no { color: var(--alerta); }
+  .chip.ok { color: var(--ok); }
+  .chip.parcial { color: var(--aviso); }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chips .chip { font-size: 11px; padding: 3px 9px; color: var(--tinta2); }
+  .chips .chip.sel { color: var(--tel); background: var(--tinta); border-color: var(--tinta); }
+  .campo { border: 1.5px solid var(--linea); border-radius: 10px; height: 38px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; color: var(--tinta2); }
+  .campo.err { border-color: var(--alerta); }
+  .campo.area { height: 64px; align-items: flex-start; padding-top: 8px; }
+  .etq { font-size: 12px; font-weight: 600; }
+  .msg-err { font-size: 11px; color: var(--alerta); margin-top: -2px; }
+  .btn { height: 42px; border-radius: 10px; background: var(--acento); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex: none; }
+  .btn.sec { background: transparent; color: var(--acento); border: 1.5px solid var(--acento); }
+  .btn.inact { opacity: .35; }
+  .btn.peligro { background: var(--alerta); }
+  .fila { display: flex; gap: 8px; align-items: center; }
+  .fila > * { flex: 1; }
+  .txt { font-size: 12px; color: var(--tinta2); line-height: 1.4; }
+  .titulo { font-size: 17px; font-weight: 800; }
+  .sep { height: 1px; background: var(--linea2); }
+  .img { background: repeating-linear-gradient(45deg, var(--relleno), var(--relleno) 6px, #fff 6px, #fff 12px); border: 1.5px solid var(--linea); border-radius: 8px; }
+  .aviso { font-size: 11px; border: 1.5px dashed var(--aviso); color: var(--aviso); border-radius: 8px; padding: 6px 8px; }
+  .banda { font-size: 11px; background: var(--alerta); color: #fff; padding: 6px 10px; text-align: center; flex: none; }
+  .centro { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; }
+  .circ { width: 56px; height: 56px; border: 2px solid var(--linea); border-radius: 50%; }
+  .esq { background: var(--relleno); border-radius: 6px; }
+
+  /* Mapa */
+  .mapa { position: relative; border: 1.5px solid var(--linea); border-radius: 12px; overflow: hidden; background: #F4F1EC; flex: 1; min-height: 140px; }
+  .mapa svg.calles { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pin { position: absolute; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; font-size: 9px; font-weight: 700; white-space: nowrap; }
+  .pin i { display: block; width: 18px; height: 18px; border: 2px solid var(--tinta); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #fff; }
+  .pin.tienda i { background: var(--tinta); }
+  .pin.dest i { background: repeating-linear-gradient(45deg, #fff, #fff 3px, var(--tinta) 3px, var(--tinta) 4px); }
+  .pin.dom i { border-radius: 50%; transform: none; background: var(--relleno); box-shadow: 0 0 0 6px rgba(43,43,43,.12); }
+  .pin span { margin-top: 3px; background: #fff; border: 1px solid var(--linea); border-radius: 4px; padding: 0 3px; }
+  .fab { position: absolute; width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 1.5px solid var(--tinta); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .leyenda { font-size: 10px; color: var(--tinta2); display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Contador */
+  .contador { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; border: 1.5px solid var(--linea); border-radius: 12px; padding: 8px 10px; font-size: 12px; }
+  .contador .ctl { display: flex; align-items: center; gap: 6px; grid-row: span 2; }
+  .contador .ctl b { min-width: 22px; text-align: center; font-size: 15px; }
+  .contador .ctl span { width: 30px; height: 30px; border: 1.5px solid var(--tinta); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .contador .ctl span.off { opacity: .3; }
+  .contador .meta { color: var(--tinta2); font-size: 11px; }
+
+  /* Línea de tiempo */
+  .tiempo { display: flex; flex-direction: column; gap: 0; font-size: 12px; }
+  .tiempo div { display: flex; gap: 8px; align-items: center; padding: 3px 0; color: var(--tinta2); }
+  .tiempo div::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--linea); flex: none; }
+  .tiempo .hecho { color: var(--tinta); }
+  .tiempo .hecho::before { background: var(--tinta); border-color: var(--tinta); }
+  .tiempo .actual { color: var(--tinta); font-weight: 700; }
+  .tiempo .actual::before { border-color: var(--tinta); box-shadow: 0 0 0 3px var(--relleno); }
+
+  /* Drawer */
+  .velo { position: absolute; inset: 0; background: rgba(0,0,0,.35); }
+  .cajon { position: absolute; top: 0; bottom: 0; left: 0; width: 76%; background: #fff; border-right: 2px solid var(--tinta); padding: 34px 14px; display: flex; flex-direction: column; gap: 4px; }
+  .cajon .it { padding: 10px 8px; border-radius: 8px; font-size: 13px; display: flex; gap: 10px; align-items: center; }
+  .cajon .it::before { content: ""; width: 16px; height: 16px; border: 1.5px solid currentColor; border-radius: 4px; }
+  .cajon .it.act { background: var(--relleno); font-weight: 700; }
+
+  /* Exportación de una sola pantalla: index.html?solo=<id> */
+  body.solo header.doc, body.solo .grupo h2, body.solo figure:not(.elegida), body.solo figcaption { display: none; }
+  body.solo .grupo:not(:has(.elegida)) { display: none; }
+  body.solo { background: #fff; }
+  body.solo .grupo { padding: 0; margin: 0; }
+  body.solo .rejilla { display: block; }
+  body.solo figure.elegida { width: 300px; margin: 10px 0 0 10px; }
+</style>
+</head>
+<body>
+<header class="doc">
+  <h1>EnCamino · Wireframes</h1>
+  <p>Una pantalla por función, en baja fidelidad: estructura, contenido y estados, sin colores ni tipografía de la marca. La navegación es la del mapa de pantallas de <code>docs/requisitos.md</code>; cada pie indica la ruta y los requisitos que cubre.</p>
+</header>
+
+<!-- ============ ACCESO ============ -->
+<section class="grupo">
+  <h2>Acceso</h2>
+  <div class="rejilla">
+
+    <figure id="inicio">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cuerpo" style="justify-content:center; gap:18px">
+          <div style="text-align:center">
+            <div class="circ" style="margin:0 auto 8px"></div>
+            <div class="titulo" style="font-size:24px">EnCamino</div>
+            <div class="txt">Tu pedido de Karamba by marCe, en el mapa.</div>
+          </div>
+          <div class="caja">
+            <div class="etq">Código de seguimiento</div>
+            <div class="campo">Pégalo desde el mensaje de WhatsApp</div>
+            <div class="btn inact">Seguir mi pedido</div>
+            <div class="txt">Consultados antes: <u>K-4F2A…</u></div>
+          </div>
+          <div class="btn sec">Soy del equipo de Karamba</div>
+        </div>
+      </div>
+      <figcaption><b>Inicio</b><code>index</code> · RF-01, RF-05. El botón se habilita al escribir el código. El enlace <code>encamino://seguimiento/&lt;código&gt;</code> salta directo al seguimiento.</figcaption>
+    </figure>
+
+    <figure id="ingresar">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Ingresar</div>
+        <div class="cuerpo">
+          <div class="txt">Usa la cuenta que te dio Karamba.</div>
+          <div class="etq">Correo</div>
+          <div class="campo err">domi@karamba</div>
+          <div class="msg-err">Escribe un correo válido, por ejemplo nombre@correo.com</div>
+          <div class="etq">Contraseña</div>
+          <div class="campo">••••••••</div>
+          <div class="btn">Ingresar</div>
+          <div class="aviso">Credenciales incorrectas: "El correo o la contraseña no coinciden" (no dice cuál).<br>Otro rol: "Esta app es para domiciliarios y administradores".</div>
+        </div>
+      </div>
+      <figcaption><b>Ingreso del equipo</b><code>ingresar</code> · RF-02, RF-03. Formulario con validación por campo. La sesión queda guardada en el teléfono.</figcaption>
+    </figure>
+
+    <figure id="drawer">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Domicilios</div>
+        <div class="cuerpo"><div class="tarjeta"><b>#1287 · El Prado</b></div></div>
+        <div class="velo"></div>
+        <div class="cajon">
+          <div class="titulo" style="font-size:15px">Juan Pérez</div>
+          <div class="txt" style="margin-bottom:10px">Domiciliario</div>
+          <div class="it act">Domicilios</div>
+          <div class="it">Punto de despacho</div>
+          <div class="it">Permisos de ubicación</div>
+          <div class="it">Mi perfil</div>
+          <div style="flex:1"></div>
+          <div class="it">Cerrar sesión</div>
+        </div>
+      </div>
+      <figcaption><b>Menú lateral (Drawer)</b><code>(equipo)/_layout</code> · RF-04. Accesos complementarios. Las secciones frecuentes están en las pestañas.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ DOMICILIARIO ============ -->
+<section class="grupo">
+  <h2>Domiciliario</h2>
+  <div class="rejilla">
+
+    <figure id="hoy">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Domicilios de hoy</div>
+        <div class="cuerpo">
+          <div class="campo">⌕ Barrio, dirección o # de pedido</div>
+          <div class="chips"><span class="chip sel">Todos 5</span><span class="chip">Pendientes 3</span><span class="chip">En camino 1</span><span class="chip">Terminados 1</span></div>
+          <div class="tarjeta"><b>#1287 · El Prado, Cartago</b><span class="chip camino">En camino</span><span class="meta">Cra 5 # 12-30 · 8:00 – 9:00</span><span class="meta">2 productos · Para: Ana</span></div>
+          <div class="tarjeta"><b>#1290 · Cuba, Pereira</b><span class="chip">Pendiente</span><span class="meta">Mz 4 casa 12 · 9:00 – 10:00</span><span class="meta">1 producto · Para: Luis</span></div>
+          <div class="tarjeta"><b>#1291 · Alameda, Cartago</b><span class="chip">Pendiente</span><span class="meta">Cl 10 # 4-21 · 10:00 – 11:00</span></div>
+          <div class="tarjeta"><b>#1284 · Centro, Cartago</b><span class="chip ok">Entregado</span><span class="meta">7:10 · Recibió: Marta</span></div>
+          <div class="txt" style="text-align:center">↓ Desliza para recargar</div>
+        </div>
+        <div class="pestanas"><div class="act">Hoy</div><div>Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Domicilios de hoy</b><code>(tabs)/index</code> · RF-09. Lista de tarjetas con búsqueda y filtro combinados, sobre los datos ya cargados.</figcaption>
+    </figure>
+
+    <figure id="estados">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Domicilios de hoy</div>
+        <div class="cuerpo">
+          <div class="etq">Cargando</div>
+          <div class="tarjeta esq" style="height:52px;border:none"></div>
+          <div class="tarjeta esq" style="height:52px;border:none"></div>
+          <div class="sep"></div>
+          <div class="etq">Vacío</div>
+          <div class="caja" style="align-items:center;text-align:center"><div class="circ" style="width:36px;height:36px"></div><div class="txt">No tienes domicilios para hoy.</div></div>
+          <div class="sep"></div>
+          <div class="etq">Error</div>
+          <div class="caja" style="align-items:center;text-align:center"><div class="txt">No pudimos cargar tus domicilios. Revisa tu conexión.</div><div class="btn sec" style="width:120px">Reintentar</div></div>
+        </div>
+        <div class="pestanas"><div class="act">Hoy</div><div>Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Estados de datos</b>Componente <code>EstadoDatos</code> · RNF-02. Los mismos tres estados en todas las pantallas con datos remotos.</figcaption>
+    </figure>
+
+    <figure id="detalle">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Domicilio #1290</div>
+        <div class="cuerpo">
+          <div class="fila" style="justify-content:space-between"><div class="titulo" style="flex:none">Cuba, Pereira</div><span class="chip" style="flex:none">Pendiente</span></div>
+          <div class="txt">Mz 4 casa 12 · Entrega 9:00 – 10:00<br>Recibe: Luis M. · <u>Llamar</u> · <u>WhatsApp</u><br>Cliente: Carolina R. · <u>Llamar</u></div>
+          <div class="sep"></div>
+          <div class="etq">Productos</div>
+          <div class="fila"><div class="img" style="flex:none;width:40px;height:40px"></div><div class="txt"><b style="color:var(--tinta)">K01 Desayuna y pide un deseo</b><br>1 unidad</div></div>
+          <div class="fila"><div class="img" style="flex:none;width:40px;height:40px"></div><div class="txt"><b style="color:var(--tinta)">Globo metalizado</b><br>2 unidades</div></div>
+          <div style="flex:1"></div>
+          <div class="btn">Iniciar recorrido</div>
+          <div class="txt" style="text-align:center">Se pedirá confirmación. Al iniciar se abre el mapa.</div>
+        </div>
+      </div>
+      <figcaption><b>Detalle del domicilio</b><code>domicilio/[id]</code> · RF-10, RF-11. Ruta dinámica. Las acciones cambian según el estado: <i>pendiente</i> → iniciar; <i>en camino</i> → confirmar o no entrega.</figcaption>
+    </figure>
+
+    <figure id="detalle-no-encontrado">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Domicilio</div>
+        <div class="cuerpo">
+          <div class="centro">
+            <div class="circ"></div>
+            <div class="titulo">Domicilio no encontrado</div>
+            <div class="txt">El domicilio #999999 no existe o no está asignado a ti.</div>
+            <div class="btn sec" style="width:180px">Volver a mis domicilios</div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Identificador inexistente</b><code>domicilio/[id]</code> · RF-10. El backend responde 404 tanto si no existe como si es de otro domiciliario.</figcaption>
+    </figure>
+
+    <figure id="mapa">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮ ◉</span></div>
+        <div class="cab"><span class="ic">☰</span>Mapa · #1287 en camino</div>
+        <div class="cuerpo" style="padding:0;gap:0">
+          <div class="mapa" style="border:none;border-radius:0">
+            <svg class="calles" viewBox="0 0 300 330" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 70H300M0 190H300M0 290H300M60 0V330M170 0V330M250 0V330"/></g></svg>
+            <div class="pin tienda" style="left:60px;top:70px"><i></i><span>Karamba</span></div>
+            <div class="pin dest" style="left:250px;top:190px"><i></i><span>Destino #1287</span></div>
+            <div class="pin dom" style="left:150px;top:150px"><i></i><span>Tú</span></div>
+            <div class="fab" style="right:10px;top:10px">◎</div>
+            <div class="fab" style="right:10px;top:54px">＋</div>
+            <div class="fab" style="right:10px;top:98px">－</div>
+          </div>
+          <div style="padding:10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--linea2)">
+            <div class="fila" style="justify-content:space-between"><div class="etq" style="flex:none">Compartiendo ubicación</div><span class="chip ok" style="flex:none">Activo · enviada hace 8 s</span></div>
+            <div class="fila"><div class="btn sec">Pausar</div><div class="btn">Llegué</div></div>
+            <div class="leyenda"><span>■ Punto de despacho</span><span>▨ Destino</span><span>● Tu posición</span></div>
+          </div>
+        </div>
+        <div class="pestanas"><div>Hoy</div><div class="act">Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Mapa del domiciliario</b><code>(tabs)/mapa</code> · RF-12. Leaflet en WebView. ◎ centra en la posición actual. Pausar ↔ Reanudar. No se dibuja ninguna línea entre los puntos: no hay ruta real. "Llegué" abre el detalle con las acciones de cierre.</figcaption>
+    </figure>
+
+    <figure id="mapa-pausa">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Mapa · #1287 en camino</div>
+        <div class="cuerpo" style="padding:0;gap:0">
+          <div class="mapa" style="border:none;border-radius:0">
+            <svg class="calles" viewBox="0 0 300 330" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 70H300M0 190H300M0 290H300M60 0V330M170 0V330M250 0V330"/></g></svg>
+            <div class="pin tienda" style="left:60px;top:70px"><i></i><span>Karamba</span></div>
+            <div class="pin dest" style="left:250px;top:190px"><i></i><span>Destino #1287</span></div>
+            <div class="pin dom" style="left:150px;top:150px;opacity:.45"><i></i><span>Última: 9:31</span></div>
+          </div>
+          <div style="padding:10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--linea2)">
+            <div class="fila" style="justify-content:space-between"><div class="etq" style="flex:none">Ubicación en pausa</div><span class="chip parcial" style="flex:none">El cliente ve tu última posición</span></div>
+            <div class="fila"><div class="btn">Reanudar</div><div class="btn sec">Llegué</div></div>
+          </div>
+        </div>
+        <div class="pestanas"><div>Hoy</div><div class="act">Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Seguimiento en pausa</b><code>(tabs)/mapa</code> · RF-12, RNF-08. Al pausar o salir de la pantalla, la suscripción del GPS se libera.</figcaption>
+    </figure>
+
+    <figure id="permiso">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Mapa</div>
+        <div class="cuerpo">
+          <div class="centro">
+            <div class="circ"></div>
+            <div class="titulo">Necesitamos tu ubicación</div>
+            <div class="txt">Solo se usa mientras llevas un domicilio y tienes esta pantalla abierta, para que el cliente vea dónde va su pedido.</div>
+            <div class="btn" style="width:200px">Abrir ajustes</div>
+            <div class="txt">Al volver con el permiso, el mapa sigue sin reiniciar la app.</div>
+            <div class="sep" style="width:100%"></div>
+            <div class="aviso">GPS apagado: "Activa la ubicación del teléfono".</div>
+            <div class="btn sec" style="width:200px">Seguir sin mapa</div>
+          </div>
+        </div>
+        <div class="pestanas"><div>Hoy</div><div class="act">Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Permiso denegado o GPS apagado</b><code>(tabs)/mapa</code>, <code>ubicacion</code> · RF-20. La lista, el detalle y los formularios siguen funcionando sin GPS.</figcaption>
+    </figure>
+
+    <figure id="entregar">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Confirmar entrega #1287</div>
+        <div class="cuerpo">
+          <div class="etq">Unidades entregadas</div>
+          <div class="contador"><b>K01 Desayuna y pide un deseo</b><div class="ctl"><span>−</span><b>1</b><span class="off">+</span></div><span class="meta">Pedido: 1</span></div>
+          <div class="contador"><b>Globo metalizado</b><div class="ctl"><span>−</span><b>1</b><span>+</span></div><span class="meta" style="color:var(--aviso)">Pedido: 2 · faltan 1</span></div>
+          <div class="aviso">Entrega parcial: falta 1 unidad. Escribe el motivo.</div>
+          <div class="etq">Motivo</div>
+          <div class="campo area">El globo se reventó en el camino</div>
+          <div class="etq">¿Quién recibió?</div>
+          <div class="chips"><span class="chip sel">Luis M. (destinatario)</span><span class="chip">Otra persona</span></div>
+          <div style="flex:1"></div>
+          <div class="btn">Confirmar entrega parcial</div>
+        </div>
+      </div>
+      <figcaption><b>Confirmar entrega (contador)</b><code>domicilio/[id]/entregar</code> · RF-13, RN-06. Cada contador arranca en lo pedido, va de 0 a lo pedido y deshabilita el botón en el límite. Si todo queda en 0, se pide reportar no entrega.</figcaption>
+    </figure>
+
+    <figure id="no-entregar">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Reportar no entrega #1287</div>
+        <div class="cuerpo">
+          <div class="aviso">Antes de reportar: 1) llama al destinatario, 2) al cliente, 3) a Karamba.</div>
+          <div class="etq">Motivo</div>
+          <div class="campo area err"></div>
+          <div class="msg-err">Escribe por qué no se pudo entregar.</div>
+          <div class="etq">Foto del lugar</div>
+          <div class="img" style="height:96px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--tinta2)">Tomar foto</div>
+          <div class="msg-err">La foto es obligatoria.</div>
+          <div style="flex:1"></div>
+          <div class="btn peligro">Reportar no entrega</div>
+        </div>
+      </div>
+      <figcaption><b>Reportar no entrega (formulario)</b><code>domicilio/[id]/no-entregar</code> · RF-14, RN-07. Validación por campo; no se envía con errores.</figcaption>
+    </figure>
+
+    <figure id="sin-conexion">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>✈</span></div>
+        <div class="cab"><span class="ic">‹</span>Confirmar entrega #1287</div>
+        <div class="banda">Sin conexión. No se guardó nada.</div>
+        <div class="cuerpo">
+          <div class="contador"><b>K01 Desayuna y pide un deseo</b><div class="ctl"><span>−</span><b>1</b><span class="off">+</span></div><span class="meta">Pedido: 1</span></div>
+          <div class="contador"><b>Globo metalizado</b><div class="ctl"><span>−</span><b>2</b><span class="off">+</span></div><span class="meta">Pedido: 2</span></div>
+          <div class="caja" style="border-color:var(--alerta)"><div class="etq" style="color:var(--alerta)">No pudimos confirmar la entrega</div><div class="txt">Tus datos siguen aquí. Cuando vuelva la señal, toca Reintentar.</div></div>
+          <div style="flex:1"></div>
+          <div class="btn">Reintentar</div>
+        </div>
+      </div>
+      <figcaption><b>Sin conexión</b>RNF-05. Nunca se muestra "Entrega confirmada" si el backend no respondió. El formulario conserva lo que se llenó.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ ADMINISTRADOR ============ -->
+<section class="grupo">
+  <h2>Administrador</h2>
+  <div class="rejilla">
+
+    <figure id="en-curso">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Domicilios en curso</div>
+        <div class="cuerpo">
+          <div class="fila"><div class="campo">Domiciliario: Todos ▾</div></div>
+          <div class="chips"><span class="chip sel">Todos 14</span><span class="chip">No entregados 1</span><span class="chip">En camino 4</span><span class="chip">Pendientes 6</span></div>
+          <div class="tarjeta"><b>#1279 · Cerritos, Pereira</b><span class="chip no">No entregado</span><span class="meta">Juan P. · "Nadie atendió"</span><span class="meta"><u>Reprogramar</u></span></div>
+          <div class="tarjeta"><b>#1287 · El Prado, Cartago</b><span class="chip camino">En camino</span><span class="meta">Juan P. · posición hace 8 s</span></div>
+          <div class="tarjeta"><b>#1288 · Boston, Pereira</b><span class="chip camino">En camino</span><span class="meta">Domicilios by karAMba · hace 12 s</span></div>
+          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip parcial">Entrega parcial</span><span class="meta">Juan P. · 1 de 2 globos</span></div>
+        </div>
+        <div class="pestanas"><div class="act">Hoy</div><div>Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Domicilios en curso</b><code>(tabs)/index</code> con rol administrador · RF-15. Los no entregados vigentes van primero.</figcaption>
+    </figure>
+
+    <figure id="mapa-admin">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Supervisión · 4 en camino</div>
+        <div class="cuerpo" style="padding:0;gap:0">
+          <div class="mapa" style="border:none;border-radius:0">
+            <svg class="calles" viewBox="0 0 300 400" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 60H300M0 160H300M0 260H300M0 350H300M50 0V400M140 0V400M230 0V400"/></g></svg>
+            <div class="pin tienda" style="left:50px;top:60px"><i></i><span>Karamba</span></div>
+            <div class="pin dom" style="left:140px;top:120px"><i></i><span>Juan · 8 s</span></div>
+            <div class="pin dom" style="left:230px;top:220px"><i></i><span>karAMba · 12 s</span></div>
+            <div class="pin dom" style="left:90px;top:300px"><i></i><span>Pedro · 40 s</span></div>
+            <div class="pin dom" style="left:200px;top:350px;opacity:.45"><i></i><span>Ana · hace 3 min</span></div>
+            <div class="fab" style="right:10px;top:10px">⟳</div>
+          </div>
+          <div style="padding:8px 10px;border-top:1px solid var(--linea2)"><div class="txt">Se actualiza cada 15 s mientras esta pantalla está abierta. Toca un marcador para abrir su domicilio.</div></div>
+        </div>
+        <div class="pestanas"><div>Hoy</div><div class="act">Mapa</div><div>Historial</div></div>
+      </div>
+      <figcaption><b>Mapa de supervisión</b><code>(tabs)/mapa</code> con rol administrador · RF-16. Las posiciones con más de 2 minutos se atenúan.</figcaption>
+    </figure>
+
+    <figure id="reprogramar">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Reprogramar #1279</div>
+        <div class="cuerpo">
+          <div class="txt">Intento 1: no entregado · "Nadie atendió" · Juan P.</div>
+          <div class="etq">Causa del regreso</div>
+          <div class="chips"><span class="chip sel">Nadie recibió</span><span class="chip">Dirección errada</span><span class="chip">Causa de Karamba</span></div>
+          <div class="etq">Destino</div>
+          <div class="campo">Cerritos, Pereira ▾ (misma dirección)</div>
+          <div class="etq">Tarifa del barrio</div>
+          <div class="campo">$ 9.000</div>
+          <div class="caja">
+            <div class="fila txt"><span>Tarifa de Cerritos</span><span style="text-align:right">$ 9.000</span></div>
+            <div class="fila txt"><span>Mínimo</span><span style="text-align:right">$ 5.500</span></div>
+            <div class="sep"></div>
+            <div class="fila"><b>Valor a cobrar</b><b style="text-align:right">$ 9.000</b></div>
+          </div>
+          <div class="campo">Domiciliario: Pedro G. ▾</div>
+          <div class="btn">Reprogramar y avisar</div>
+        </div>
+      </div>
+      <figcaption><b>Reprogramar con cobro (cálculo)</b><code>domicilio/[id]/reprogramar</code> · RF-17, RN-09. Se recalcula al cambiar la causa o el barrio. "Causa de Karamba" → $0. Tarifa vacía, no numérica, negativa o con decimales → mensaje.</figcaption>
+    </figure>
+
+    <figure id="historial">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Historial</div>
+        <div class="cuerpo">
+          <div class="fila"><div class="campo">01/11 – 09/11 ▾</div><div class="campo">Todos ▾</div></div>
+          <div class="chips"><span class="chip sel">Todos</span><span class="chip">Entregados</span><span class="chip">Parciales</span><span class="chip">No entregados</span></div>
+          <div class="tarjeta"><b>#1284 · Centro, Cartago</b><span class="chip ok">Entregado</span><span class="meta">09/11 7:10 · Marta</span></div>
+          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip parcial">Parcial</span><span class="meta">09/11 7:45 · 1 de 2 globos</span></div>
+          <div class="tarjeta"><b>#1279 · Cerritos, Pereira</b><span class="chip no">No entregado</span><span class="meta">08/11 · Reprogramado → #1279-2 ($ 9.000)</span></div>
+          <div class="tarjeta"><b>#1270 · Boston, Pereira</b><span class="chip ok">Entregado</span><span class="meta">08/11 16:20 · Luis</span></div>
+        </div>
+        <div class="pestanas"><div>Hoy</div><div>Mapa</div><div class="act">Historial</div></div>
+      </div>
+      <figcaption><b>Historial</b><code>(tabs)/historial</code> · RF-18. El domiciliario ve solo los suyos; el filtro por domiciliario es solo del administrador.</figcaption>
+    </figure>
+
+    <figure id="punto-despacho">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">☰</span>Punto de despacho</div>
+        <div class="cuerpo">
+          <div class="mapa" style="flex:none;height:220px">
+            <svg class="calles" viewBox="0 0 300 220" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 60H300M0 150H300M80 0V220M200 0V220"/></g></svg>
+            <div class="pin tienda" style="left:140px;top:110px"><i></i><span>Karamba by marCe</span></div>
+          </div>
+          <div class="titulo">Karamba by marCe</div>
+          <div class="txt">Cartago, Valle del Cauca · Dirección [por confirmar]<br>Lunes a sábado 6:30 – 19:00 · Domingo 8:00 – 12:00<br>WhatsApp 311 610 8002</div>
+          <div class="aviso">Si el mapa no carga: "No pudimos cargar el mapa" + Reintentar. El resto de la app sigue funcionando.</div>
+        </div>
+      </div>
+      <figcaption><b>Punto de despacho</b><code>punto-despacho</code> · RF-19. Marcador en las coordenadas reales de Karamba (en lugar de las de Dosquebradas del mapa base).</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ CLIENTE ============ -->
+<section class="grupo">
+  <h2>Cliente</h2>
+  <div class="rejilla">
+
+    <figure id="seguimiento">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Tu pedido #1287</div>
+        <div class="cuerpo">
+          <div class="mapa" style="flex:none;height:210px">
+            <svg class="calles" viewBox="0 0 300 210" preserveAspectRatio="none"><g stroke="#DDD7D2" stroke-width="10" fill="none"><path d="M0 50H300M0 140H300M60 0V210M180 0V210"/></g></svg>
+            <div class="pin tienda" style="left:60px;top:50px"><i></i><span>Karamba</span></div>
+            <div class="pin dom" style="left:180px;top:110px"><i></i><span>Tu pedido · hace 9 s</span></div>
+          </div>
+          <div class="tiempo">
+            <div class="hecho">Registrado</div>
+            <div class="hecho">En preparación</div>
+            <div class="actual">En camino · salió 9:12</div>
+            <div>Entregado</div>
+          </div>
+          <div class="sep"></div>
+          <div class="fila"><div class="img" style="flex:none;width:36px;height:36px"></div><div class="txt"><b style="color:var(--tinta)">K01 Desayuna y pide un deseo</b> · 1</div></div>
+          <div class="fila"><div class="img" style="flex:none;width:36px;height:36px"></div><div class="txt"><b style="color:var(--tinta)">Globo metalizado</b> · 2</div></div>
+          <div class="txt">Llega entre 8:00 y 9:00 · El Prado, Cartago</div>
+        </div>
+      </div>
+      <figcaption><b>Seguimiento: en camino</b><code>seguimiento/[token]</code> · RF-05 a RF-07. Ruta dinámica por código. La posición se refresca sola cada 15 s. No se ve el destino exacto ni datos del domiciliario más allá del nombre.</figcaption>
+    </figure>
+
+    <figure id="seguimiento-resultado">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Tu pedido #1279</div>
+        <div class="cuerpo">
+          <div class="tiempo">
+            <div class="hecho">Registrado</div>
+            <div class="hecho">En camino</div>
+            <div class="actual" style="color:var(--alerta)">No se pudo entregar · 10:05</div>
+          </div>
+          <div class="caja">
+            <div class="etq">Tu domicilio se reprogramó</div>
+            <div class="txt">Nadie recibió en la dirección. Según la política de entrega, el domicilio nuevo se paga antes de salir.</div>
+            <div class="fila"><b>Valor del domicilio nuevo</b><b style="text-align:right">$ 9.000</b></div>
+            <div class="txt">Nueva franja: hoy 14:00 – 15:00</div>
+          </div>
+          <div class="btn sec">Escribir a Karamba por WhatsApp</div>
+          <div class="txt">Ya no se muestra la ubicación del domiciliario.</div>
+        </div>
+      </div>
+      <figcaption><b>Seguimiento: resultado y reprogramación</b><code>seguimiento/[token]</code> · RF-08, RN-04. Para una entrega parcial se listan las unidades entregadas por producto.</figcaption>
+    </figure>
+
+    <figure id="seguimiento-no-encontrado">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Tu pedido</div>
+        <div class="cuerpo">
+          <div class="centro">
+            <div class="circ"></div>
+            <div class="titulo">No encontramos este pedido</div>
+            <div class="txt">Revisa que el código esté completo, tal como llegó en el mensaje de WhatsApp.</div>
+            <div class="btn" style="width:200px">Escribir otro código</div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Código inexistente</b><code>seguimiento/[token]</code> · RF-05.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<script>
+  // index.html?solo=<id> deja visible una sola pantalla, para exportarla como imagen.
+  const solo = new URLSearchParams(location.search).get('solo');
+  if (solo && document.getElementById(solo)) {
+    document.body.classList.add('solo');
+    document.getElementById(solo).classList.add('elegida');
+  }
+</script>
+</body>
+</html>

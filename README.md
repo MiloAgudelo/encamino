@@ -1,5 +1,35 @@
 # EnCamino
 
-Rastreo de domicilios en tiempo real para Karamba by Marce: el domiciliario comparte su ubicación y actualiza el estado del pedido, el cliente lo sigue en el mapa y el administrador supervisa las entregas en curso.
+Rastreo de domicilios en tiempo real para Karamba by marCe: el domiciliario comparte su ubicación y actualiza el estado del domicilio, el cliente lo sigue en el mapa y el administrador supervisa las entregas en curso.
 
-Aplicación móvil con React Native, TypeScript y Expo.
+Aplicación móvil con React Native, TypeScript, Expo (SDK 58) y Expo Router. Usa como API el backend de Karamba ([`riveragiraldo/karamba-backend`](https://github.com/riveragiraldo/karamba-backend)).
+
+## Requisitos
+
+- Node.js 24 o superior y pnpm.
+- Un teléfono Android con Expo Go para SDK 58, en la misma red Wi-Fi que el PC.
+- Una copia local de `karamba-backend` con datos de prueba para usar los datos reales del flujo. Sin ella, la app abre y navega, pero las pantallas de datos todavía no están conectadas.
+
+## Instalación y ejecución
+
+```bash
+pnpm install
+cp .env.template .env      # y ajusta EXPO_PUBLIC_API_URL
+pnpm start                 # escanea el código QR con Expo Go
+```
+
+Otros comandos:
+
+| Comando | Qué hace |
+| --- | --- |
+| `pnpm typecheck` | Verifica los tipos de TypeScript |
+| `pnpm check` | Revisa que las dependencias coincidan con el SDK de Expo |
+
+## Documentación
+
+- [`docs/requisitos.md`](docs/requisitos.md): cliente y problema, alcance, reglas de negocio, requisitos, mapa de pantallas y matriz.
+- [`docs/wireframes/`](docs/wireframes/): wireframes de cada pantalla (`index.html` y las imágenes en `png/`).
+- [`docs/negocio.md`](docs/negocio.md): datos del negocio y reglas que salen de ellos.
+- [`CONTEXT.md`](CONTEXT.md): glosario del dominio.
+- [`docs/adr/`](docs/adr/): decisiones de arquitectura.
+- [`docs/bitacora.md`](docs/bitacora.md): bitácora de avances.
