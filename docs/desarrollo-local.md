@@ -2,30 +2,11 @@
 
 EnCamino usa como API el backend de Karamba. Para desarrollar y hacer demostraciones se usa una copia local de ese backend con su propia base de datos y datos de prueba. **Nunca** se apunta a la base real: el backend de Karamba no tiene ambiente de pruebas y su base real es la de producción.
 
-## 1. Base de datos local
+## 1. Requisitos
 
-PostgreSQL 17 (la misma versión mayor que producción) en Docker, definido en `docker-compose.yml` de este repo. Necesita Docker Desktop abierto.
-
-```bash
-docker compose up -d
-```
-
-Queda en `127.0.0.1:5437` con usuario y contraseña `encamino`, base `postgres` en UTF-8 (la que usa Django). Los datos viven en el volumen `encamino_datos-postgres` y el contenedor vuelve a arrancar solo cuando se abre Docker Desktop.
-
-- Apagar: `docker compose stop`.
-- Borrar la base y empezar de cero: `docker compose down -v`, luego `up -d`, migrar y cargar los datos de prueba.
-
-## 2. Backend
-
-Copia de `riveragiraldo/karamba-backend` en `D:/dev/karamba-backend`, rama `feat/encamino-entorno-local`. Python 3.14 (el proyecto fija 3.13; las dependencias funcionan igual con 3.14).
-
-```bash
-cd D:/dev/karamba-backend
-py -3.14 -m venv venv
-./venv/Scripts/python -m pip install -r requirements.txt
-```
-
-`.env` del backend (no se sube; solo local, sin credenciales de servicios externos):
+- Docker Desktop abierto.
+- La copia de `riveragiraldo/karamba-backend` junto a este repo, en `D:/dev/karamba-backend`, rama `feat/encamino-entorno-local`. Si está en otra carpeta, indícala con la variable `KARAMBA_BACKEND_DIR`.
+- El `.env` del backend (no se sube; solo local, sin credenciales de servicios externos):
 
 ```
 SECRET_KEY=solo-local-encamino-no-usar-en-produccion
@@ -37,22 +18,42 @@ DB_PASSWORD=encamino
 ALLOWED_HOSTS_EXTRA=<IP-del-PC>
 ```
 
-Antes de migrar, comprueba a dónde apunta:
+Dentro de Docker, `docker-compose.yml` reemplaza la conexión por la del contenedor de la base (`postgres:5432`). Los valores de arriba solo sirven si alguna vez corres Django fuera de Docker.
+
+## 2. Levantar el entorno
+
+Desde este repo:
 
 ```bash
-./venv/Scripts/python manage.py shell -c "from django.conf import settings as s; d=s.DATABASES['default']; print(d['HOST'], d['PORT'])"
-# debe imprimir: 127.0.0.1 5437
+docker compose up -d
 ```
 
-Migrar, cargar los datos de prueba y levantar el servidor:
+Levanta dos contenedores que vuelven a arrancar solos cada vez que se abre Docker Desktop:
+
+| Contenedor | Qué es | Puerto |
+| --- | --- | --- |
+| `encamino-postgres` | PostgreSQL 17 (la misma versión mayor que producción), UTF-8, usuario y contraseña `encamino` | `127.0.0.1:5437` |
+| `encamino-backend` | Django con Python 3.13 (la versión que fija el backend), `runserver` | `0.0.0.0:8000` |
+
+El código del backend se monta como volumen: al guardar un archivo, Django se recarga solo. Si cambia `requirements.txt`, reconstruye con `docker compose up -d --build`.
+
+La primera vez, y cada vez que haya migraciones nuevas, migra y carga los datos de prueba:
 
 ```bash
-./venv/Scripts/python manage.py migrate
-./venv/Scripts/python -X utf8 manage.py cargar_datos_encamino --datos ../encamino/datos/semilla
-./venv/Scripts/python manage.py runserver 0.0.0.0:8000
+docker compose exec backend python manage.py migrate
+docker compose exec backend python manage.py cargar_datos_encamino --datos /datos
 ```
 
-`cargar_datos_encamino` se niega a correr si `DEBUG` no es `True` o si la base no está en `localhost`. Con `--reiniciar` borra y vuelve a crear los pedidos de prueba (solo los marcados `[EnCamino demo]`).
+En Git Bash, antepón `MSYS_NO_PATHCONV=1` a la segunda línea para que no convierta `/datos` en una ruta de Windows.
+
+`cargar_datos_encamino` se niega a correr si `DEBUG` no es `True` o si la base no es local. Con `--reiniciar` borra y vuelve a crear los pedidos de prueba (solo los marcados `[EnCamino demo]`).
+
+Otros comandos:
+
+- Ver lo que pasa en el backend: `docker compose logs -f backend`.
+- Apagar todo: `docker compose stop`.
+- Borrar la base y empezar de cero: `docker compose down -v`, luego `up -d`, migrar y cargar los datos.
+- Comprobar a dónde apunta Django: `docker compose exec backend python manage.py shell -c "from django.conf import settings as s; print(s.DATABASES['default']['HOST'])"` debe imprimir `postgres`.
 
 ## 3. Datos de prueba
 
@@ -75,7 +76,7 @@ En `.env` de EnCamino, la URL del backend con la IP del PC en la red Wi-Fi (el t
 EXPO_PUBLIC_API_URL=http://<IP-del-PC>:8000/api
 ```
 
-Pon la misma IP en `ALLOWED_HOSTS_EXTRA` del `.env` del backend para que Django la acepte. Si cambias de red, la IP cambia: actualiza los dos `.env` y reinicia el backend (`ipconfig` muestra la IP actual).
+Pon la misma IP en `ALLOWED_HOSTS_EXTRA` del `.env` del backend para que Django la acepte. Si cambias de red, la IP cambia: actualiza los dos `.env` y reinicia el backend con `docker compose up -d --force-recreate backend` (`ipconfig` muestra la IP actual).
 
 ## Comprobación rápida
 

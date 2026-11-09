@@ -1,5 +1,5 @@
-# Base de datos LOCAL para desarrollar EnCamino contra karamba-backend.
-# PostgreSQL 17, la misma versión mayor que usa Karamba en producción.
+# Entorno LOCAL para desarrollar EnCamino contra karamba-backend:
+# PostgreSQL 17 (la misma versión mayor que producción) y el backend de Django.
 # Nunca apunta a la base real. Ver docs/desarrollo-local.md.
 name: encamino
 
@@ -21,6 +21,34 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+
+  backend:
+    # Copia local de riveragiraldo/karamba-backend, por defecto junto a este repo.
+    build:
+      context: ./docker
+      dockerfile: backend.Dockerfile
+      additional_contexts:
+        backend: ${KARAMBA_BACKEND_DIR:-../karamba-backend}
+    container_name: encamino-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # SECRET_KEY, DEBUG y ALLOWED_HOSTS_EXTRA salen del .env del backend;
+    # la conexión a la base se fija aquí para que siempre sea el contenedor local.
+    env_file:
+      - ${KARAMBA_BACKEND_DIR:-../karamba-backend}/.env
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: encamino
+      DB_PASSWORD: encamino
+      DEBUG: "True"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${KARAMBA_BACKEND_DIR:-../karamba-backend}:/app
+      - ./datos/semilla:/datos:ro
 
 volumes:
   datos-postgres:
