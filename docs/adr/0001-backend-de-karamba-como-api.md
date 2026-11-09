@@ -18,5 +18,5 @@ La posición se consulta cada 10 a 15 segundos, sin WebSocket, en línea con la 
 
 - Una sola fuente de verdad: lo que reporta el domiciliario en la app lo ve el administrador en el panel web y el cliente en su seguimiento.
 - La app depende de un backend sin ambiente de pruebas, en el que un cambio en `main` va directo a producción. Por eso el desarrollo y las demostraciones usan una copia local del backend con su propia base y datos de prueba, nunca la base compartida con producción.
-- La configuración actual del backend no permite elegir otra base para el desarrollo local; agregar esa opción es parte del trabajo (B-09).
+- El backend ya lee la conexión a la base de variables de entorno; lo que apunta a producción es el `.env` de desarrollo del equipo. El entorno local de EnCamino usa su propio `.env` con un PostgreSQL local y un comando de datos de prueba (B-09).
 - Los domiciliarios ocasionales que hoy usan un usuario genérico y el enlace público siguen con el enlace hasta tener cuenta propia.

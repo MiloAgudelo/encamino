@@ -8,7 +8,7 @@ Aplicación móvil con React Native, TypeScript, Expo (SDK 58) y Expo Router. Lo
 
 - Node.js 24 o superior y pnpm.
 - Un teléfono Android con Expo Go para SDK 58, en la misma red Wi-Fi que el PC.
-- Una copia local de `karamba-backend` con datos de prueba para usar los datos reales del flujo. Sin ella, la app abre y navega, pero las pantallas de datos todavía no están conectadas.
+- Una copia local de `karamba-backend` con datos de prueba. Cómo montarla: [`docs/desarrollo-local.md`](docs/desarrollo-local.md). Sin ella, la app abre y navega, pero las pantallas de datos todavía no están conectadas.
 
 ## Instalación y ejecución
 
