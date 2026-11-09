@@ -27,8 +27,11 @@ Motivos de pedido: cumpleaños, aniversario, amor y amistad, día de la madre, a
 
 ## Domicilio
 
-- El domicilio solo tiene costo en la Comuna 1, la Comuna 3 y la Comuna 7 de Cartago, Zaragoza y Puerto Caldas. En el resto de destinos está incluido en el precio (confirmado por Karamba el 2026-11-09).
-- En las zonas con costo, la web publica **desde $5.500**. El cliente también puede recoger el pedido.
+- El domicilio solo tiene costo en estas zonas (confirmado por Karamba el 2026-11-09):
+  - Comunas 1, 3 y 7 de Cartago: **$2.000**.
+  - Zaragoza: **$6.000**.
+  - Puerto Caldas: **$5.000**.
+- En el resto de destinos el domicilio está incluido en el precio. La web todavía publica "desde $5.500". El cliente también puede recoger el pedido.
 - **El tiempo estimado de entrega es de media a una hora.**
 - El domiciliario espera un tiempo prudencial. Si tiene que regresar, el pedido se reprograma y el domicilio nuevo se cobra antes. Pasa lo mismo cuando hay cambios o errores en la dirección.
 - No se toman fotos durante la entrega, para cuidar la privacidad de quien recibe. Al cliente se le comparte una foto del regalo antes de salir.

@@ -65,7 +65,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 | RN-06 | Al confirmar la entrega, las unidades entregadas de cada producto van de 0 a la cantidad pedida. Si alguna es menor que lo pedido, el resultado es *entrega parcial* y el motivo es obligatorio. Si todas son 0, no se puede confirmar como entrega: hay que reportar *no entregado*. |
 | RN-07 | Para reportar *no entregado* son obligatorios el motivo y la foto. Antes se muestra el protocolo de Karamba: contactar al destinatario, luego al cliente y luego a Karamba. |
 | RN-08 | Solo se reprograma un domicilio vigente en *no entregado* o *entrega parcial*. La reprogramación crea un intento nuevo; el anterior queda en el historial. |
-| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: la Comuna 1, la Comuna 3 y la Comuna 7 de Cartago, Zaragoza y Puerto Caldas. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar: en una zona con tarifa, la tarifa de esa zona; en una zona con domicilio incluido, una tarifa fija de reprogramación, porque el viaje incluido ya se hizo. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. Valores de las tarifas **[Por confirmar con el cliente]**. |
+| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: Comunas 1, 3 y 7 de Cartago, $2.000; Zaragoza, $6.000; Puerto Caldas, $5.000. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar: en una zona con tarifa, la tarifa de esa zona; en una zona con domicilio incluido, una tarifa fija de reprogramación, porque el viaje incluido ya se hizo. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. Valor de la tarifa fija de reprogramación **[Por confirmar con el cliente]**. |
 
 ## 4. Requisitos funcionales
 
@@ -245,7 +245,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 ## 11. Por confirmar con el cliente
 
 - Dirección y coordenadas del punto de despacho en Cartago.
-- Valor de la tarifa de cada zona con costo y de la tarifa fija de reprogramación (RN-09); la web publica "desde $5.500".
+- Valor de la tarifa fija de reprogramación en las zonas con domicilio incluido (RN-09).
 - Qué barrios forman la Comuna 1, la Comuna 3 y la Comuna 7, para asignarlos a su zona (RN-09).
 - Causas del regreso que se consideran de Karamba y no se cobran (RN-09).
 - Intervalo de envío de la posición (RN-03).
