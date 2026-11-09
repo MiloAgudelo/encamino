@@ -31,7 +31,8 @@ Motivos de pedido: cumpleaños, aniversario, amor y amistad, día de la madre, a
   - Comunas 1, 3 y 7 de Cartago: **$2.000**.
   - Zaragoza: **$6.000**.
   - Puerto Caldas: **$5.000**.
-- En el resto de destinos el domicilio está incluido en el precio. La web todavía publica "desde $5.500". El cliente también puede recoger el pedido.
+- En el resto de destinos el domicilio está incluido en el precio.
+- Si hay que reprogramar, el domicilio nuevo cuesta $5.000 más la tarifa de la zona: $5.000 donde va incluido, $7.000 en las comunas 1, 3 y 7, $10.000 en Puerto Caldas y $11.000 en Zaragoza. La web todavía publica "desde $5.500". El cliente también puede recoger el pedido.
 - **El tiempo estimado de entrega es de media a una hora.**
 - El domiciliario espera un tiempo prudencial. Si tiene que regresar, el pedido se reprograma y el domicilio nuevo se cobra antes. Pasa lo mismo cuando hay cambios o errores en la dirección.
 - No se toman fotos durante la entrega, para cuidar la privacidad de quien recibe. Al cliente se le comparte una foto del regalo antes de salir.

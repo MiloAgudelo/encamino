@@ -65,7 +65,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 | RN-06 | Al confirmar la entrega, las unidades entregadas de cada producto van de 0 a la cantidad pedida. Si alguna es menor que lo pedido, el resultado es *entrega parcial* y el motivo es obligatorio. Si todas son 0, no se puede confirmar como entrega: hay que reportar *no entregado*. |
 | RN-07 | Para reportar *no entregado* son obligatorios el motivo y la foto. Antes se muestra el protocolo de Karamba: contactar al destinatario, luego al cliente y luego a Karamba. |
 | RN-08 | Solo se reprograma un domicilio vigente en *no entregado* o *entrega parcial*. La reprogramación crea un intento nuevo; el anterior queda en el historial. |
-| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: Comunas 1, 3 y 7 de Cartago, $2.000; Zaragoza, $6.000; Puerto Caldas, $5.000. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar: en una zona con tarifa, la tarifa de esa zona; en una zona con domicilio incluido, una tarifa fija de reprogramación, porque el viaje incluido ya se hizo. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. Valor de la tarifa fija de reprogramación **[Por confirmar con el cliente]**. |
+| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: Comunas 1, 3 y 7 de Cartago, $2.000; Zaragoza, $6.000; Puerto Caldas, $5.000. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar = recargo de reprogramación ($5.000) + tarifa de la zona del destino ($0 si tiene domicilio incluido). Ejemplos: destino con domicilio incluido, $5.000; Comuna 1, $7.000; Puerto Caldas, $10.000; Zaragoza, $11.000. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. |
 
 ## 4. Requisitos funcionales
 
@@ -139,7 +139,7 @@ EnCamino usa el backend de Karamba (Django REST con JWT). Lo que ya existe se re
 | B-04 | Posiciones del domiciliario | — | Modelo de posiciones; `POST .../<pk>/posicion/` (domiciliario asignado); `GET` de la última posición para el administrador y para el seguimiento público por código, este último solo mientras está *en camino* (RN-04). |
 | B-05 | Entrega con unidades por línea | `POST publico/<token>/entregar/` | Tabla con las unidades entregadas por línea y el motivo. **Decisión pendiente:** agregar *entrega parcial* como valor nuevo de `resultado` toca la lógica de reasignación, que depende de `resultado='NO_ENTREGADO'`. La alternativa es dejar `resultado=ENTREGADO` con una marca de parcial y el detalle por línea. |
 | B-06 | No entrega con foto | `POST publico/<token>/no-entregar/` y firma de Cloudinary | Versión autenticada para la app, con las mismas validaciones. |
-| B-07 | Reprogramación con cobro | `POST .../<pk>/reasignar/` | Zonas con tarifa (Comunas 1, 3 y 7, Zaragoza y Puerto Caldas) asignadas a sus barrios y tarifa fija de reprogramación, editables desde el panel; causa y valor en el intento nuevo; aceptar también *entrega parcial*. |
+| B-07 | Reprogramación con cobro | `POST .../<pk>/reasignar/` | Zonas con tarifa (Comunas 1, 3 y 7, Zaragoza y Puerto Caldas) asignadas a sus barrios y recargo de reprogramación, editables desde el panel; causa y valor en el intento nuevo; aceptar también *entrega parcial*. |
 | B-08 | Seguimiento del cliente | `GET /api/pedidos/pedidos/seguimiento/<token>/` | Agregar el estado del domicilio vigente, la última posición (según RN-04) y el valor de reprogramación. |
 | B-09 | Entorno local | La base está fija en PostgreSQL y el desarrollo local apunta a la misma base que producción. | Variable de entorno para usar una base local con datos de prueba. |
 | B-10 | Posiciones de todos en camino | — | `GET .../en-camino/` (solo administrador): en una sola respuesta, cada domicilio *en camino* con su domiciliario, número de pedido, barrio y última posición. Lo usan el mapa de supervisión de la app (RF-16) y el tablero (RF-22), para no hacer una consulta por domiciliario cada 15 segundos. |
@@ -245,7 +245,6 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 ## 11. Por confirmar con el cliente
 
 - Dirección y coordenadas del punto de despacho en Cartago.
-- Valor de la tarifa fija de reprogramación en las zonas con domicilio incluido (RN-09).
 - Qué barrios forman la Comuna 1, la Comuna 3 y la Comuna 7, para asignarlos a su zona (RN-09).
 - Causas del regreso que se consideran de Karamba y no se cobran (RN-09).
 - Intervalo de envío de la posición (RN-03).
