@@ -1,0 +1,627 @@
+{
+  "_fuente": "Tarifas y recargo confirmados por Karamba el 2026-11-09. Barrios por comuna según el listado de la Secretaría de Planeación de Cartago publicado por CiudadRegion (31/07/2020), cruzado con los barrios de Karamba (barrios.json). El resto de destinos tiene el domicilio incluido.",
+  "recargo_reprogramacion": 5000,
+  "zonas": [
+    {
+      "nombre": "Comuna 1",
+      "ciudad": "CARTAGO",
+      "tarifa": 2000,
+      "barrios": [
+        {
+          "id": 2989,
+          "nombre": "ORTEZ",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2990,
+          "nombre": "BRISAS DEL RIO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2991,
+          "nombre": "LA PLAYA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2992,
+          "nombre": "LOS ALPES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2993,
+          "nombre": "HORIZONTE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2994,
+          "nombre": "LA MILAGROSA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2995,
+          "nombre": "LA ARENERA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2996,
+          "nombre": "COLLAREJO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2997,
+          "nombre": "BOLIVAR",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2998,
+          "nombre": "EL LIBERTADOR",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 2999,
+          "nombre": "CHAVARRIAGA WILKINS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3000,
+          "nombre": "CAMELLON DEL QUINDIO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3001,
+          "nombre": "EL POLO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3002,
+          "nombre": "FABIO SALAZAR",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3003,
+          "nombre": "VILLA HERMOSA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3004,
+          "nombre": "VILLA ESPERANZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3350,
+          "nombre": "ALAMEDA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3353,
+          "nombre": "EL PARAISO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3360,
+          "nombre": "LA ESPERANZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3364,
+          "nombre": "LOS CONQUISTADORES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3370,
+          "nombre": "SAN JOSE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3372,
+          "nombre": "SAN VICENTE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3424,
+          "nombre": "SAN FERNANDO",
+          "ciudad": "CARTAGO"
+        }
+      ]
+    },
+    {
+      "nombre": "Comuna 3",
+      "ciudad": "CARTAGO",
+      "tarifa": 2000,
+      "barrios": [
+        {
+          "id": 3033,
+          "nombre": "EL JARDIN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3034,
+          "nombre": "LOS CHORROS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3035,
+          "nombre": "LA FRESNEDA I ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3036,
+          "nombre": "SANTA ROSA DE LIMA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3037,
+          "nombre": "EL CIPRES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3038,
+          "nombre": "SAN AGUSTIN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3039,
+          "nombre": "EL ROBLE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3040,
+          "nombre": "ROBERTULIO LORA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3041,
+          "nombre": "CARACOLI",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3042,
+          "nombre": "LA INMACULADA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3043,
+          "nombre": "EL POBLADO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3044,
+          "nombre": "BOSQUE LOS LAGOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3045,
+          "nombre": "LOS LAGOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3046,
+          "nombre": "LOS LAGUITOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3047,
+          "nombre": "TORRELAVEGA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3048,
+          "nombre": "NUESTRA SEÑORA DE LA POBREZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3049,
+          "nombre": "RINCON DE LA LOMA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3050,
+          "nombre": "CIUDADELA COMFANDI",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3051,
+          "nombre": "BULEVAR DE LAS PALMAS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3052,
+          "nombre": "KORALYN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3053,
+          "nombre": "PORTAL DE TORRE LA VEGA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3373,
+          "nombre": "SANTA ELENA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3375,
+          "nombre": "VILLA DEL SOL",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3399,
+          "nombre": "TORRE LA VEGA",
+          "ciudad": "CARTAGO"
+        }
+      ]
+    },
+    {
+      "nombre": "Comuna 7",
+      "ciudad": "CARTAGO",
+      "tarifa": 2000,
+      "barrios": [
+        {
+          "id": 3153,
+          "nombre": "URBANIZACION LAS ACACIAS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3154,
+          "nombre": "URBANIZACION LA EPIFANIA I Y II ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3155,
+          "nombre": "URBANIZACION LA ESPANOLA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3156,
+          "nombre": "CONDOMINIO VILLAS DE SANTA MARIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3157,
+          "nombre": "URBANIZACION PRAGA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3158,
+          "nombre": "URBANIZACION SANTA MARIA REAL",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3159,
+          "nombre": "URBANIZACION CHIMINANGOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3160,
+          "nombre": "URBANIZACION LA EPIFANIA II Y III ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3161,
+          "nombre": "URBANIZACION GRUPO DE LOS 60",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3163,
+          "nombre": "URBANIZACION LAS PALMAS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3164,
+          "nombre": "CONDOMINIO VILLA DEL ROBLE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3165,
+          "nombre": "URBANIZACION VILLA AMALIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3166,
+          "nombre": "CAMPO ALEGRE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3167,
+          "nombre": "URBANIZACION LA FRESNEDA II ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3168,
+          "nombre": "SAN CARLOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3169,
+          "nombre": "URBANIZACION COOTEMCA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3170,
+          "nombre": "URBANIZACION SANTA CATALINA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3171,
+          "nombre": "SAN PABLO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3172,
+          "nombre": "URBANIZACION SANTA ISABEL",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3173,
+          "nombre": "EL DANUBIO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3174,
+          "nombre": "URBANIZACION LUIS CARLOS GALAN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3175,
+          "nombre": "URBANIZACION BRISAS DEL NORTE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3176,
+          "nombre": "URBANIZACION LA VALENCIANA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3177,
+          "nombre": "SANTA ANA NORTE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3178,
+          "nombre": "URBANIZACION LA FRESNEDA III ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3179,
+          "nombre": "URBANIZACION VILLA CAMPESTRE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3180,
+          "nombre": "URBANIZACION LOS ALCAZARES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3181,
+          "nombre": "URBANIZACION LA FRESNEDA IV ETAPA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3182,
+          "nombre": "GUAYABAL SANTA ANA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3183,
+          "nombre": "SANTA ANA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3184,
+          "nombre": "URBANIZACION CERROS DE PUERTO ASIS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3185,
+          "nombre": "URBANIZACION VILLA COMUNERA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3186,
+          "nombre": "EL JAZMIN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3187,
+          "nombre": "URBANIZACION EL TREBOL I II III IV",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3188,
+          "nombre": "URBANIZACION LA ORQUIDEA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3190,
+          "nombre": "URBANIZACION EL JUBILEO",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3191,
+          "nombre": "URBANIZACION JOSE GABRIEL CALDERON",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3192,
+          "nombre": "URBANIZACION LA CABAÑA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3193,
+          "nombre": "CONDOMINIO BALCONES DE SANTA MARIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3194,
+          "nombre": "URBANIZACION VILLA ALICIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3195,
+          "nombre": "URBANIZACION EL BULEVAR",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3196,
+          "nombre": "URBANIZACION CIUDADELA LOS ANGELES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3197,
+          "nombre": "URBANIZACION CIUDADELA SAN FRANCISCO DE ASIS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3198,
+          "nombre": "URBANIZACION LA AURORA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3199,
+          "nombre": "URBANIZACION JARDINES DE SANTA MARIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3200,
+          "nombre": "URBANIZACION QUIRAMA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3201,
+          "nombre": "URBANIZACION TERRAZAS DE SANTA MARIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3202,
+          "nombre": "URBANIZACION EL JARDIN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3203,
+          "nombre": "URBANIZACION MONTE ESMERALDA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3204,
+          "nombre": "URBANIZACION LA CAMPIÑA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3205,
+          "nombre": "URBANIZACION LA ARBOLEDA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3206,
+          "nombre": "CONDOMINIO VILLA GUADALUPE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3207,
+          "nombre": "PARCELACION CAMPESTRE LOS CERROS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3208,
+          "nombre": "URBANIZACION PORTAL DE LOS CAMBULOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3209,
+          "nombre": "URBANIZACION MONTANAR PALO VERDE",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3352,
+          "nombre": "CAMBULOS",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3358,
+          "nombre": "LA ARBOLEDA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3363,
+          "nombre": "LOS ANGELES",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3367,
+          "nombre": "NUEVA COLOMBIA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3369,
+          "nombre": "SAN JOAQUIN",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3377,
+          "nombre": "EL VERDUM",
+          "ciudad": "CARTAGO"
+        }
+      ]
+    },
+    {
+      "nombre": "Zaragoza",
+      "ciudad": "CARTAGO",
+      "tarifa": 6000,
+      "barrios": [
+        {
+          "id": 3224,
+          "nombre": "CONDOMINIO EL PLACER - ZARAGOZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3341,
+          "nombre": "ZARAGOZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3402,
+          "nombre": "CONDOMINIO MADEIRA VÍA A ZARAGOZA",
+          "ciudad": "CARTAGO"
+        },
+        {
+          "id": 3410,
+          "nombre": "VÍA A ZARAGOZA",
+          "ciudad": "CARTAGO"
+        }
+      ]
+    },
+    {
+      "nombre": "Puerto Caldas",
+      "ciudad": "PEREIRA",
+      "tarifa": 5000,
+      "barrios": [
+        {
+          "id": 3234,
+          "nombre": "PUERTO CALDAS",
+          "ciudad": "PEREIRA"
+        },
+        {
+          "id": 3380,
+          "nombre": "LOS ALMENDROS PUERTO CALDAS",
+          "ciudad": "PEREIRA"
+        }
+      ]
+    }
+  ],
+  "por_revisar": [
+    {
+      "id": 3399,
+      "nombre": "TORRE LA VEGA",
+      "nota": "Se asignó a la Comuna 3 por Torrelavega; puede ser un duplicado de 3047."
+    },
+    {
+      "id": 3417,
+      "nombre": "URBANIZACIÓN IBIZA - SANTA ANA",
+      "nota": "Santa Ana es de la Comuna 7, pero Ibiza no aparece en el listado. Quedó con domicilio incluido."
+    },
+    {
+      "nombre": "LA PLATANERA, SAN FRANCISCO, BELLAVISTA, VERACRUZ (Comuna 1); VERONA (Comuna 3); PRIMERO DE MAYO (Comuna 7)",
+      "nota": "Están en el listado de la comuna pero no en los barrios de Karamba. Hay que crearlos si se usan."
+    }
+  ]
+}

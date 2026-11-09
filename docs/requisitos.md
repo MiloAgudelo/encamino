@@ -65,7 +65,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 | RN-06 | Al confirmar la entrega, las unidades entregadas de cada producto van de 0 a la cantidad pedida. Si alguna es menor que lo pedido, el resultado es *entrega parcial* y el motivo es obligatorio. Si todas son 0, no se puede confirmar como entrega: hay que reportar *no entregado*. |
 | RN-07 | Para reportar *no entregado* son obligatorios el motivo y la foto. Antes se muestra el protocolo de Karamba: contactar al destinatario, luego al cliente y luego a Karamba. |
 | RN-08 | Solo se reprograma un domicilio vigente en *no entregado* o *entrega parcial*. La reprogramación crea un intento nuevo; el anterior queda en el historial. |
-| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: Comunas 1, 3 y 7 de Cartago, $2.000; Zaragoza, $6.000; Puerto Caldas, $5.000. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar = recargo de reprogramación ($5.000) + tarifa de la zona del destino ($0 si tiene domicilio incluido). Ejemplos: destino con domicilio incluido, $5.000; Comuna 1, $7.000; Puerto Caldas, $10.000; Zaragoza, $11.000. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. |
+| RN-09 | El domicilio solo tiene costo en las zonas con tarifa: Comunas 1, 3 y 7 de Cartago, $2.000; Zaragoza, $6.000; Puerto Caldas, $5.000. En el resto de destinos está incluido en el precio del pedido. Valor del domicilio nuevo al reprogramar = recargo de reprogramación ($5.000) + tarifa de la zona del destino ($0 si tiene domicilio incluido). Ejemplos: destino con domicilio incluido, $5.000; Comuna 1, $7.000; Puerto Caldas, $10.000; Zaragoza, $11.000. Si la causa es de Karamba (retraso o error interno), el valor es $0. Si la dirección cambia, se usa la zona del destino nuevo. Ninguna tarifa puede quedar vacía, ser negativa ni tener decimales. Los barrios de cada zona están en `datos/semilla/zonas-domicilio.json`. |
 
 ## 4. Requisitos funcionales
 
@@ -245,7 +245,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 ## 11. Por confirmar con el cliente
 
 - Dirección y coordenadas del punto de despacho en Cartago.
-- Qué barrios forman la Comuna 1, la Comuna 3 y la Comuna 7, para asignarlos a su zona (RN-09).
+- Los barrios marcados "por revisar" en `datos/semilla/zonas-domicilio.json` (RN-09). La asignación del resto sale del listado de Planeación de Cartago por comuna.
 - Causas del regreso que se consideran de Karamba y no se cobran (RN-09).
 - Intervalo de envío de la posición (RN-03).
 - Si una entrega parcial se registra como resultado propio o como entrega con marca de parcial (B-05).
