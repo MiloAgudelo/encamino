@@ -46,12 +46,12 @@ _Evitar_: despacho, asignación (cuando se habla de la salida)
 El punto GPS del teléfono del domiciliario enviado durante el recorrido. El cliente solo la ve mientras su domicilio está en camino.
 _Evitar_: ubicación del cliente, rastreo (como sustantivo)
 
-**Entrega parcial**:
-Resultado de un domicilio en el que se entregaron menos unidades de las pedidas en al menos un producto. Lleva un motivo.
-_Evitar_: entrega incompleta, faltante
+**Verificación de la carga**:
+El conteo que hace el domiciliario, antes de salir, de las unidades que lleva de cada producto. Solo sale con el pedido completo: no existe la entrega parcial.
+_Evitar_: entrega parcial, alistamiento (el alistamiento es del local, no del domiciliario)
 
 **Reprogramación**:
-Un intento nuevo de domicilio después de una no entrega o una entrega parcial. Tiene su propio valor, que se cobra antes de salir salvo que la causa sea de Karamba.
+Un intento nuevo de domicilio después de una no entrega. Tiene su propio valor, que se cobra antes de salir salvo que la causa sea de Karamba.
 _Evitar_: reenvío, reasignación (reasignar es solo cambiar de domiciliario)
 
 ### Acceso

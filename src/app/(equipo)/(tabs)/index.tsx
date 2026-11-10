@@ -21,8 +21,7 @@ const ORDEN_ESTADO: Record<EstadoDomicilio, number> = {
   no_entregado: 0,
   en_camino: 1,
   pendiente: 2,
-  entrega_parcial: 3,
-  entregado: 4,
+  entregado: 3,
 };
 
 function normalizar(texto: string): string {

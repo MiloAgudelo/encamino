@@ -5,7 +5,7 @@ export default function Historial() {
     <PantallaPendiente
       icono="time-outline"
       titulo="Historial"
-      descripcion="Domicilios terminados, con filtro por fecha y resultado: entregado, entrega parcial o no entregado."
+      descripcion="Domicilios terminados, con filtro por fecha y resultado: entregado o no entregado."
     />
   );
 }

@@ -121,6 +121,19 @@ export interface SeguimientoApi {
   productos: { id: number; nombre: string; cantidad: number; imagen: string | null }[];
 }
 
+/**
+ * POST /domicilios/domicilios/<id>/firma-foto/ (B-06). En el entorno local sin
+ * Cloudinary, el backend responde `{ simulado: true }` y la foto no se sube.
+ */
+export type FirmaFotoApi =
+  | { simulado: true }
+  | { timestamp: number; signature: string; api_key: string; cloud_name: string; folder: string };
+
+/** Respuesta de Cloudinary al subir una imagen. */
+export interface SubidaCloudinaryApi {
+  secure_url: string;
+}
+
 /** Cuerpo de error que devuelven las vistas del backend. */
 export interface ErrorApi {
   error?: string;

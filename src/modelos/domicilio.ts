@@ -1,5 +1,8 @@
-/** Estado de un domicilio en la app (RN-01). Un estado nunca retrocede. */
-export type EstadoDomicilio = 'pendiente' | 'en_camino' | 'entregado' | 'entrega_parcial' | 'no_entregado';
+/**
+ * Estado de un domicilio en la app (RN-01). Un estado nunca retrocede. No hay
+ * entrega parcial: el domiciliario siempre entrega el pedido completo.
+ */
+export type EstadoDomicilio = 'pendiente' | 'en_camino' | 'entregado' | 'no_entregado';
 
 export interface Coordenadas {
   latitud: number;
@@ -41,11 +44,15 @@ export interface Domicilio {
   cliente: string | null;
   quienRecibe: string | null;
   telefonoQuienRecibe: string | null;
+  /** Teléfono de quien hizo el pedido, para el protocolo de no entrega (RN-07). */
+  telefonoCliente: string | null;
   domiciliario: string | null;
   observaciones: string;
   entregadoEn: string | null;
   entregadoA: string | null;
   motivoNoEntrega: string | null;
+  /** URL de la foto de no entrega; null si no hay o si fue simulada en el entorno local. */
+  fotoNoEntrega: string | null;
   /** Ubicación conocida del destino (de una entrega anterior); null si no hay. */
   destino: Coordenadas | null;
   /** Cuándo inició el recorrido; null si no ha salido. */
@@ -66,7 +73,6 @@ export const ETIQUETA_ESTADO: Record<EstadoDomicilio, string> = {
   pendiente: 'Pendiente',
   en_camino: 'En camino',
   entregado: 'Entregado',
-  entrega_parcial: 'Entrega parcial',
   no_entregado: 'No entregado',
 };
 

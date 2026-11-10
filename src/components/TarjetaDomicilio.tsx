@@ -9,7 +9,6 @@ const VARIANTE_ESTADO: Record<EstadoDomicilio, BadgeProps['variant']> = {
   pendiente: 'outline',
   en_camino: 'default',
   entregado: 'secondary',
-  entrega_parcial: 'secondary',
   no_entregado: 'destructive',
 };
 

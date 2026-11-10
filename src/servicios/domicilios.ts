@@ -1,6 +1,7 @@
 import { mapearDomicilio } from '@/mapeadores/domicilio';
 import type { Domicilio } from '@/modelos/domicilio';
 import { aErrorDeApi, api } from '@/servicios/api';
+import type { FotoReportada } from '@/servicios/fotos';
 import type { DomicilioApi } from '@/tipos/api';
 
 /** Fecha local en formato YYYY-MM-DD. */
@@ -33,6 +34,31 @@ export async function listarDomiciliosDelDia(fecha: string): Promise<Domicilio[]
 export async function iniciarRecorrido(id: number): Promise<Domicilio> {
   try {
     const { data } = await api.post<DomicilioApi>(`/domicilios/domicilios/${id}/iniciar/`);
+    return mapearDomicilio(data);
+  } catch (error) {
+    throw aErrorDeApi(error);
+  }
+}
+
+/** Confirma la entrega del pedido completo (RF-13, B-05). */
+export async function confirmarEntrega(id: number, quienRecibio: string): Promise<Domicilio> {
+  try {
+    const { data } = await api.post<DomicilioApi>(`/domicilios/domicilios/${id}/entregar/`, {
+      quien_recibio: quienRecibio,
+    });
+    return mapearDomicilio(data);
+  } catch (error) {
+    throw aErrorDeApi(error);
+  }
+}
+
+/** Reporta que no se pudo entregar, con motivo y foto (RF-14, B-06). */
+export async function reportarNoEntrega(id: number, motivo: string, foto: FotoReportada): Promise<Domicilio> {
+  try {
+    const { data } = await api.post<DomicilioApi>(`/domicilios/domicilios/${id}/no-entregar/`, {
+      motivo_no_entrega: motivo,
+      ...(foto.tipo === 'subida' ? { foto_no_entrega: foto.url } : { foto_simulada: true }),
+    });
     return mapearDomicilio(data);
   } catch (error) {
     throw aErrorDeApi(error);

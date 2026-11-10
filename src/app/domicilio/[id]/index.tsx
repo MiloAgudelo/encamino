@@ -1,8 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import { Link, router, Stack, useLocalSearchParams } from 'expo-router';
 import { useState, type ComponentProps, type ReactNode } from 'react';
 import { Linking, ScrollView, View } from 'react-native';
 
+import { AvisoSimulado } from '@/components/AvisoSimulado';
+import { ContadorUnidades } from '@/components/ContadorUnidades';
 import { EstadoDatos } from '@/components/EstadoDatos';
 import { FilaProducto } from '@/components/FilaProducto';
 import { RequiereSesion } from '@/components/RequiereSesion';
@@ -14,7 +17,7 @@ import { Text } from '@/components/ui/text';
 import { useDomicilio, useIniciarRecorrido } from '@/hooks/consultas/useDomicilios';
 import { THEME } from '@/lib/theme';
 import { hace, horaCorta } from '@/lib/tiempo';
-import { ETIQUETA_ESTADO, tituloDomicilio, type Domicilio } from '@/modelos/domicilio';
+import { ETIQUETA_ESTADO, tituloDomicilio, type Domicilio, type ProductoDomicilio } from '@/modelos/domicilio';
 import { useSesion } from '@/store/sesion';
 
 export default function PantallaDetalle() {
@@ -63,7 +66,7 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
   const esAdministrador = useSesion((s) => s.usuario?.rol === 'administrador');
   const d = domicilio;
   const id = String(d.id);
-  const terminado = d.estado === 'entregado' || d.estado === 'entrega_parcial';
+  const terminado = d.estado === 'entregado';
   // RN-02: el backend solo deja al domiciliario asignado; aquí solo ve los suyos.
   const esDomiciliario = !esAdministrador;
 
@@ -161,10 +164,20 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
       ) : null}
       {d.estado === 'no_entregado' ? (
         <Card className="border-destructive/40 py-4">
-          <CardContent className="px-4">
+          <CardContent className="gap-3 px-4">
             <Dato icono="alert-circle-outline" etiqueta="No se pudo entregar">
               {d.motivoNoEntrega ?? 'Sin motivo registrado'}
             </Dato>
+            {d.fotoNoEntrega ? (
+              <Image
+                source={{ uri: d.fotoNoEntrega }}
+                style={{ width: '100%', aspectRatio: 4 / 3, borderRadius: 8 }}
+                contentFit="cover"
+                accessibilityLabel="Foto de evidencia de la no entrega"
+              />
+            ) : (
+              <AvisoSimulado que="foto no guardada en el entorno local" />
+            )}
           </CardContent>
         </Card>
       ) : null}
@@ -186,7 +199,7 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
         </Card>
       ) : null}
 
-      {esDomiciliario && d.estado === 'pendiente' ? <IniciarRecorrido id={d.id} /> : null}
+      {esDomiciliario && d.estado === 'pendiente' ? <IniciarRecorrido id={d.id} productos={d.productos} /> : null}
 
       {esDomiciliario && d.estado === 'en_camino' ? (
         <View className="gap-2">
@@ -213,10 +226,17 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
   );
 }
 
-/** Botón "Iniciar recorrido" con confirmación (RF-11). */
-function IniciarRecorrido({ id }: { id: number }) {
+/**
+ * Botón "Iniciar recorrido" con confirmación (RF-11). Antes de salir, el
+ * domiciliario cuenta lo que carga de cada producto: siempre se entrega el
+ * pedido completo, así que solo puede salir cuando cada línea está completa.
+ */
+function IniciarRecorrido({ id, productos }: { id: number; productos: ProductoDomicilio[] }) {
   const [confirmando, setConfirmando] = useState(false);
+  const [cargadas, setCargadas] = useState<Record<number, number>>({});
   const iniciar = useIniciarRecorrido(id);
+  const faltan = productos.reduce((total, p) => total + p.cantidad - (cargadas[p.idLinea] ?? 0), 0);
+  const cargaCompleta = faltan === 0;
 
   if (!confirmando) {
     return (
@@ -230,6 +250,31 @@ function IniciarRecorrido({ id }: { id: number }) {
   return (
     <Card className="border-primary/40 py-4">
       <CardContent className="gap-3 px-4">
+        {productos.length > 0 ? (
+          <>
+            <Text className="font-semibold">Verifica lo que llevas</Text>
+            <Text variant="muted">Cuenta las unidades de cada producto que cargas. El pedido se entrega completo.</Text>
+            {productos.map((p) => (
+              <View key={p.idLinea} className="flex-row items-center gap-3">
+                <Text className="flex-1" numberOfLines={2}>
+                  {p.nombre}
+                </Text>
+                <ContadorUnidades
+                  nombre={p.nombre}
+                  valor={cargadas[p.idLinea] ?? 0}
+                  maximo={p.cantidad}
+                  alCambiar={(valor) => setCargadas((anterior) => ({ ...anterior, [p.idLinea]: valor }))}
+                />
+              </View>
+            ))}
+            <Text variant="muted" accessibilityLiveRegion="polite">
+              {cargaCompleta
+                ? 'Carga completa.'
+                : `Faltan ${faltan} ${faltan === 1 ? 'unidad' : 'unidades'} por cargar.`}
+            </Text>
+            <Separator />
+          </>
+        ) : null}
         <Text className="font-semibold">¿Ya saliste con el pedido?</Text>
         <Text variant="muted">
           El domicilio pasa a "En camino" y el cliente lo verá en su seguimiento. No se puede deshacer.
@@ -256,7 +301,7 @@ function IniciarRecorrido({ id }: { id: number }) {
           >
             <Text>Cancelar</Text>
           </Button>
-          <Button className="flex-1" disabled={iniciar.isPending} onPress={() => iniciar.mutate()}>
+          <Button className="flex-1" disabled={iniciar.isPending || !cargaCompleta} onPress={() => iniciar.mutate()}>
             <Text>{iniciar.isPending ? 'Iniciando…' : 'Sí, iniciar'}</Text>
           </Button>
         </View>

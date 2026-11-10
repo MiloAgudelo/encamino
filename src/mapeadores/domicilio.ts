@@ -22,8 +22,7 @@ function textoONulo(valor: string | null | undefined): string | null {
 }
 
 /**
- * Convierte un domicilio del backend en el modelo de la app.
- * El backend todavía no distingue "entrega parcial" (B-05). Si llegara un
+ * Convierte un domicilio del backend en el modelo de la app. Si llegara un
  * backend sin el campo `estado` (B-03), se usa `resultado`.
  */
 export function mapearDomicilio(api: DomicilioApi): Domicilio {
@@ -44,11 +43,13 @@ export function mapearDomicilio(api: DomicilioApi): Domicilio {
     cliente: textoONulo(api.pedido_cliente),
     quienRecibe: textoONulo(api.pedido_quien_recibe),
     telefonoQuienRecibe: textoONulo(api.pedido_quien_recibe_telefono),
+    telefonoCliente: textoONulo(api.pedido_cliente_telefono),
     domiciliario: textoONulo(api.domiciliario_nombre),
     observaciones: api.observaciones?.trim() ?? '',
     entregadoEn: api.entregado_en,
     entregadoA: textoONulo(api.entregado_a),
     motivoNoEntrega: textoONulo(api.motivo_no_entrega),
+    fotoNoEntrega: textoONulo(api.foto_no_entrega),
     destino,
     salidaEn: api.salida_en ? new Date(api.salida_en) : null,
     productos: (api.productos ?? []).map((p) => ({
