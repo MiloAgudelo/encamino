@@ -269,6 +269,26 @@
       <figcaption><b>Detalle del domicilio</b><code>domicilio/[id]</code> · RF-10, RF-11. Ruta dinámica. Las acciones cambian según el estado: <i>pendiente</i> → iniciar; <i>en camino</i> → confirmar o no entrega.</figcaption>
     </figure>
 
+    <figure id="verificar-carga">
+      <div class="tel">
+        <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="cab"><span class="ic">‹</span>Domicilio #1290</div>
+        <div class="cuerpo">
+          <div class="etq">Verifica lo que llevas</div>
+          <div class="txt">Cuenta las unidades de cada producto que cargas. El pedido se entrega completo.</div>
+          <div class="contador"><b>K01 Desayuna y pide un deseo</b><div class="ctl"><span>−</span><b>1</b><span class="off">+</span></div><span class="meta">Pedido: 1</span></div>
+          <div class="contador"><b>Globo metalizado</b><div class="ctl"><span>−</span><b>1</b><span>+</span></div><span class="meta" style="color:var(--aviso)">Pedido: 2</span></div>
+          <div class="txt">Falta 1 unidad por cargar.</div>
+          <div class="sep"></div>
+          <div class="etq">¿Ya saliste con el pedido?</div>
+          <div class="txt">El domicilio pasa a "En camino" y el cliente lo verá en su seguimiento. No se puede deshacer.</div>
+          <div style="flex:1"></div>
+          <div class="fila"><div class="btn sec">Cancelar</div><div class="btn inact">Sí, iniciar</div></div>
+        </div>
+      </div>
+      <figcaption><b>Iniciar recorrido: verificar la carga</b><code>domicilio/[id]</code> · RF-11, RN-06. Cada contador va de 0 a lo pedido y deshabilita el botón en el límite. "Sí, iniciar" se habilita solo con la carga completa.</figcaption>
+    </figure>
+
     <figure id="detalle-no-encontrado">
       <div class="tel">
         <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
@@ -357,19 +377,21 @@
         <div class="barra-sis"><span>9:41</span><span>▮▮▮</span></div>
         <div class="cab"><span class="ic">‹</span>Confirmar entrega #1287</div>
         <div class="cuerpo">
-          <div class="etq">Unidades entregadas</div>
-          <div class="contador"><b>K01 Desayuna y pide un deseo</b><div class="ctl"><span>−</span><b>1</b><span class="off">+</span></div><span class="meta">Pedido: 1</span></div>
-          <div class="contador"><b>Globo metalizado</b><div class="ctl"><span>−</span><b>1</b><span>+</span></div><span class="meta" style="color:var(--aviso)">Pedido: 2 · faltan 1</span></div>
-          <div class="aviso">Entrega parcial: falta 1 unidad. Escribe el motivo.</div>
-          <div class="etq">Motivo</div>
-          <div class="campo area">El globo se reventó en el camino</div>
-          <div class="etq">¿Quién recibió?</div>
-          <div class="chips"><span class="chip sel">Luis M. (destinatario)</span><span class="chip">Otra persona</span></div>
+          <div class="titulo">Pedido #1287</div>
+          <div class="txt">El Prado, Cartago · Cra 5 # 10-20</div>
+          <div class="caja">
+            <div class="etq">Se entrega completo</div>
+            <div class="fila"><div class="img" style="flex:none;width:36px;height:36px"></div><div class="txt"><b style="color:var(--tinta)">K01 Desayuna y pide un deseo</b> × 1</div></div>
+            <div class="fila"><div class="img" style="flex:none;width:36px;height:36px"></div><div class="txt"><b style="color:var(--tinta)">Globo metalizado</b> × 2</div></div>
+          </div>
+          <div class="etq">Quién recibió</div>
+          <div class="campo" style="color:var(--tinta)">Luis M.</div>
+          <div class="txt">Viene escrito con el destinatario; se cambia si recibió otra persona.</div>
           <div style="flex:1"></div>
-          <div class="btn">Confirmar entrega parcial</div>
+          <div class="btn">Confirmar entrega</div>
         </div>
       </div>
-      <figcaption><b>Confirmar entrega (contador)</b><code>domicilio/[id]/entregar</code> · RF-13, RN-06. Cada contador arranca en lo pedido, va de 0 a lo pedido y deshabilita el botón en el límite. Si todo queda en 0, se pide reportar no entrega.</figcaption>
+      <figcaption><b>Confirmar entrega</b><code>domicilio/[id]/entregar</code> · RF-13, RN-06. El pedido siempre se entrega completo: solo se pide quién recibió, que viene escrito con el destinatario y no puede quedar vacío. Sin conexión no se confirma nada y se conserva lo escrito.</figcaption>
     </figure>
 
     <figure id="no-entregar">
@@ -425,7 +447,7 @@
           <div class="tarjeta"><b>#1279 · Cerritos, Pereira</b><span class="chip no">No entregado</span><span class="meta">Juan P. · "Nadie atendió"</span><span class="meta"><u>Reprogramar</u></span></div>
           <div class="tarjeta"><b>#1287 · El Prado, Cartago</b><span class="chip camino">En camino</span><span class="meta">Juan P. · posición hace 8 s</span></div>
           <div class="tarjeta"><b>#1288 · Boston, Pereira</b><span class="chip camino">En camino</span><span class="meta">Domicilios by karAMba · hace 12 s</span></div>
-          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip parcial">Entrega parcial</span><span class="meta">Juan P. · 1 de 2 globos</span></div>
+          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip ok">Entregado</span><span class="meta">Juan P. · recibió Marta · 7:45</span></div>
         </div>
         <div class="pestanas"><div class="act">Hoy</div><div>Mapa</div><div>Historial</div></div>
       </div>
@@ -484,9 +506,9 @@
         <div class="cab"><span class="ic">☰</span>Historial</div>
         <div class="cuerpo">
           <div class="fila"><div class="campo">01/11 – 09/11 ▾</div><div class="campo">Todos ▾</div></div>
-          <div class="chips"><span class="chip sel">Todos</span><span class="chip">Entregados</span><span class="chip">Parciales</span><span class="chip">No entregados</span></div>
+          <div class="chips"><span class="chip sel">Todos</span><span class="chip">Entregados</span><span class="chip">No entregados</span></div>
           <div class="tarjeta"><b>#1284 · Centro, Cartago</b><span class="chip ok">Entregado</span><span class="meta">09/11 7:10 · Marta</span></div>
-          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip parcial">Parcial</span><span class="meta">09/11 7:45 · 1 de 2 globos</span></div>
+          <div class="tarjeta"><b>#1285 · Centro, Cartago</b><span class="chip ok">Entregado</span><span class="meta">09/11 7:45 · Luis</span></div>
           <div class="tarjeta"><b>#1279 · Cerritos, Pereira</b><span class="chip no">No entregado</span><span class="meta">08/11 · Reprogramado → #1279-2 ($ 5.000)</span></div>
           <div class="tarjeta"><b>#1270 · Boston, Pereira</b><span class="chip ok">Entregado</span><span class="meta">08/11 16:20 · Luis</span></div>
         </div>
@@ -565,7 +587,7 @@
           <div class="txt">Ya no se muestra la ubicación del domiciliario.</div>
         </div>
       </div>
-      <figcaption><b>Seguimiento: resultado y reprogramación</b><code>seguimiento/[token]</code> · RF-08, RN-04. Para una entrega parcial se listan las unidades entregadas por producto.</figcaption>
+      <figcaption><b>Seguimiento: resultado y reprogramación</b><code>seguimiento/[token]</code> · RF-08, RN-04.</figcaption>
     </figure>
 
     <figure id="seguimiento-no-encontrado">

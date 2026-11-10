@@ -274,7 +274,9 @@ function IniciarRecorrido({ id, productos }: { id: number; productos: ProductoDo
             <Text variant="muted" accessibilityLiveRegion="polite">
               {cargaCompleta
                 ? 'Carga completa.'
-                : `Faltan ${faltan} ${faltan === 1 ? 'unidad' : 'unidades'} por cargar.`}
+                : faltan === 1
+                  ? 'Falta 1 unidad por cargar.'
+                  : `Faltan ${faltan} unidades por cargar.`}
             </Text>
             <Separator />
           </>

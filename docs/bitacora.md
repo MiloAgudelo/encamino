@@ -124,3 +124,18 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** ninguna.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** documentar los endpoints nuevos del backend, actualizar el wireframe de Confirmar entrega y probar en un teléfono.
+
+## 2026-11-10 — Wireframes sin entrega parcial
+
+- **Objetivo de la sesión:** que los wireframes reflejen la decisión de que el pedido siempre se entrega completo.
+- **Tarea realizada:**
+  - Confirmar entrega muestra los productos como "Se entrega completo" y solo pide quién recibió, ya escrito con el destinatario.
+  - Wireframe nuevo, "Iniciar recorrido: verificar la carga", con el contador de unidades que antes estaba en la entrega.
+  - Se quitó la entrega parcial de Domicilios en curso, del Historial (ya no hay filtro de parciales) y de la nota del seguimiento con resultado.
+  - Se regeneraron las imágenes de las cuatro pantallas y se borró `docs/wireframes/png$id.png`, una copia suelta de otra imagen.
+  - App: con una sola unidad por cargar, el aviso dice "Falta 1 unidad por cargar." en vez de "Faltan 1 unidad".
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit `docs: quita la entrega parcial de los wireframes`; `docs/wireframes/index.html` y `docs/wireframes/png/`. Verificación: `tsc` sin errores; se revisaron a ojo las imágenes regeneradas.
+- **Dificultad:** ninguna.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** documentar los endpoints nuevos del backend y probar en un teléfono.
