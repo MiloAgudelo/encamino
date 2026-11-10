@@ -231,12 +231,13 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 ## 9. Conservación de la información
 
 - **Compartido entre teléfonos:** domicilios, entregas, no entregas, reprogramaciones y posiciones viven en el backend de Karamba (PostgreSQL). Lo que reporta el domiciliario lo ven el administrador y el cliente en sus propios teléfonos.
-- **Solo en el teléfono:** la sesión (tokens en almacenamiento seguro), el estado del seguimiento y los códigos de seguimiento consultados (almacenamiento persistente de Zustand).
+- **Solo en el teléfono:** la sesión (tokens en almacenamiento seguro) y los códigos de seguimiento consultados (almacenamiento persistente de Zustand). El estado del seguimiento GPS (activo o en pausa) vive solo en memoria: si la app se cierra, el domiciliario vuelve a activar el envío desde el mapa, para que nunca se comparta la posición sin que lo vea.
 - **Límite:** sin conexión no se guarda nada en el backend. La app no pone reportes en cola para enviarlos después; lo informa y deja reintentar.
 
 ## 10. Límites conocidos
 
 - El seguimiento funciona solo con la app abierta en primer plano; no hay seguimiento en segundo plano.
+- En iPhone, el GPS solo entrega posiciones cuando el teléfono se mueve: si el domiciliario se queda quieto, no se envían posiciones nuevas y el cliente ve "Última posición hace N min" aunque el envío esté activo. En Android llegan cada pocos segundos.
 - La posición se actualiza cada 10 a 15 segundos, no al instante. Es consistente con el resto del sistema de Karamba, que trabaja con consultas periódicas en lugar de conexiones en tiempo real.
 - Los domiciliarios ocasionales que hoy usan un usuario genérico y el enlace público quedan fuera de la app hasta que tengan cuenta propia; pueden seguir usando el enlace. Como el enlace no tiene botón de salida, su cliente ve *Domiciliario asignado* hasta la entrega (ADR 0003).
 - En el entorno local, la foto de no entrega y los avisos por WhatsApp pueden estar simulados (RNF-09).
