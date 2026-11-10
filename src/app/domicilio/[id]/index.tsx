@@ -4,7 +4,6 @@ import { Link, router, Stack, useLocalSearchParams } from 'expo-router';
 import { useState, type ComponentProps, type ReactNode } from 'react';
 import { Linking, ScrollView, View } from 'react-native';
 
-import { AvisoSimulado } from '@/components/AvisoSimulado';
 import { ContadorUnidades } from '@/components/ContadorUnidades';
 import { EstadoDatos } from '@/components/EstadoDatos';
 import { FilaProducto } from '@/components/FilaProducto';
@@ -176,7 +175,8 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
                 accessibilityLabel="Foto de evidencia de la no entrega"
               />
             ) : (
-              <AvisoSimulado que="foto no guardada en el entorno local" />
+              // Sin foto: un reporte simulado en el entorno local o un registro antiguo.
+              <Text variant="muted">Sin foto guardada.</Text>
             )}
           </CardContent>
         </Card>

@@ -66,7 +66,8 @@ Otros comandos:
 | `juan@encamino.local` | Domiciliario |
 | `ana@encamino.local` | Domiciliario |
 
-- Seis pedidos ficticios para el día en que se cargan, cada uno con su domicilio: cuatro pendientes, uno entregado y uno no entregado, repartidos entre zonas con domicilio incluido y zonas con tarifa.
+- Seis pedidos ficticios para el día en que se cargan, cada uno con su domicilio: tres pendientes, uno en camino con una posición, uno entregado y uno no entregado, repartidos entre zonas con domicilio incluido y zonas con tarifa.
+- Sin `CLOUDINARY_*` en el `.env` local, la foto de no entrega no se sube: el backend la acepta como simulada solo con `DEBUG=True`, y la app lo dice con "Simulado".
 
 ## 4. App
 

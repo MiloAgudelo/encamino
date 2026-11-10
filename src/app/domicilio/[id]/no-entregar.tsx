@@ -103,7 +103,8 @@ function Formulario({ domicilio: d }: { domicilio: Domicilio }) {
   const reportar = useReportarNoEntrega(d.id);
   // Solo para avisar en pantalla si la foto se va a simular (entorno local sin Cloudinary, RNF-09).
   const firma = useQuery({
-    queryKey: ['domicilios', 'firma-foto', d.id],
+    // Fuera del prefijo 'domicilios': al reportar se invalida ese prefijo y no debe volver a pedir firma.
+    queryKey: ['firma-foto', d.id],
     queryFn: () => pedirFirmaFoto(d.id),
     staleTime: Infinity,
     retry: false,
