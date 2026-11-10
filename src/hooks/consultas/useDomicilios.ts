@@ -1,8 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { claves } from '@/hooks/consultas/claves';
+import type { Domicilio } from '@/modelos/domicilio';
 import type { ErrorDeApi } from '@/servicios/api';
-import { fechaLocal, listarDomiciliosDelDia, obtenerDomicilio } from '@/servicios/domicilios';
+import { fechaLocal, iniciarRecorrido, listarDomiciliosDelDia, obtenerDomicilio } from '@/servicios/domicilios';
 import { useSesion } from '@/store/sesion';
 
 /** Domicilios de hoy del usuario en sesión (RF-09 y RF-15). */
@@ -24,5 +25,24 @@ export function useDomicilio(id: number) {
     queryFn: () => obtenerDomicilio(id),
     enabled: Number.isInteger(id) && id > 0,
     staleTime: 30_000,
+  });
+}
+
+/**
+ * Inicia el recorrido de un domicilio (RF-11). Solo cuando el backend
+ * confirma, se actualiza el detalle y se recargan las listas: sin conexión,
+ * nada cambia y el error queda en `error` para mostrarlo.
+ */
+export function useIniciarRecorrido(id: number) {
+  const clienteConsultas = useQueryClient();
+  return useMutation<Domicilio, ErrorDeApi>({
+    mutationFn: () => iniciarRecorrido(id),
+    onSuccess: (domicilio) => {
+      // El POST no trae productos ni posición: se conservan los del detalle.
+      clienteConsultas.setQueryData<Domicilio>(claves.domicilio(id), (anterior) =>
+        anterior ? { ...domicilio, productos: anterior.productos, ultimaPosicion: anterior.ultimaPosicion } : domicilio,
+      );
+      void clienteConsultas.invalidateQueries({ queryKey: claves.domicilios });
+    },
   });
 }

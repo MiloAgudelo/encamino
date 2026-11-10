@@ -1,10 +1,17 @@
 import { formatearFranja } from '@/mapeadores/domicilio';
+import { mapearPosicion } from '@/mapeadores/posicion';
 import type { PasoSeguimiento, Seguimiento } from '@/modelos/seguimiento';
 import type { SeguimientoApi } from '@/tipos/api';
 
+/**
+ * El backend solo dice "en camino" cuando el domiciliario inició el
+ * recorrido (B-03). Antes de eso, con domiciliario ya asignado, el cliente ve
+ * el paso "Domiciliario asignado".
+ */
 function pasoActual(api: SeguimientoApi): PasoSeguimiento {
   if (api.entregado || ['ENTREGADO', 'ENCUESTA_ENVIADA', 'FINALIZADO'].includes(api.estado)) return 'entregado';
   if (api.en_camino || api.estado === 'EN_CAMINO') return 'en_camino';
+  if (api.domiciliario_asignado) return 'asignado';
   if (api.en_preparacion || ['ORDENES_GENERADAS', 'EN_PRODUCCION', 'EN_ALISTAMIENTO'].includes(api.estado)) {
     return 'en_preparacion';
   }
@@ -22,8 +29,9 @@ export function mapearSeguimiento(api: SeguimientoApi): Seguimiento {
     franja: formatearFranja(api.horario),
     ciudad: api.ciudad,
     // RN-04: después del reporte, el cliente no ve los datos del domiciliario.
-    domiciliario: paso === 'en_camino' ? api.domiciliario_nombre : null,
+    domiciliario: paso === 'asignado' || paso === 'en_camino' ? api.domiciliario_nombre : null,
     entregadoEn: api.entregado_en,
+    ultimaPosicion: paso === 'en_camino' ? mapearPosicion(api.domicilio?.ultima_posicion) : null,
     productos: api.productos.map((p) => ({
       id: p.id,
       nombre: p.nombre,

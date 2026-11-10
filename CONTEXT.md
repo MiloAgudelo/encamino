@@ -38,6 +38,10 @@ _Evitar_: envío, entrega (como sustantivo del objeto), despacho, pedido (cuando
 El trayecto del domiciliario desde que inicia la salida hasta que reporta el resultado. Solo durante el recorrido se comparte su posición.
 _Evitar_: viaje, ruta (una ruta implica un camino calculado, que la app no traza)
 
+**Salida**:
+El momento en que el domiciliario toca "Iniciar recorrido". Desde ahí el domicilio está *en camino*. Tener domiciliario asignado no es haber salido: el cliente ve *Domiciliario asignado* hasta la salida (ADR 0003).
+_Evitar_: despacho, asignación (cuando se habla de la salida)
+
 **Posición**:
 El punto GPS del teléfono del domiciliario enviado durante el recorrido. El cliente solo la ve mientras su domicilio está en camino.
 _Evitar_: ubicación del cliente, rastreo (como sustantivo)

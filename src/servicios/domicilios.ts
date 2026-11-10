@@ -25,6 +25,20 @@ export async function listarDomiciliosDelDia(fecha: string): Promise<Domicilio[]
   }
 }
 
+/**
+ * Inicia el recorrido (RF-11, B-03): el domicilio pasa de pendiente a en
+ * camino. Solo lo puede hacer el domiciliario asignado. Sin conexión lanza un
+ * ErrorDeApi `sin_conexion` y el estado no cambia.
+ */
+export async function iniciarRecorrido(id: number): Promise<Domicilio> {
+  try {
+    const { data } = await api.post<DomicilioApi>(`/domicilios/domicilios/${id}/iniciar/`);
+    return mapearDomicilio(data);
+  } catch (error) {
+    throw aErrorDeApi(error);
+  }
+}
+
 /** Detalle de un domicilio. Si no existe o es de otro domiciliario, el backend responde 404. */
 export async function obtenerDomicilio(id: number): Promise<Domicilio> {
   try {

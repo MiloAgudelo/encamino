@@ -25,6 +25,28 @@ export interface RefreshApi {
   access: string;
 }
 
+/** Posición del domiciliario (B-04). Las horas vienen en ISO 8601 con zona. */
+export interface PosicionApi {
+  lat: number;
+  lng: number;
+  /** Radio de error del GPS en metros. */
+  precision: number | null;
+  registrada_en: string | null;
+  recibida_en: string;
+}
+
+/** Estado del domicilio (B-03): "en camino" es un domicilio pendiente con salida. */
+export type EstadoDomicilioApi = 'PENDIENTE' | 'EN_CAMINO' | 'ENTREGADO' | 'NO_ENTREGADO';
+
+/** Una línea del pedido en el detalle del domicilio (B-02). `id` es el de la línea. */
+export interface LineaPedidoApi {
+  id: number;
+  producto_id: number;
+  nombre: string;
+  cantidad: number;
+  imagen: string | null;
+}
+
 /** GET /domicilios/domicilios/ y /domicilios/domicilios/<id>/ */
 export interface DomicilioApi {
   id: number;
@@ -42,6 +64,9 @@ export interface DomicilioApi {
   domiciliario_id: number;
   domiciliario_nombre: string | null;
   resultado: 'PENDIENTE' | 'ENTREGADO' | 'NO_ENTREGADO';
+  estado: EstadoDomicilioApi;
+  /** Hora de salida en ISO 8601; null si no ha iniciado el recorrido. */
+  salida_en: string | null;
   /** "09/11/2026 13:15" */
   entregado_en: string | null;
   entregado_a: string;
@@ -52,6 +77,10 @@ export interface DomicilioApi {
   barrio_efectivo: string | null;
   direccion_efectiva: string | null;
   vigente: boolean;
+  /** Solo en el detalle. */
+  productos?: LineaPedidoApi[];
+  /** Solo en el detalle. */
+  ultima_posicion?: PosicionApi | null;
 }
 
 export type EstadoPedidoApi =
@@ -74,7 +103,17 @@ export interface SeguimientoApi {
   horario: string;
   ciudad: string | null;
   en_preparacion: boolean;
+  /** True solo cuando el domiciliario ya inició el recorrido. */
   en_camino: boolean;
+  /** True cuando el pedido ya tiene domiciliario, haya salido o no. */
+  domiciliario_asignado: boolean;
+  /** Domicilio vigente; null si el pedido no tiene uno registrado. */
+  domicilio: {
+    estado: EstadoDomicilioApi;
+    salida_en: string | null;
+    /** Solo mientras va en camino (RN-04). */
+    ultima_posicion: PosicionApi | null;
+  } | null;
   entregado: boolean;
   entregado_en: string | null;
   domiciliario_nombre: string | null;

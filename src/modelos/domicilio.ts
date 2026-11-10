@@ -6,6 +6,25 @@ export interface Coordenadas {
   longitud: number;
 }
 
+/** Última posición conocida del domiciliario. Lo arma `mapearPosicion`. */
+export interface Posicion {
+  coordenadas: Coordenadas;
+  /** Radio de error del GPS en metros; null si el teléfono no lo informó. */
+  precisionMetros: number | null;
+  /** Cuándo la recibió el backend. */
+  recibidaEn: Date;
+}
+
+/** Un producto que lleva el domiciliario. */
+export interface ProductoDomicilio {
+  /** Id de la línea del pedido: la entrega por unidades se reporta por línea. */
+  idLinea: number;
+  nombre: string;
+  cantidad: number;
+  /** URL de la imagen; null si el producto no tiene. */
+  imagen: string | null;
+}
+
 /** Un domicilio como lo usa la app. Lo arma `mapearDomicilio` a partir de la API. */
 export interface Domicilio {
   id: number;
@@ -29,6 +48,12 @@ export interface Domicilio {
   motivoNoEntrega: string | null;
   /** Ubicación conocida del destino (de una entrega anterior); null si no hay. */
   destino: Coordenadas | null;
+  /** Cuándo inició el recorrido; null si no ha salido. */
+  salidaEn: Date | null;
+  /** Productos del pedido. Solo llegan en el detalle; en las listas va vacío. */
+  productos: ProductoDomicilio[];
+  /** Última posición del domiciliario. Solo llega en el detalle. */
+  ultimaPosicion: Posicion | null;
 }
 
 /** Lo que muestra una tarjeta de domicilio en las listas. */

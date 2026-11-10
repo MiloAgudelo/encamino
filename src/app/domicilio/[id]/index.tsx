@@ -1,17 +1,19 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Link, router, Stack, useLocalSearchParams } from 'expo-router';
-import type { ComponentProps, ReactNode } from 'react';
+import { useState, type ComponentProps, type ReactNode } from 'react';
 import { Linking, ScrollView, View } from 'react-native';
 
 import { EstadoDatos } from '@/components/EstadoDatos';
+import { FilaProducto } from '@/components/FilaProducto';
 import { RequiereSesion } from '@/components/RequiereSesion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import { useDomicilio } from '@/hooks/consultas/useDomicilios';
+import { useDomicilio, useIniciarRecorrido } from '@/hooks/consultas/useDomicilios';
 import { THEME } from '@/lib/theme';
+import { hace, horaCorta } from '@/lib/tiempo';
 import { ETIQUETA_ESTADO, tituloDomicilio, type Domicilio } from '@/modelos/domicilio';
 import { useSesion } from '@/store/sesion';
 
@@ -62,6 +64,8 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
   const d = domicilio;
   const id = String(d.id);
   const terminado = d.estado === 'entregado' || d.estado === 'entrega_parcial';
+  // RN-02: el backend solo deja al domiciliario asignado; aquí solo ve los suyos.
+  const esDomiciliario = !esAdministrador;
 
   return (
     <ScrollView className="flex-1 bg-background" contentContainerClassName="gap-4 p-4 pb-10">
@@ -74,7 +78,17 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
             {d.direccion}
           </Text>
         </View>
-        <Badge variant={d.estado === 'no_entregado' ? 'destructive' : d.estado === 'pendiente' ? 'outline' : 'secondary'}>
+        <Badge
+          variant={
+            d.estado === 'no_entregado'
+              ? 'destructive'
+              : d.estado === 'pendiente'
+                ? 'outline'
+                : d.estado === 'en_camino'
+                  ? 'default'
+                  : 'secondary'
+          }
+        >
           <Text>{ETIQUETA_ESTADO[d.estado]}</Text>
         </Badge>
       </View>
@@ -117,6 +131,25 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
         </CardContent>
       </Card>
 
+      {d.estado === 'en_camino' ? (
+        <Card className="border-primary/40 py-4">
+          <CardContent className="gap-3 px-4">
+            <Dato icono="bicycle-outline" etiqueta="En camino">
+              {d.salidaEn ? `Salió a las ${horaCorta(d.salidaEn)}` : 'Recorrido iniciado'}
+            </Dato>
+            {esAdministrador ? (
+              <Dato icono="navigate-outline" etiqueta="Última posición">
+                {d.ultimaPosicion
+                  ? `${hace(d.ultimaPosicion.recibidaEn)} · ${d.ultimaPosicion.coordenadas.latitud.toFixed(5)}, ${d.ultimaPosicion.coordenadas.longitud.toFixed(5)}`
+                  : 'Todavía no ha enviado su posición'}
+              </Dato>
+            ) : (
+              <Text variant="muted">El mapa con el envío de tu posición llega en la siguiente etapa.</Text>
+            )}
+          </CardContent>
+        </Card>
+      ) : null}
+
       {terminado ? (
         <Card className="py-4">
           <CardContent className="px-4">
@@ -136,11 +169,26 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
         </Card>
       ) : null}
 
-      <Text variant="muted">
-        Los productos del pedido aparecerán aquí cuando el backend los incluya en el detalle (B-02).
-      </Text>
+      {d.numeroPedido ? (
+        <Card className="py-4">
+          <CardHeader className="px-4">
+            <CardTitle>Productos</CardTitle>
+          </CardHeader>
+          <CardContent className="gap-3 px-4">
+            {d.productos.length > 0 ? (
+              d.productos.map((p) => (
+                <FilaProducto key={p.idLinea} nombre={p.nombre} cantidad={p.cantidad} imagen={p.imagen} />
+              ))
+            ) : (
+              <Text variant="muted">El pedido no tiene productos registrados.</Text>
+            )}
+          </CardContent>
+        </Card>
+      ) : null}
 
-      {d.estado === 'pendiente' ? (
+      {esDomiciliario && d.estado === 'pendiente' ? <IniciarRecorrido id={d.id} /> : null}
+
+      {esDomiciliario && d.estado === 'en_camino' ? (
         <View className="gap-2">
           <Link href={{ pathname: '/domicilio/[id]/entregar', params: { id } }} asChild>
             <Button>
@@ -162,6 +210,58 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
         </Link>
       ) : null}
     </ScrollView>
+  );
+}
+
+/** Botón "Iniciar recorrido" con confirmación (RF-11). */
+function IniciarRecorrido({ id }: { id: number }) {
+  const [confirmando, setConfirmando] = useState(false);
+  const iniciar = useIniciarRecorrido(id);
+
+  if (!confirmando) {
+    return (
+      <Button onPress={() => setConfirmando(true)}>
+        <Ionicons name="bicycle-outline" size={18} color={THEME.primaryForeground} />
+        <Text>Iniciar recorrido</Text>
+      </Button>
+    );
+  }
+
+  return (
+    <Card className="border-primary/40 py-4">
+      <CardContent className="gap-3 px-4">
+        <Text className="font-semibold">¿Ya saliste con el pedido?</Text>
+        <Text variant="muted">
+          El domicilio pasa a "En camino" y el cliente lo verá en su seguimiento. No se puede deshacer.
+        </Text>
+        {iniciar.isError ? (
+          <View className="flex-row gap-2" accessibilityRole="alert">
+            <Ionicons name="alert-circle-outline" size={18} color={THEME.destructive} />
+            <Text className="flex-1 text-destructive">
+              {iniciar.error.tipo === 'sin_conexion'
+                ? 'Sin conexión: el domicilio sigue pendiente. Revisa tu internet e inténtalo de nuevo.'
+                : iniciar.error.message}
+            </Text>
+          </View>
+        ) : null}
+        <View className="flex-row gap-2">
+          <Button
+            variant="outline"
+            className="flex-1"
+            disabled={iniciar.isPending}
+            onPress={() => {
+              iniciar.reset();
+              setConfirmando(false);
+            }}
+          >
+            <Text>Cancelar</Text>
+          </Button>
+          <Button className="flex-1" disabled={iniciar.isPending} onPress={() => iniciar.mutate()}>
+            <Text>{iniciar.isPending ? 'Iniciando…' : 'Sí, iniciar'}</Text>
+          </Button>
+        </View>
+      </CardContent>
+    </Card>
   );
 }
 

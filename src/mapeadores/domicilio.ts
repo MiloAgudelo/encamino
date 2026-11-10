@@ -1,8 +1,10 @@
+import { mapearPosicion } from '@/mapeadores/posicion';
 import type { Domicilio, EstadoDomicilio } from '@/modelos/domicilio';
-import type { DomicilioApi } from '@/tipos/api';
+import type { DomicilioApi, EstadoDomicilioApi } from '@/tipos/api';
 
-const ESTADO_DE_RESULTADO: Record<DomicilioApi['resultado'], EstadoDomicilio> = {
+const ESTADO_DE_API: Record<EstadoDomicilioApi, EstadoDomicilio> = {
   PENDIENTE: 'pendiente',
+  EN_CAMINO: 'en_camino',
   ENTREGADO: 'entregado',
   NO_ENTREGADO: 'no_entregado',
 };
@@ -21,8 +23,8 @@ function textoONulo(valor: string | null | undefined): string | null {
 
 /**
  * Convierte un domicilio del backend en el modelo de la app.
- * El backend todavía no distingue "en camino" ni "entrega parcial" (B-03, B-05):
- * mientras tanto, un domicilio sin reporte queda como pendiente.
+ * El backend todavía no distingue "entrega parcial" (B-05). Si llegara un
+ * backend sin el campo `estado` (B-03), se usa `resultado`.
  */
 export function mapearDomicilio(api: DomicilioApi): Domicilio {
   const destino =
@@ -38,7 +40,7 @@ export function mapearDomicilio(api: DomicilioApi): Domicilio {
     direccion: textoONulo(api.direccion_efectiva) ?? 'Dirección sin registrar',
     fechaEntrega: api.pedido_fecha_entrega,
     franja: formatearFranja(api.pedido_horario),
-    estado: ESTADO_DE_RESULTADO[api.resultado] ?? 'pendiente',
+    estado: ESTADO_DE_API[api.estado ?? api.resultado] ?? 'pendiente',
     cliente: textoONulo(api.pedido_cliente),
     quienRecibe: textoONulo(api.pedido_quien_recibe),
     telefonoQuienRecibe: textoONulo(api.pedido_quien_recibe_telefono),
@@ -48,5 +50,13 @@ export function mapearDomicilio(api: DomicilioApi): Domicilio {
     entregadoA: textoONulo(api.entregado_a),
     motivoNoEntrega: textoONulo(api.motivo_no_entrega),
     destino,
+    salidaEn: api.salida_en ? new Date(api.salida_en) : null,
+    productos: (api.productos ?? []).map((p) => ({
+      idLinea: p.id,
+      nombre: p.nombre,
+      cantidad: p.cantidad,
+      imagen: p.imagen || null,
+    })),
+    ultimaPosicion: mapearPosicion(api.ultima_posicion),
   };
 }

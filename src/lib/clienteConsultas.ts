@@ -15,7 +15,10 @@ export function crearClienteConsultas(): QueryClient {
     defaultOptions: {
       queries: { retry: valeLaPenaReintentar, gcTime: 5 * 60_000 },
       // Las escrituras nunca se reintentan solas: sin conexión se informa y no se confirma nada (RNF-05).
-      mutations: { retry: false },
+      // `networkMode: 'always'` evita que TanStack pause la escritura sin red y la envíe sola al volver
+      // la conexión, minutos después y sin que el domiciliario lo vea: así falla de una vez con
+      // `sin_conexion` y el estado no cambia.
+      mutations: { retry: false, networkMode: 'always' },
     },
   });
 }

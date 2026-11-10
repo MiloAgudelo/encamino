@@ -1,17 +1,18 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { RefreshControl, ScrollView, View } from 'react-native';
 
 import { EstadoDatos } from '@/components/EstadoDatos';
+import { FilaProducto } from '@/components/FilaProducto';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { useSeguimiento } from '@/hooks/consultas/useSeguimiento';
 import { THEME } from '@/lib/theme';
 import { cn } from '@/lib/utils';
-import { PASOS_SEGUIMIENTO, type ProductoSeguimiento, type Seguimiento } from '@/modelos/seguimiento';
+import { hace } from '@/lib/tiempo';
+import { PASOS_SEGUIMIENTO, type Seguimiento } from '@/modelos/seguimiento';
 import { extraerCodigo } from '@/servicios/seguimiento';
 import { useCodigosConsultados } from '@/store/codigosConsultados';
 
@@ -91,7 +92,7 @@ function Contenido({ seguimiento: s }: { seguimiento: Seguimiento }) {
                 />
                 <Text className={cn(actual ? 'font-semibold' : hecho ? '' : 'text-muted-foreground')}>
                   {etiqueta}
-                  {actual && paso === 'en_camino' && s.domiciliario ? ` · ${s.domiciliario}` : ''}
+                  {actual && (paso === 'asignado' || paso === 'en_camino') && s.domiciliario ? ` · ${s.domiciliario}` : ''}
                   {actual && paso === 'entregado' && s.entregadoEn ? ` · ${s.entregadoEn}` : ''}
                 </Text>
               </View>
@@ -100,8 +101,16 @@ function Contenido({ seguimiento: s }: { seguimiento: Seguimiento }) {
         </CardContent>
       </Card>
 
+      {s.pasoActual === 'asignado' ? (
+        <Text variant="muted">Te avisamos aquí cuando el domiciliario salga. Se actualiza solo cada 15 segundos.</Text>
+      ) : null}
       {s.pasoActual === 'en_camino' ? (
-        <Text variant="muted">Se actualiza solo cada 15 segundos. El mapa con el domiciliario llega con la posición en vivo.</Text>
+        <Text variant="muted">
+          {s.ultimaPosicion
+            ? `Última posición del domiciliario ${hace(s.ultimaPosicion.recibidaEn)}. `
+            : 'El domiciliario todavía no ha enviado su posición. '}
+          Se actualiza solo cada 15 segundos; el mapa llega con el GPS de la app.
+        </Text>
       ) : null}
 
       {s.intentosNoEntrega.length > 0 ? (
@@ -123,37 +132,10 @@ function Contenido({ seguimiento: s }: { seguimiento: Seguimiento }) {
         </CardHeader>
         <CardContent className="gap-3 px-4">
           {s.productos.map((p) => (
-            <FilaProducto key={p.id} producto={p} />
+            <FilaProducto key={p.id} nombre={p.nombre} cantidad={p.cantidad} imagen={p.imagen} />
           ))}
         </CardContent>
       </Card>
     </>
-  );
-}
-
-function FilaProducto({ producto }: { producto: ProductoSeguimiento }) {
-  const [imagenFallo, setImagenFallo] = useState(false);
-  const mostrarImagen = producto.imagen && !imagenFallo;
-
-  return (
-    <View className="flex-row items-center gap-3">
-      {mostrarImagen ? (
-        <Image
-          source={{ uri: producto.imagen! }}
-          style={{ width: 48, height: 48, borderRadius: 8 }}
-          contentFit="cover"
-          onError={() => setImagenFallo(true)}
-          accessibilityLabel={producto.nombre}
-        />
-      ) : (
-        // Imagen alternativa cuando el producto no tiene foto o no cargó (RF-06).
-        <View className="h-12 w-12 items-center justify-center rounded-lg bg-muted">
-          <Ionicons name="gift-outline" size={22} color={THEME.mutedForeground} />
-        </View>
-      )}
-      <Text className="flex-1">
-        {producto.nombre} <Text variant="muted">× {producto.cantidad}</Text>
-      </Text>
-    </View>
   );
 }

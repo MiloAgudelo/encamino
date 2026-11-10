@@ -1,9 +1,12 @@
+import type { Posicion } from '@/modelos/domicilio';
+
 /** Pasos de la línea de tiempo que ve el cliente. */
-export type PasoSeguimiento = 'registrado' | 'en_preparacion' | 'en_camino' | 'entregado';
+export type PasoSeguimiento = 'registrado' | 'en_preparacion' | 'asignado' | 'en_camino' | 'entregado';
 
 export const PASOS_SEGUIMIENTO: { paso: PasoSeguimiento; etiqueta: string }[] = [
   { paso: 'registrado', etiqueta: 'Pedido registrado' },
   { paso: 'en_preparacion', etiqueta: 'En preparación' },
+  { paso: 'asignado', etiqueta: 'Domiciliario asignado' },
   { paso: 'en_camino', etiqueta: 'En camino' },
   { paso: 'entregado', etiqueta: 'Entregado' },
 ];
@@ -30,6 +33,8 @@ export interface Seguimiento {
   ciudad: string | null;
   domiciliario: string | null;
   entregadoEn: string | null;
+  /** Solo mientras va en camino (RN-04). */
+  ultimaPosicion: Posicion | null;
   productos: ProductoSeguimiento[];
   intentosNoEntrega: IntentoNoEntrega[];
 }
