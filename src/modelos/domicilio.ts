@@ -53,8 +53,12 @@ export interface Domicilio {
   motivoNoEntrega: string | null;
   /** URL de la foto de no entrega; null si no hay o si fue simulada en el entorno local. */
   fotoNoEntrega: string | null;
-  /** Ubicación conocida del destino (de una entrega anterior); null si no hay. */
-  destino: Coordenadas | null;
+  /**
+   * Dónde queda el destino en el mapa; null si no se conoce. Es exacto cuando
+   * viene de una entrega anterior a la misma dirección, y aproximado cuando es
+   * el centro del barrio.
+   */
+  destino: { coordenadas: Coordenadas; aproximado: boolean } | null;
   /** Cuándo inició el recorrido; null si no ha salido. */
   salidaEn: Date | null;
   /** Productos del pedido. Solo llegan en el detalle; en las listas va vacío. */

@@ -5,13 +5,15 @@ import { RefreshControl, ScrollView, View } from 'react-native';
 
 import { EstadoDatos } from '@/components/EstadoDatos';
 import { FilaProducto } from '@/components/FilaProducto';
+import { Mapa } from '@/components/mapa/Mapa';
+import { PUNTO_DESPACHO } from '@/constantes/despacho';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { useSeguimiento } from '@/hooks/consultas/useSeguimiento';
 import { THEME } from '@/lib/theme';
 import { cn } from '@/lib/utils';
-import { hace } from '@/lib/tiempo';
+import { hace, horaCorta } from '@/lib/tiempo';
 import { PASOS_SEGUIMIENTO, type Seguimiento } from '@/modelos/seguimiento';
 import { extraerCodigo } from '@/servicios/seguimiento';
 import { useCodigosConsultados } from '@/store/codigosConsultados';
@@ -105,12 +107,38 @@ function Contenido({ seguimiento: s }: { seguimiento: Seguimiento }) {
         <Text variant="muted">Te avisamos aquí cuando el domiciliario salga. Se actualiza solo cada 15 segundos.</Text>
       ) : null}
       {s.pasoActual === 'en_camino' ? (
-        <Text variant="muted">
-          {s.ultimaPosicion
-            ? `Última posición del domiciliario ${hace(s.ultimaPosicion.recibidaEn)}. `
-            : 'El domiciliario todavía no ha enviado su posición. '}
-          Se actualiza solo cada 15 segundos; el mapa llega con el GPS de la app.
-        </Text>
+        <View className="gap-2">
+          {/* RN-04: la posición solo existe mientras va en camino; el mapeador la quita después. */}
+          <Mapa
+            alto={260}
+            marcadores={[
+              {
+                id: 'despacho',
+                tipo: 'despacho',
+                coordenadas: PUNTO_DESPACHO.coordenadas,
+                titulo: PUNTO_DESPACHO.nombre,
+                descripcion: PUNTO_DESPACHO.direccion,
+              },
+              ...(s.ultimaPosicion
+                ? [
+                    {
+                      id: 'domiciliario',
+                      tipo: 'domiciliario' as const,
+                      coordenadas: s.ultimaPosicion.coordenadas,
+                      titulo: s.domiciliario ?? 'Tu domiciliario',
+                      descripcion: `Posición de las ${horaCorta(s.ultimaPosicion.recibidaEn)}`,
+                    },
+                  ]
+                : []),
+            ]}
+          />
+          <Text variant="muted">
+            {s.ultimaPosicion
+              ? `Última posición del domiciliario ${hace(s.ultimaPosicion.recibidaEn)}. `
+              : 'El domiciliario todavía no ha enviado su posición. '}
+            Se actualiza sola cada 15 segundos.
+          </Text>
+        </View>
       ) : null}
 
       {s.intentosNoEntrega.length > 0 ? (

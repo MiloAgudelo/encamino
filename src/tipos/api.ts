@@ -59,6 +59,9 @@ export interface DomicilioApi {
   pedido_horario: string | null;
   pedido_heredada_lat: number | null;
   pedido_heredada_lng: number | null;
+  /** Centro del barrio: destino aproximado mientras no se geocodifique la dirección (B-11). */
+  pedido_barrio_lat?: number | null;
+  pedido_barrio_lng?: number | null;
   pedido_quien_recibe: string | null;
   pedido_quien_recibe_telefono: string | null;
   domiciliario_id: number;

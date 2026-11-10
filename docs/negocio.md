@@ -5,7 +5,7 @@ Datos tomados de la información pública de karambabymarce.com (catálogo y pol
 ## El negocio
 
 - **Qué hace:** desayunos sorpresa, regalos personalizados y pastelería a domicilio. Funciona desde 2013.
-- **Sede:** Cartago, Valle del Cauca (código postal 762022). La dirección exacta y las coordenadas no se publican. **Pendiente:** confirmarlas con el cliente para ubicar el punto de despacho en el mapa.
+- **Sede y punto de despacho:** Carrera 9 # 17-38, Cartago, Valle del Cauca (código postal 762022). Coordenadas 4.745682, -75.920676 (confirmadas con Karamba el 2026-11-10).
 - **Zonas de entrega:** Cartago, Pereira, Dosquebradas y Ansermanuevo. Hay 787 barrios registrados: 455 en Pereira, 276 en Cartago, 55 en Dosquebradas y 1 en Ansermanuevo.
 - **Horario:** lunes a sábado de 06:30 a 19:00; domingos de 08:00 a 12:00.
 - **Contacto:** 311 610 8002 (WhatsApp), karambatienda@gmail.com, Instagram y TikTok `@karambatienda`, Facebook `TiendaKaramba`.

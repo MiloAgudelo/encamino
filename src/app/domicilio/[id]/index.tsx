@@ -17,6 +17,7 @@ import { useDomicilio, useIniciarRecorrido } from '@/hooks/consultas/useDomicili
 import { THEME } from '@/lib/theme';
 import { hace, horaCorta } from '@/lib/tiempo';
 import { ETIQUETA_ESTADO, tituloDomicilio, type Domicilio, type ProductoDomicilio } from '@/modelos/domicilio';
+import { useEnvioPosicion } from '@/store/seguimiento';
 import { useSesion } from '@/store/sesion';
 
 export default function PantallaDetalle() {
@@ -146,7 +147,10 @@ function Contenido({ domicilio }: { domicilio: Domicilio }) {
                   : 'Todavía no ha enviado su posición'}
               </Dato>
             ) : (
-              <Text variant="muted">El mapa con el envío de tu posición llega en la siguiente etapa.</Text>
+              <Button variant="outline" size="sm" onPress={() => router.navigate('/(equipo)/(tabs)/mapa')}>
+                <Ionicons name="map-outline" size={16} color={THEME.foreground} />
+                <Text>Abrir el mapa</Text>
+              </Button>
             )}
           </CardContent>
         </Card>
@@ -301,7 +305,22 @@ function IniciarRecorrido({ id, productos }: { id: number; productos: ProductoDo
           >
             <Text>Cancelar</Text>
           </Button>
-          <Button className="flex-1" disabled={iniciar.isPending || !cargaCompleta} onPress={() => iniciar.mutate()}>
+          <Button
+            className="flex-1"
+            disabled={iniciar.isPending || !cargaCompleta}
+            onPress={() =>
+              iniciar
+                .mutateAsync()
+                .then(() => {
+                  // RF-11: tras iniciar, abre el mapa con el envío de la posición activo.
+                  useEnvioPosicion.getState().activar(id);
+                  router.navigate('/(equipo)/(tabs)/mapa');
+                })
+                .catch(() => {
+                  // El error se muestra con iniciar.error.
+                })
+            }
+          >
             <Text>{iniciar.isPending ? 'Iniciando…' : 'Sí, iniciar'}</Text>
           </Button>
         </View>

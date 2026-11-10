@@ -35,6 +35,14 @@
       ],
       "expo-secure-store",
       [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "EnCamino usa tu ubicación mientras tienes abierto el mapa para que el cliente y Karamba vean por dónde va su domicilio.",
+          "isAndroidBackgroundLocationEnabled": false,
+          "isIosBackgroundLocationEnabled": false
+        }
+      ],
+      [
         "expo-image-picker",
         {
           "cameraPermission": "EnCamino usa la cámara para la foto de evidencia cuando no se puede entregar un domicilio.",

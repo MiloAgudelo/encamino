@@ -28,8 +28,10 @@ function textoONulo(valor: string | null | undefined): string | null {
 export function mapearDomicilio(api: DomicilioApi): Domicilio {
   const destino =
     api.pedido_heredada_lat != null && api.pedido_heredada_lng != null
-      ? { latitud: api.pedido_heredada_lat, longitud: api.pedido_heredada_lng }
-      : null;
+      ? { coordenadas: { latitud: api.pedido_heredada_lat, longitud: api.pedido_heredada_lng }, aproximado: false }
+      : api.pedido_barrio_lat != null && api.pedido_barrio_lng != null
+        ? { coordenadas: { latitud: api.pedido_barrio_lat, longitud: api.pedido_barrio_lng }, aproximado: true }
+        : null;
 
   return {
     id: api.id,

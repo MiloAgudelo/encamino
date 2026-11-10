@@ -95,3 +95,18 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** al confirmar, la caché marca el domicilio como reportado y el formulario se desmonta antes de que corra el `onSuccess` de cada llamada; se navega con `mutateAsync`. En la versión web, la cámara se reemplaza por el selector de archivos.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** el mapa con el GPS que envía la posición (RF-12, RF-20); luego la reprogramación con cobro (B-07, RF-17). Queda desactualizado el wireframe de Confirmar entrega, que todavía muestra unidades por producto y entrega parcial.
+
+## 2026-11-10 — Mapa, GPS y punto de despacho
+
+- **Objetivo de la sesión:** construir el mapa con el envío de la posición del domiciliario, la supervisión del administrador y el mapa del cliente (RF-07, RF-11, RF-12, RF-16, RF-19, RF-20).
+- **Tarea realizada:**
+  - Karamba confirmó el punto de despacho: Carrera 9 # 17-38, Cartago (4.745682, -75.920676). Quedó en `src/constantes/despacho.ts` con el horario y el contacto publicados.
+  - Backend: `GET domicilios/en-camino/` para el administrador, con la última posición de cada domicilio en una sola respuesta (B-10), y el centro del barrio como destino aproximado (parte de B-11). 6 pruebas nuevas.
+  - App: componente de mapa con Google Maps y marcadores de color distinto para despacho, destino y domiciliario; en web, donde `react-native-maps` no existe, muestra los mismos puntos como lista.
+  - Seguimiento GPS: hook propio con permiso en primer plano, GPS apagado y regreso desde ajustes; escucha solo con el mapa abierto y la app al frente; envía una posición cada 15 s; pausa, reanuda y centra. El estado vive en Zustand (`src/store/seguimiento.ts`).
+  - "Iniciar recorrido" abre el mapa con el envío activo (RF-11). El administrador ve en el mapa a todos los que van en camino, con la hora de la posición y las viejas atenuadas, y se actualiza cada 15 s solo con la pantalla abierta (RF-16). El cliente ve el mapa con el domiciliario mientras va en camino (RF-07). Pantallas de punto de despacho (RF-19) y de permisos de ubicación (RF-20).
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit `d3b4509` en `karamba-backend`; commit `feat: mapa con GPS, supervisión y punto de despacho` en EnCamino. Verificación: `manage.py test domicilios` en verde (61 pruebas); `tsc` sin errores; empaquetado de Android y de web correctos; prueba de flujo web del mapa con 13 casos usando la geolocalización del navegador (iniciar abre el mapa, la posición llega al backend, un envío cada 15 s, pausar, reanudar, al salir del mapa deja de enviar, mapa del cliente, punto de despacho, permisos, supervisión del administrador y permiso negado), más las de recorrido (11), entrega (14) y original (14), todas en verde.
+- **Dificultad:** `react-native-maps` no funciona en el navegador; el mapa tiene una versión web que lista los puntos, así que la exportación web y las pruebas siguen funcionando. Las pestañas siguen montadas al cambiar de pestaña, así que el GPS se ata al foco de la pantalla y no al montaje. Los barrios de los datos de prueba no tienen coordenadas, por lo que el destino aparece sin marcador en la demo.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** probar en un teléfono con Expo Go el mapa de Google, el GPS real, el GPS apagado y el regreso desde ajustes, que no se han probado. Luego la reprogramación con cobro (B-07, RF-17) y el historial (RF-18).
