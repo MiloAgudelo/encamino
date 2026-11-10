@@ -139,3 +139,16 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** ninguna.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** documentar los endpoints nuevos del backend y probar en un teléfono.
+
+## 2026-11-10 — Documentación del backend en karamba-docs
+
+- **Objetivo de la sesión:** documentar en `karamba-docs`, con sus convenciones, lo que se agregó al backend para EnCamino.
+- **Tarea realizada:**
+  - Rama local `docs/encamino-flujo-domiciliario` en `karamba-docs`, sin subir. Módulo `domicilios`: las 7 rutas nuevas (8 operaciones) y los cambios al listado, al detalle y al serializador (`api.md`); `salida_en`, el estado derivado y `PosicionDomicilio` (`models.md`); la regla "en camino es del domicilio" con la condición antes de fusionar a `main` (`rules.md`); y notas en `README.md`, `dependencies.md` y `roadmap.md`. En `pedidos/api.md`, los campos nuevos del seguimiento público. Una entrada en `PROJECT_STATE.md`.
+  - Todo va marcado como rama sin fusionar. `CHANGELOG.md` y `REALITY_MAP.md` no se tocaron: describen lo que está en producción.
+  - En el backend se corrigió un comentario que todavía hablaba de entrega por unidades.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit `9656d21` en `karamba-docs` (rama `docs/encamino-flujo-domiciliario`); commit `1c99885` en `karamba-backend` (rama `feat/encamino-flujo-domiciliario`). Verificación: `manage.py test domicilios` en verde después del cambio de comentario.
+- **Dificultad:** ninguna.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** probar en un teléfono Android con Expo Go.
