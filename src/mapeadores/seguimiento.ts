@@ -28,8 +28,12 @@ export function mapearSeguimiento(api: SeguimientoApi): Seguimiento {
     // "08:00:00 — 09:00:00" → "8:00 – 9:00"
     franja: formatearFranja(api.horario),
     ciudad: api.ciudad,
-    // RN-04: después del reporte, el cliente no ve los datos del domiciliario.
-    domiciliario: paso === 'asignado' || paso === 'en_camino' ? api.domiciliario_nombre : null,
+    // RN-04: después del reporte, el cliente no ve los datos del domiciliario, tampoco
+    // los del intento que no se pudo entregar mientras espera reasignación.
+    domiciliario:
+      (paso === 'asignado' || paso === 'en_camino') && api.domicilio?.estado !== 'NO_ENTREGADO'
+        ? api.domiciliario_nombre
+        : null,
     entregadoEn: api.entregado_en,
     ultimaPosicion: paso === 'en_camino' ? mapearPosicion(api.domicilio?.ultima_posicion) : null,
     productos: api.productos.map((p) => ({
