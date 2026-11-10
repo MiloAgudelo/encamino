@@ -79,6 +79,33 @@ EXPO_PUBLIC_API_URL=http://<IP-del-PC>:8000/api
 
 Pon la misma IP en `ALLOWED_HOSTS_EXTRA` del `.env` del backend para que Django la acepte. Si cambias de red, la IP cambia: actualiza los dos `.env` y reinicia el backend con `docker compose up -d --force-recreate backend` (`ipconfig` muestra la IP actual).
 
+## 5. Pruebas de flujo en la versión web
+
+`pruebas/web/` tiene cuatro pruebas que recorren la app en el navegador contra el backend local:
+
+| Prueba | Pasos | Qué cubre |
+| --- | --- | --- |
+| `ingreso-y-seguimiento.js` | 14 | Ingreso, lista de hoy, búsqueda, detalle, cierre de sesión y seguimiento del cliente |
+| `recorrido.js` | 11 | Verificación de la carga, "Iniciar recorrido" con y sin conexión, estado en camino |
+| `entrega.js` | 13 | Confirmar entrega y reportar no entrega, con errores por campo y sin conexión |
+| `mapa.js` | 13 | Envío de la posición cada 15 s, pausar, reanudar, dejar de enviar al salir del mapa, supervisión y permisos. Tarda cerca de un minuto y medio |
+
+Necesitan Microsoft Edge instalado (para usar otro navegador: `NAVEGADOR=chrome`). Con el backend arriba:
+
+```bash
+# 1. Compilar la versión web apuntando al backend en este PC (no a la IP de la red)
+EXPO_PUBLIC_API_URL=http://127.0.0.1:8000/api npx expo export -p web
+
+# 2. Servirla en otra terminal
+npx -y serve@14.2.4 -s dist -l 5173
+
+# 3. Antes de CADA prueba, recargar los pedidos de prueba (cada una gasta domicilios pendientes)
+MSYS_NO_PATHCONV=1 docker compose exec backend python manage.py cargar_datos_encamino --datos /datos --reiniciar
+node pruebas/web/recorrido.js
+```
+
+Cada prueba imprime un `OK` o `FALLA` por paso y al final el total. Sale con código 1 si algún paso falla o si faltan datos de prueba. Las capturas de pantalla (y la de cada paso que falla) quedan en `pruebas/web/capturas/`, que no se sube.
+
 ## Comprobación rápida
 
 ```bash

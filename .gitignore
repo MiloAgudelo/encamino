@@ -48,3 +48,6 @@ example
 
 # reglas locales
 CLAUDE.local.md
+
+# capturas de las pruebas de flujo web
+pruebas/web/capturas/
