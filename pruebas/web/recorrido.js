@@ -95,7 +95,7 @@ correr(async () => {
   await paso('con conexión: pasa a "En camino" y aparecen entregar y no entregar', async () => {
     await pagina.getByText('Sí, iniciar').click();
     // RF-11: tras iniciar se abre el mapa; luego se vuelve al detalle.
-    await pagina.getByText('Cómo llegar en Google Maps').waitFor({ timeout: 10000 });
+    await pagina.getByText('Cómo llegar', { exact: true }).waitFor({ timeout: 10000 });
     await pagina.goto(`${BASE}/domicilio/${pendiente.id}`);
     await pagina.getByText('En camino', { exact: true }).first().waitFor({ timeout: 10000 });
     await pagina.getByText(/^Salió a las /).waitFor({ timeout: 5000 });

@@ -165,3 +165,16 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** la interfaz de Android se trabó al arrancar el emulador por primera vez, y Fast Refresh no aplicó los cambios hasta reiniciar Expo Go.
 - **Observaciones de revisión:** pendiente. Quedan tres detalles: el texto de "Centrar en mí" se corta en el teléfono; si el GPS se enciende desde el panel rápido sin salir de la app, la pantalla de ubicación no se actualiza; y una vez el mapa mostró "El mapa no cargó" justo después del diálogo de permiso, sin volver a reproducirse.
 - **Siguiente paso:** probar en un teléfono físico lo que el emulador no cubre: GPS real en movimiento, la cámara con una foto de verdad y el rendimiento.
+
+## 2026-11-13 — Arreglos de la prueba en Android
+
+- **Objetivo de la sesión:** corregir los tres detalles que dejó la prueba en el emulador.
+- **Tarea realizada:**
+  - "Centrar en mí" se cortaba: Android midió el texto más angosto de lo que lo dibujó y la última palabra pasó a una segunda línea oculta. La acción principal (compartir, pausar o reanudar) ocupa ahora su propia fila, y "Centrar en mí" y "Cómo llegar" (antes "Cómo llegar en Google Maps") comparten la de abajo, cada uno a mitad de ancho.
+  - La pantalla de Ubicación y el panel del mapa revisan el GPS y el permiso cada 3 s mientras están visibles y la app está al frente. Antes solo se revisaba al volver a la app, y el panel rápido de Android no la saca del frente.
+  - El aviso "El mapa no cargó" aparecía cuando el mapa se montaba oculto (otra pestaña o el diálogo de permiso encima): Google Maps no avisa que está listo hasta que se ve, y el plazo de 15 s seguía corriendo. Ahora el plazo solo cuenta con la pantalla visible y la app al frente, y el mapa queda montado debajo del aviso para que se quite solo si responde tarde.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit de esta sesión. En el emulador: los dos botones con su texto completo y el GPS apagado y encendido sin salir de la pantalla de Ubicación. Pruebas web en verde: recorrido (11/11), mapa (13/13) e ingreso y seguimiento (14/14).
+- **Dificultad:** no se pudo repetir el caso exacto del mapa: después de las pruebas de permisos, Android dejó el permiso de Expo Go como bloqueado y no volvió a mostrar el diálogo. El arreglo del plazo se revisó en el código y se comprobó que el mapa sigue cargando en las pantallas del domiciliario y del cliente.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** probar en un teléfono físico.

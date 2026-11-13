@@ -1,12 +1,17 @@
+import { useIsFocused } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { View } from 'react-native';
+import { AppState, StyleSheet, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { EstadoDatos } from '@/components/EstadoDatos';
 import { COLOR_MARCADOR, type MapaProps } from '@/components/mapa/tipos';
 import { PUNTO_DESPACHO } from '@/constantes/despacho';
 
-/** Si el mapa no avisa que está listo en este tiempo, se ofrece reintentar (RF-19). */
+/**
+ * Si el mapa no avisa que está listo en este tiempo, se ofrece reintentar
+ * (RF-19). Solo cuenta con la pantalla visible y la app al frente: Google
+ * Maps no avisa mientras está oculto (otra pestaña, el diálogo de permiso).
+ */
 const ESPERA_MAPA_MS = 15_000;
 
 const REGION_INICIAL = {
@@ -26,13 +31,20 @@ export function Mapa({ marcadores, enfoque, alto }: MapaProps) {
   const [listo, setListo] = useState(false);
   const [noCargo, setNoCargo] = useState(false);
   const yaAjusto = useRef(false);
+  const enFoco = useIsFocused();
+  const [alFrente, setAlFrente] = useState(AppState.currentState === 'active');
+
+  useEffect(() => {
+    const suscripcion = AppState.addEventListener('change', (estado) => setAlFrente(estado === 'active'));
+    return () => suscripcion.remove();
+  }, []);
 
   // Sin respuesta del mapa en un tiempo prudente: mensaje con "Reintentar".
   useEffect(() => {
-    if (listo) return;
+    if (listo || !enFoco || !alFrente) return;
     const temporizador = setTimeout(() => setNoCargo(true), ESPERA_MAPA_MS);
     return () => clearTimeout(temporizador);
-  }, [listo, intento]);
+  }, [listo, intento, enFoco, alFrente]);
 
   // La primera vez que hay marcadores, el mapa se ajusta para mostrarlos todos.
   useEffect(() => {
@@ -54,44 +66,44 @@ export function Mapa({ marcadores, enfoque, alto }: MapaProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listo, enfoque?.clave]);
 
-  if (noCargo && !listo) {
-    return (
-      <View style={alto ? { height: alto } : { flex: 1 }}>
-        <EstadoDatos
-          tipo="error"
-          mensaje="El mapa no cargó. Revisa tu conexión; lo demás de la app sigue funcionando."
-          alReintentar={() => {
-            setNoCargo(false);
-            yaAjusto.current = false;
-            setIntento((n) => n + 1);
-          }}
-        />
-      </View>
-    );
-  }
-
+  // El mapa queda montado debajo del aviso: si responde tarde, el aviso se quita solo.
   return (
-    <MapView
-      key={intento}
-      ref={mapa}
-      provider={PROVIDER_GOOGLE}
-      style={alto ? { height: alto, width: '100%' } : { flex: 1 }}
-      initialRegion={REGION_INICIAL}
-      onMapReady={() => setListo(true)}
-      toolbarEnabled={false}
-    >
-      {marcadores.map((m) => (
-        <Marker
-          key={m.id}
-          identifier={m.id}
-          coordinate={{ latitude: m.coordenadas.latitud, longitude: m.coordenadas.longitud }}
-          title={m.titulo}
-          description={m.descripcion}
-          pinColor={COLOR_MARCADOR[m.tipo]}
-          opacity={m.atenuado ? 0.5 : 1}
-          onCalloutPress={m.alPresionar}
-        />
-      ))}
-    </MapView>
+    <View style={alto ? { height: alto, width: '100%' } : { flex: 1 }}>
+      <MapView
+        key={intento}
+        ref={mapa}
+        provider={PROVIDER_GOOGLE}
+        style={{ flex: 1 }}
+        initialRegion={REGION_INICIAL}
+        onMapReady={() => setListo(true)}
+        toolbarEnabled={false}
+      >
+        {marcadores.map((m) => (
+          <Marker
+            key={m.id}
+            identifier={m.id}
+            coordinate={{ latitude: m.coordenadas.latitud, longitude: m.coordenadas.longitud }}
+            title={m.titulo}
+            description={m.descripcion}
+            pinColor={COLOR_MARCADOR[m.tipo]}
+            opacity={m.atenuado ? 0.5 : 1}
+            onCalloutPress={m.alPresionar}
+          />
+        ))}
+      </MapView>
+      {noCargo && !listo ? (
+        <View style={StyleSheet.absoluteFill} className="bg-background">
+          <EstadoDatos
+            tipo="error"
+            mensaje="El mapa no cargó. Revisa tu conexión; lo demás de la app sigue funcionando."
+            alReintentar={() => {
+              setNoCargo(false);
+              yaAjusto.current = false;
+              setIntento((n) => n + 1);
+            }}
+          />
+        </View>
+      ) : null}
+    </View>
   );
 }

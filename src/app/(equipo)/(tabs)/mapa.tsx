@@ -144,39 +144,44 @@ function MapaDomiciliario() {
 
         <EstadoEnvio modo={modo} ultimoEnvio={esteDomicilio ? gps.ultimoEnvio : null} error={gps.error} escuchando={gps.escuchando} />
 
-        <View className="flex-row flex-wrap gap-2">
-          {modo === 'inactivo' ? (
-            <Button className="flex-1" onPress={() => void gps.activar(domicilio.id)}>
-              <Ionicons name="radio-outline" size={18} color={THEME.primaryForeground} />
-              <Text>Compartir mi posición</Text>
-            </Button>
-          ) : modo === 'activo' ? (
-            <Button className="flex-1" variant="outline" onPress={gps.pausar}>
-              <Ionicons name="pause" size={18} color={THEME.foreground} />
-              <Text>Pausar</Text>
-            </Button>
-          ) : (
-            <Button className="flex-1" onPress={gps.reanudar}>
-              <Ionicons name="play" size={18} color={THEME.primaryForeground} />
-              <Text>Reanudar</Text>
-            </Button>
-          )}
-          <Button variant="outline" disabled={!posicion} onPress={() => setClave((c) => c + 1)}>
+        {modo === 'inactivo' ? (
+          <Button onPress={() => void gps.activar(domicilio.id)}>
+            <Ionicons name="radio-outline" size={18} color={THEME.primaryForeground} />
+            <Text>Compartir mi posición</Text>
+          </Button>
+        ) : modo === 'activo' ? (
+          <Button variant="outline" onPress={gps.pausar}>
+            <Ionicons name="pause" size={18} color={THEME.foreground} />
+            <Text>Pausar</Text>
+          </Button>
+        ) : (
+          <Button onPress={gps.reanudar}>
+            <Ionicons name="play" size={18} color={THEME.primaryForeground} />
+            <Text>Reanudar</Text>
+          </Button>
+        )}
+        {/* Mitad del ancho cada uno: en Android el ancho que se mide para el
+            texto puede quedar corto y cortar la última palabra si el botón se
+            ajusta a su contenido. */}
+        <View className="flex-row gap-2">
+          <Button className="flex-1" variant="outline" disabled={!posicion} onPress={() => setClave((c) => c + 1)}>
             <Ionicons name="locate" size={18} color={THEME.foreground} />
             <Text>Centrar en mí</Text>
           </Button>
+          <Button
+            className="flex-1"
+            variant="secondary"
+            accessibilityHint="Abre Google Maps con la dirección del domicilio"
+            onPress={() =>
+              void Linking.openURL(
+                enlaceGoogleMaps(domicilio.destino?.aproximado === false ? domicilio.destino.coordenadas : `${domicilio.direccion}, ${domicilio.barrio}, Cartago`),
+              )
+            }
+          >
+            <Ionicons name="navigate-outline" size={18} color={THEME.foreground} />
+            <Text>Cómo llegar</Text>
+          </Button>
         </View>
-        <Button
-          variant="secondary"
-          onPress={() =>
-            void Linking.openURL(
-              enlaceGoogleMaps(domicilio.destino?.aproximado === false ? domicilio.destino.coordenadas : `${domicilio.direccion}, ${domicilio.barrio}, Cartago`),
-            )
-          }
-        >
-          <Ionicons name="navigate-outline" size={18} color={THEME.foreground} />
-          <Text>Cómo llegar en Google Maps</Text>
-        </Button>
       </ScrollView>
     </View>
   );
