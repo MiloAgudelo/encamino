@@ -37,13 +37,21 @@ export function useDomicilio(id: number) {
 }
 
 /**
- * Después de un cambio confirmado por el backend: actualiza el detalle y
- * recarga las listas. Las respuestas de las acciones no traen productos ni
- * posición, así que se conservan los que ya tenía el detalle.
+ * Después de un cambio confirmado por el backend: actualiza el detalle y las
+ * listas del día en memoria, y luego las recarga. Las respuestas de las
+ * acciones no traen productos ni posición, así que se conservan los que ya
+ * había. Las listas se actualizan antes de recargar porque el mapa deja de
+ * enviar la posición si el domicilio seguido no aparece "en camino" en ellas.
  */
 function aplicarCambio(clienteConsultas: QueryClient, id: number, domicilio: Domicilio) {
-  clienteConsultas.setQueryData<Domicilio>(claves.domicilio(id), (anterior) =>
-    anterior ? { ...domicilio, productos: anterior.productos, ultimaPosicion: anterior.ultimaPosicion } : domicilio,
+  const conservar = (anterior: Domicilio): Domicilio => ({
+    ...domicilio,
+    productos: anterior.productos,
+    ultimaPosicion: anterior.ultimaPosicion,
+  });
+  clienteConsultas.setQueryData<Domicilio>(claves.domicilio(id), (anterior) => (anterior ? conservar(anterior) : domicilio));
+  clienteConsultas.setQueriesData<Domicilio[]>({ queryKey: claves.domiciliosDelDiaTodos }, (lista) =>
+    lista?.map((d) => (d.id === id ? conservar(d) : d)),
   );
   void clienteConsultas.invalidateQueries({ queryKey: claves.domicilios });
 }

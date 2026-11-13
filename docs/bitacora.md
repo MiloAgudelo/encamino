@@ -152,3 +152,16 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** ninguna.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** probar en un teléfono Android con Expo Go.
+
+## 2026-11-13 — Prueba en Android con emulador
+
+- **Objetivo de la sesión:** recorrer en Android lo que solo se había probado en la versión web: mapa de Google, envío de la posición, permisos, cámara y las vistas del cliente y del administrador.
+- **Tarea realizada:**
+  - Emulador Pixel 9 (Android 16, con Google Play Services) y Expo Go, contra el backend local en Docker. El GPS se simuló con coordenadas de Cartago.
+  - Se encontró y corrigió un fallo: al iniciar el recorrido desde la lista de Hoy, el mapa todavía tenía la lista anterior en memoria, con el domicilio como pendiente, y apagaba el envío antes de recibir la lista nueva. La versión web no lo mostraba porque la prueba entraba directo al detalle. Ahora, cuando el backend confirma un cambio, también se actualiza ese domicilio en las listas del día antes de recargarlas. Se confirmó la causa quitando el arreglo: con él, el envío arranca solo; sin él, se apaga.
+  - Probado: iniciar recorrido con conteo de unidades, pedido del permiso, mapa con los marcadores, posiciones cada 15 a 21 s en el backend, "Centrar en mí", pausar y reanudar, nada enviado en la pestaña Hoy ni en segundo plano, GPS apagado y encendido, permiso negado, bloqueado y concedido desde los ajustes sin reiniciar, cámara con la foto en el formulario y el aviso "Simulado", no entrega registrada, seguimiento del cliente con el mapa y la posición, y mapa del administrador con Juan y Ana.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit de esta sesión; posiciones consultadas en `/api/domicilios/domicilios/<id>/posicion/` durante la prueba.
+- **Dificultad:** la interfaz de Android se trabó al arrancar el emulador por primera vez, y Fast Refresh no aplicó los cambios hasta reiniciar Expo Go.
+- **Observaciones de revisión:** pendiente. Quedan tres detalles: el texto de "Centrar en mí" se corta en el teléfono; si el GPS se enciende desde el panel rápido sin salir de la app, la pantalla de ubicación no se actualiza; y una vez el mapa mostró "El mapa no cargó" justo después del diálogo de permiso, sin volver a reproducirse.
+- **Siguiente paso:** probar en un teléfono físico lo que el emulador no cubre: GPS real en movimiento, la cámara con una foto de verdad y el rendimiento.
