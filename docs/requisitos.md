@@ -59,7 +59,7 @@ Versión del 2026-11-09. Los datos que el cliente todavía no confirma están ma
 | --- | --- |
 | RN-01 | Estados del domicilio: *pendiente* → *en camino* → *entregado* o *no entregado*. Un estado nunca retrocede. No hay entrega parcial: el pedido siempre se entrega completo (decidido el 2026-11-10). |
 | RN-02 | Solo el domiciliario asignado puede iniciar el recorrido, enviar posiciones y reportar el resultado de su domicilio vigente. |
-| RN-03 | La posición se envía solo mientras el domicilio está *en camino* y el seguimiento está activo, con un intervalo de 10 a 15 segundos **[Por confirmar con el cliente]**. Al reportar el resultado o salir del mapa, se deja de enviar. |
+| RN-03 | La posición se envía solo mientras el domicilio está *en camino* y el seguimiento está activo, cada 15 segundos (confirmado por Karamba el 2026-11-13). Al reportar el resultado o salir del mapa, se deja de enviar. |
 | RN-04 | El cliente ve la posición del domiciliario solo mientras su domicilio está *en camino*. Después del reporte ve el resultado, pero no la posición ni los datos del domiciliario, como ya hace hoy el enlace público de Karamba. |
 | RN-05 | El destinatario no usa la app ni recibe avisos, para no arruinar la sorpresa. |
 | RN-06 | El pedido siempre se entrega completo. Antes de salir, el domiciliario cuenta las unidades que carga de cada producto, entre 0 y la cantidad pedida, y solo puede iniciar el recorrido cuando todas están completas. Si al llegar no puede entregar, reporta *no entregado*. |
@@ -238,7 +238,7 @@ La columna "Evidencia" se completa a medida que cada requisito se demuestra (com
 
 - El seguimiento funciona solo con la app abierta en primer plano; no hay seguimiento en segundo plano.
 - En iPhone, el GPS solo entrega posiciones cuando el teléfono se mueve: si el domiciliario se queda quieto, no se envían posiciones nuevas y el cliente ve "Última posición hace N min" aunque el envío esté activo. En Android llegan cada pocos segundos.
-- La posición se actualiza cada 10 a 15 segundos, no al instante. Es consistente con el resto del sistema de Karamba, que trabaja con consultas periódicas en lugar de conexiones en tiempo real.
+- La posición se actualiza cada 15 segundos, no al instante. Es consistente con el resto del sistema de Karamba, que trabaja con consultas periódicas en lugar de conexiones en tiempo real.
 - Los domiciliarios ocasionales que hoy usan un usuario genérico y el enlace público quedan fuera de la app hasta que tengan cuenta propia; pueden seguir usando el enlace. Como el enlace no tiene botón de salida, su cliente ve *Domiciliario asignado* hasta la entrega (ADR 0003).
 - En el entorno local, la foto de no entrega y los avisos por WhatsApp pueden estar simulados (RNF-09).
 - La app no crea pedidos ni cobra: eso sigue en el panel de Karamba.
