@@ -15,8 +15,11 @@ DB_HOST=127.0.0.1
 DB_PORT=5437
 DB_USER=encamino
 DB_PASSWORD=encamino
-ALLOWED_HOSTS_EXTRA=<IP-del-PC>
+ALLOWED_HOSTS_EXTRA=<IP-del-PC>,10.0.2.2
+ENCAMINO_SALIDA_DESDE_APP=True
 ```
+
+`10.0.2.2` es la dirección con la que el emulador de Android ve el PC. `ENCAMINO_SALIDA_DESDE_APP=True` hace que el seguimiento solo diga "en camino" cuando el domiciliario inicia el recorrido, como espera la app; en producción está apagada hasta que los domiciliarios usen EnCamino.
 
 Dentro de Docker, `docker-compose.yml` reemplaza la conexión por la del contenedor de la base (`postgres:5432`). Los valores de arriba solo sirven si alguna vez corres Django fuera de Docker.
 

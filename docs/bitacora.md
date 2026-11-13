@@ -178,3 +178,17 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** no se pudo repetir el caso exacto del mapa: después de las pruebas de permisos, Android dejó el permiso de Expo Go como bloqueado y no volvió a mostrar el diálogo. El arreglo del plazo se revisó en el código y se comprobó que el mapa sigue cargando en las pantallas del domiciliario y del cliente.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** probar en un teléfono físico.
+
+## 2026-11-13 — Ramas subidas y PR abiertas
+
+- **Objetivo de la sesión:** subir el trabajo y dejar el backend listo para fusionar sin cambiar lo que ve el cliente.
+- **Tarea realizada:**
+  - La app se subió a `main` de su repositorio. Se abrieron la PR riveragiraldo/karamba-backend#40 (contra `main`) y la PR riveragiraldo/karamba-docs#1 (contra `master`), sin fusionar.
+  - `main` del backend había avanzado y traía la corrección de unas pruebas con fechas fijas que fallaban desde el 11 de noviembre. Se trajo a la rama: 672 pruebas en verde.
+  - Karamba confirmó el envío de la posición cada 15 segundos.
+  - Interruptor `ENCAMINO_SALIDA_DESDE_APP` en el backend, apagado por defecto: el seguimiento del cliente sigue como antes hasta que los domiciliarios usen la app. Pruebas para los dos casos. En local se enciende en el `.env` del backend.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** PR #40 con las pruebas de GitHub en verde; commits `74d6c90` (backend) y `cac2c43` (karamba-docs).
+- **Dificultad:** Railway no corre las migraciones al desplegar. La `0007_salida_y_posiciones` hay que aplicarla a mano contra la base real antes de fusionar; si no, el código nuevo pide una columna que no existe.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** aplicar la migración en la base real, fusionar la PR #40 y la de karamba-docs, y luego actualizar `CHANGELOG.md` y `REALITY_MAP.md` de karamba-docs.
