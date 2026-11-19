@@ -155,7 +155,7 @@ function Reprogramar({ domicilio: d }: { domicilio: Domicilio }) {
           <CampoPesos etiqueta="Tarifa de la zona del destino" valor={tarifaZona} alCambiar={setTarifaZona} error={errores.tarifaZona} />
         </Seccion>
 
-        <Card className="border-primary py-4">
+        <Card className="border-ring bg-secondary/40 py-4">
           <CardContent className="gap-1 px-4">
             <Text variant="muted">Valor del domicilio nuevo</Text>
             <Text variant="h2" className="border-0 pb-0" accessibilityLiveRegion="polite">

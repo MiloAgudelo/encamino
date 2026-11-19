@@ -13,7 +13,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { crearClienteConsultas } from '@/lib/clienteConsultas';
 import { NAV_THEME } from '@/lib/theme';
 
-// La pantalla de carga se queda hasta que la fuente de la marca esté lista.
+// La pantalla de carga se queda hasta que las fuentes de la marca estén listas.
 void SplashScreen.preventAutoHideAsync();
 
 export default function LayoutRaiz() {
@@ -22,6 +22,8 @@ export default function LayoutRaiz() {
   const [fuentesListas, errorFuentes] = useFonts({
     Quicksand_500Medium: require('../../assets/fonts/Quicksand_500Medium.ttf'),
     Quicksand_700Bold: require('../../assets/fonts/Quicksand_700Bold.ttf'),
+    Quick: require('../../assets/fonts/Quick.ttf'),
+    GuldScript: require('../../assets/fonts/GuldScript.ttf'),
   });
   const listo = fuentesListas || errorFuentes != null;
 

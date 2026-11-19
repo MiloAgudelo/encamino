@@ -16,7 +16,7 @@ function iconoPestana(nombre: NombreIcono) {
 
 export default function LayoutPestanas() {
   return (
-    <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: THEME.primary }}>
+    <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: THEME.primary, tabBarInactiveTintColor: THEME.mutedForeground }}>
       <Tabs.Screen name="index" options={{ title: 'Hoy', tabBarIcon: iconoPestana('list-outline') }} />
       <Tabs.Screen name="mapa" options={{ title: 'Mapa', tabBarIcon: iconoPestana('map-outline') }} />
       <Tabs.Screen name="historial" options={{ title: 'Historial', tabBarIcon: iconoPestana('time-outline') }} />

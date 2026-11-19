@@ -135,7 +135,7 @@ function Chip({ texto, activo, alPresionar }: { texto: string; activo: boolean; 
       accessibilityRole="button"
       accessibilityState={{ selected: activo }}
       onPress={alPresionar}
-      className={cn('rounded-full border px-3 py-1.5', activo ? 'border-primary bg-primary' : 'border-border bg-background')}
+      className={cn('rounded-full border px-3 py-1.5', activo ? 'border-primary bg-primary' : 'border-border bg-card')}
     >
       <Text className={cn('text-sm', activo ? 'text-primary-foreground' : 'text-foreground')}>{texto}</Text>
     </Pressable>

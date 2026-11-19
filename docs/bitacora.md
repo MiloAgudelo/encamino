@@ -220,3 +220,17 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** ninguna.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** demostración del proceso completo.
+
+## 2026-11-19 — Identidad de marca de Karamba
+
+- **Objetivo de la sesión:** que la app se vea como de Karamba by marCe antes de la demostración, sin rediseñarla.
+- **Tarea realizada:**
+  - **Paleta:** `src/global.css` y `src/lib/theme.ts` pasan del tema neutro a la paleta del panel de Karamba: café `#73412F` como color principal, crema `#F9F6F2` de fondo, crema claro `#F6EAD8` en lo secundario y dorado `#C9A15D` solo en bordes y anillos. El rojo de "No entregado" es cálido y el texto cumple contraste AA.
+  - **Fuentes:** se agregan Quick y GuldScript de Karamba. GuldScript (`font-marca`) se usa solo para el nombre "Karamba" y Quick (`font-quick`) para el nombre EnCamino. El cuerpo y los títulos siguen en Quicksand porque Quick no trae tildes en minúscula ni signos de puntuación.
+  - **Logo:** el moño dorado (`assets/images/mono-karamba.png`) aparece en el inicio, en el ingreso y en el encabezado del menú lateral, y es el ícono, el favicon y la imagen de la pantalla de carga sobre crema.
+  - **Detalles:** borde dorado fino en la tarjeta del valor de Reprogramar, pestaña activa y chips de filtro seleccionados en café.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit de esta sesión. Verificación: `tsc` sin errores; ingreso y seguimiento 14/14 y reprogramar e historial 17/17 en la versión web.
+- **Dificultad:** Quick solo tiene 99 caracteres (sin á, é, ñ, puntos ni comas), así que no sirve para frases en español.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** confirmar la licencia de GuldScript para uso comercial y, si Karamba tiene una versión completa de Quick, usarla en el cuerpo.

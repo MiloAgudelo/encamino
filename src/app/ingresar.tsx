@@ -1,3 +1,4 @@
+import { Image } from 'expo-image';
 import { Redirect, router } from 'expo-router';
 import { useState } from 'react';
 import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
@@ -11,6 +12,8 @@ import { THEME } from '@/lib/theme';
 import { aErrorDeApi } from '@/servicios/api';
 import { ingresar } from '@/servicios/sesion';
 import { useSesion } from '@/store/sesion';
+
+const MONO = require('../../assets/images/mono-karamba.png');
 
 const CORREO_VALIDO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -57,7 +60,11 @@ export default function Ingresar() {
 
   return (
     <KeyboardAvoidingView className="flex-1 bg-background" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <ScrollView contentContainerClassName="flex-grow justify-center p-6" keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerClassName="flex-grow justify-center gap-6 p-6" keyboardShouldPersistTaps="handled">
+        <View className="items-center">
+          <Image source={MONO} style={{ width: 56, height: 56 }} contentFit="contain" accessible={false} />
+          <Text className="font-marca text-3xl leading-[44px] text-primary">Karamba</Text>
+        </View>
         <Card>
           <CardHeader>
             <CardTitle>Equipo de Karamba</CardTitle>

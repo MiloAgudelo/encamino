@@ -87,7 +87,7 @@ export default function DomiciliosDeHoy() {
                 onPress={() => setFiltro(f)}
                 className={cn(
                   'rounded-full border px-3 py-1.5',
-                  filtro === f ? 'border-primary bg-primary' : 'border-border bg-background',
+                  filtro === f ? 'border-primary bg-primary' : 'border-border bg-card',
                 )}
               >
                 <Text className={cn('text-sm', filtro === f ? 'text-primary-foreground' : 'text-foreground')}>

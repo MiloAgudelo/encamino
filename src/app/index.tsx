@@ -1,3 +1,4 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, View } from 'react-native';
@@ -11,6 +12,8 @@ import { Text } from '@/components/ui/text';
 import { extraerCodigo } from '@/servicios/seguimiento';
 import { useCodigosConsultados } from '@/store/codigosConsultados';
 import { useSesion } from '@/store/sesion';
+
+const MONO = require('../../assets/images/mono-karamba.png');
 
 /** Inicio: el cliente sigue su pedido con su código; el equipo de Karamba ingresa con su cuenta (RF-01). */
 export default function Inicio() {
@@ -26,9 +29,12 @@ export default function Inicio() {
     <SafeAreaView className="flex-1 bg-background">
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerClassName="flex-grow justify-center gap-6 p-6" keyboardShouldPersistTaps="handled">
-          <View className="items-center gap-1">
-            <Text variant="h1">EnCamino</Text>
-            <Text variant="muted" className="text-center text-base">
+          <View className="items-center pb-2">
+            <Image source={MONO} style={{ width: 88, height: 88 }} contentFit="contain" accessible={false} />
+            <Text className="mt-1 font-marca text-5xl leading-[64px] text-primary">Karamba</Text>
+            <View className="my-3 h-px w-12 bg-ring" />
+            <Text className="font-quick text-2xl tracking-[4px] text-foreground">EnCamino</Text>
+            <Text variant="muted" className="mt-2 text-center text-base">
               Tu pedido de Karamba by marCe, en el mapa.
             </Text>
           </View>

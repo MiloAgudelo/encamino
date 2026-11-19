@@ -27,10 +27,14 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       borderWidth: { hairline: hairlineWidth() },
-      // Fuente de la marca, cargada en src/app/_layout.tsx.
+      // Fuentes de la marca, cargadas en src/app/_layout.tsx. Quick no trae tildes en
+      // minúscula ni signos de puntuación, así que el cuerpo y los títulos siguen en
+      // Quicksand; Quick queda para el nombre EnCamino y GuldScript para "Karamba".
       fontFamily: {
         sans: ['Quicksand_500Medium'],
         titulo: ['Quicksand_700Bold'],
+        quick: ['Quick'],
+        marca: ['GuldScript'],
       },
     },
   },
