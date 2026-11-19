@@ -91,6 +91,7 @@ Pon la misma IP en `ALLOWED_HOSTS_EXTRA` del `.env` del backend para que Django 
 | `ingreso-y-seguimiento.js` | 14 | Ingreso, lista de hoy, búsqueda, detalle, cierre de sesión y seguimiento del cliente |
 | `recorrido.js` | 11 | Verificación de la carga, "Iniciar recorrido" con y sin conexión, estado en camino |
 | `entrega.js` | 13 | Confirmar entrega y reportar no entrega, con errores por campo y sin conexión |
+| `reprogramar.js` | 17 | Reprogramar con cobro: zona del destino, validaciones de los valores, causa de Karamba, cambio de barrio, intento nuevo con la nota del cobro e Historial con filtros |
 | `mapa.js` | 13 | Envío de la posición cada 15 s, pausar, reanudar, dejar de enviar al salir del mapa, supervisión y permisos. Tarda cerca de un minuto y medio |
 
 Necesitan Microsoft Edge instalado (para usar otro navegador: `NAVEGADOR=chrome`). Con el backend arriba:

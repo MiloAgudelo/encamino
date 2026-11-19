@@ -13,6 +13,15 @@ export interface UsuarioApi {
   rol: RolApi;
 }
 
+/** GET /usuarios/ (solo administrador) */
+export interface UsuarioListaApi {
+  id: number;
+  email: string;
+  nombre: string;
+  rol: RolApi;
+  is_active: boolean;
+}
+
 /** POST /auth/login/ */
 export interface LoginApi {
   access: string;

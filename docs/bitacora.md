@@ -192,3 +192,19 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** Railway no corre las migraciones al desplegar. La `0007_salida_y_posiciones` hay que aplicarla a mano contra la base real antes de fusionar; si no, el código nuevo pide una columna que no existe.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** aplicar la migración en la base real, fusionar la PR #40 y la de karamba-docs, y luego actualizar `CHANGELOG.md` y `REALITY_MAP.md` de karamba-docs.
+
+## 2026-11-19 — Reprogramar con cobro, Historial y fuente de la marca
+
+- **Objetivo de la sesión:** cerrar las dos pantallas que faltaban y la fuente propia antes de la demostración.
+- **Tarea realizada:**
+  - **Reprogramar con cobro** (RF-17, RN-08, RN-09): el administrador elige la causa del regreso, confirma o cambia el barrio del destino y ve el valor del domicilio nuevo, que se recalcula con cada cambio. El valor es el recargo ($5.000) más la tarifa de la zona del destino, o $0 si la causa es de Karamba. Los dos valores se pueden editar; si quedan vacíos, son texto, son negativos o tienen decimales, se rechazan con un mensaje por campo. Al asignar el domiciliario, el backend cierra el intento anterior, que queda en el historial, y crea uno nuevo con la causa y el valor anotados.
+  - La lógica del cálculo quedó separada de la pantalla en `src/logica/cobroReprogramacion.ts`, con los barrios y las zonas de `datos/semilla/`.
+  - Backend: `reasignar` acepta `observaciones` (texto, hasta 500 caracteres) para guardar esa nota en el intento nuevo. No necesita migración.
+  - **Historial** (RF-18): domicilios terminados con filtro por periodo, resultado y, para el administrador, domiciliario. Si no hay resultados, muestra un estado vacío con "Limpiar filtros".
+  - **Fuente de la marca:** Quicksand en `assets/fonts/`, cargada con `useFonts` mientras se mantiene la pantalla de carga. Los títulos usan la versión en negrita. Si la fuente no carga, la app sigue con la del sistema.
+  - Prueba nueva: `pruebas/web/reprogramar.js`.
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** commit de esta sesión. Verificación: `tsc` sin errores; reprogramar e historial 17/17, ingreso y seguimiento 14/14, entrega y no entrega 13/13; `manage.py test domicilios` con 64 pruebas en verde.
+- **Dificultad:** el domicilio solo trae el nombre del barrio, no su id. Se busca en el listado de barrios y, si el nombre se repite en varias ciudades, se prefiere el de una zona con tarifa en Cartago. El administrador puede cambiarlo.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** guardar la causa y el valor como campos propios del backend (B-07), mostrarlos en el seguimiento del cliente (RF-08) y cambiar Quicksand por la fuente de Karamba cuando estén los archivos.

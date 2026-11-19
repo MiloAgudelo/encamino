@@ -27,6 +27,11 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       borderWidth: { hairline: hairlineWidth() },
+      // Fuente de la marca, cargada en src/app/_layout.tsx.
+      fontFamily: {
+        sans: ['Quicksand_500Medium'],
+        titulo: ['Quicksand_700Bold'],
+      },
     },
   },
   future: { hoverOnlyWhenSupported: true },

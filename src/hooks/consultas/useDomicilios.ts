@@ -5,11 +5,15 @@ import type { Domicilio } from '@/modelos/domicilio';
 import type { ErrorDeApi } from '@/servicios/api';
 import {
   confirmarEntrega,
+  type Domiciliario,
   fechaLocal,
   iniciarRecorrido,
+  listarDomiciliarios,
   listarDomiciliosDelDia,
+  listarHistorial,
   obtenerDomicilio,
   reportarNoEntrega,
+  reprogramarDomicilio,
 } from '@/servicios/domicilios';
 import { subirFotoNoEntrega } from '@/servicios/fotos';
 import { useSesion } from '@/store/sesion';
@@ -76,6 +80,38 @@ export function useConfirmarEntrega(id: number) {
   return useMutation<Domicilio, ErrorDeApi, { quienRecibio: string }>({
     mutationFn: ({ quienRecibio }) => confirmarEntrega(id, quienRecibio),
     onSuccess: (domicilio) => aplicarCambio(clienteConsultas, id, domicilio),
+  });
+}
+
+/** Domicilios terminados en un rango de fechas (RF-18). */
+export function useHistorial(desde: string, hasta: string) {
+  const usuarioId = useSesion((s) => s.usuario?.id);
+  return useQuery<Domicilio[], ErrorDeApi>({
+    queryKey: claves.historial(usuarioId ?? 0, desde, hasta),
+    queryFn: () => listarHistorial(desde, hasta),
+    enabled: usuarioId != null,
+    staleTime: 60_000,
+  });
+}
+
+/** Domiciliarios activos para reprogramar (RF-17). Cambian poco: caché de 5 min. */
+export function useDomiciliarios() {
+  return useQuery<Domiciliario[], ErrorDeApi>({
+    queryKey: claves.domiciliarios,
+    queryFn: listarDomiciliarios,
+    staleTime: 5 * 60_000,
+  });
+}
+
+/**
+ * Reprograma un domicilio no entregado (RF-17). El intento anterior deja de
+ * ser vigente, así que se recargan todas las listas de domicilios.
+ */
+export function useReprogramar(id: number) {
+  const clienteConsultas = useQueryClient();
+  return useMutation<Domicilio, ErrorDeApi, { domiciliarioId: number; nota: string }>({
+    mutationFn: ({ domiciliarioId, nota }) => reprogramarDomicilio(id, domiciliarioId, nota),
+    onSuccess: () => void clienteConsultas.invalidateQueries({ queryKey: claves.domicilios }),
   });
 }
 
