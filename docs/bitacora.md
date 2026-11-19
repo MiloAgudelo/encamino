@@ -208,3 +208,15 @@ Registro de cada sesión de trabajo: qué se buscaba, qué se hizo, quién lo hi
 - **Dificultad:** el domicilio solo trae el nombre del barrio, no su id. Se busca en el listado de barrios y, si el nombre se repite en varias ciudades, se prefiere el de una zona con tarifa en Cartago. El administrador puede cambiarlo.
 - **Observaciones de revisión:** pendiente.
 - **Siguiente paso:** guardar la causa y el valor como campos propios del backend (B-07), mostrarlos en el seguimiento del cliente (RF-08) y cambiar Quicksand por la fuente de Karamba cuando estén los archivos.
+
+## 2026-11-19 — Prueba con Karamba
+
+- **Objetivo de la sesión:** que Karamba probara EnCamino y registrar su retroalimentación.
+- **Tarea realizada:** Karamba probó la app recorriendo el proceso principal: el domiciliario inicia el recorrido, comparte su posición y reporta la entrega, y el cliente y el administrador lo siguen en el mapa.
+- **Resultado:** la app les gustó bastante y no pidieron cambios adicionales.
+- **Ajuste derivado de la retroalimentación:** Karamba confirmó que la posición se envíe cada 15 segundos, y la app quedó así (RN-03, entrada del 2026-11-13).
+- **Responsable:** Camilo Agudelo.
+- **Evidencia:** este registro, sin datos personales.
+- **Dificultad:** ninguna.
+- **Observaciones de revisión:** pendiente.
+- **Siguiente paso:** demostración del proceso completo.
