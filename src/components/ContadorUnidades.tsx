@@ -16,11 +16,12 @@ interface ContadorUnidadesProps {
 
 /**
  * Contador con + y − entre 0 y `maximo` (verificación de la carga, RF-11).
- * El botón que llegó a su límite queda deshabilitado.
+ * «Completar» lleva el valor al máximo; el botón que llegó a su límite queda deshabilitado.
  */
 export function ContadorUnidades({ nombre, valor, maximo, alCambiar }: ContadorUnidadesProps) {
   const puedeRestar = valor > 0;
   const puedeSumar = valor < maximo;
+  const completo = valor >= maximo;
 
   return (
     <View className="flex-row items-center gap-2">
@@ -31,7 +32,7 @@ export function ContadorUnidades({ nombre, valor, maximo, alCambiar }: ContadorU
         alPresionar={() => alCambiar(Math.max(0, valor - 1))}
       />
       <Text
-        className={cn('min-w-12 text-center font-semibold', valor === maximo && 'text-primary')}
+        className={cn('min-w-12 text-center font-semibold', completo && 'text-primary')}
         accessibilityLabel={`${valor} de ${maximo} unidades de ${nombre}`}
       >
         {valor}/{maximo}
@@ -42,6 +43,23 @@ export function ContadorUnidades({ nombre, valor, maximo, alCambiar }: ContadorU
         habilitado={puedeSumar}
         alPresionar={() => alCambiar(Math.min(maximo, valor + 1))}
       />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`Completar unidades de ${nombre}`}
+        accessibilityState={{ disabled: completo }}
+        disabled={completo}
+        onPress={() => alCambiar(maximo)}
+        className={cn(
+          'rounded-full border border-border px-2.5 py-1 active:opacity-70',
+          completo && 'opacity-40',
+        )}
+      >
+        <Text
+          className={cn('text-xs font-medium', completo ? 'text-muted-foreground' : 'text-foreground')}
+        >
+          Completar
+        </Text>
+      </Pressable>
     </View>
   );
 }
