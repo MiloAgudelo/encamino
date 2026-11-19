@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 
 import { ErrorEnvio, FormularioDomicilio, volverAlDetalle } from '@/components/FormularioDomicilio';
 import { FilaProducto } from '@/components/FilaProducto';
@@ -49,7 +49,7 @@ function ConfirmarEntrega({ domicilio: d }: { domicilio: Domicilio }) {
   }
 
   return (
-    <KeyboardAvoidingView className="flex-1 bg-background" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView className="flex-1 bg-background" behavior="padding">
       <ScrollView contentContainerClassName="gap-4 p-4 pb-10" keyboardShouldPersistTaps="handled">
         <View className="gap-1">
           <Text variant="h4">{tituloDomicilio(d)}</Text>

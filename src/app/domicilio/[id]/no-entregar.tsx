@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Linking, Platform, Pressable, ScrollView, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Linking, Pressable, ScrollView, View } from 'react-native';
 
 import { AvisoSimulado } from '@/components/AvisoSimulado';
 import { ErrorEnvio, FormularioDomicilio, volverAlDetalle } from '@/components/FormularioDomicilio';
@@ -34,7 +34,7 @@ function NoEntrega({ domicilio: d }: { domicilio: Domicilio }) {
   const [protocoloSeguido, setProtocoloSeguido] = useState(false);
 
   return (
-    <KeyboardAvoidingView className="flex-1 bg-background" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView className="flex-1 bg-background" behavior="padding">
       <ScrollView contentContainerClassName="gap-4 p-4 pb-10" keyboardShouldPersistTaps="handled">
         <View className="gap-1">
           <Text variant="h4">{tituloDomicilio(d)}</Text>
